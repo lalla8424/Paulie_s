@@ -272,172 +272,188 @@ export default function Home() {
 
       {/* Menu Section */}
       <section className="container mx-auto py-16 px-4" id="menu">
-        <div className="relative w-full flex justify-center mb-8">
+        <div className="relative w-full flex justify-center mb-8" style={{ background: 'transparent' }}>
           <img
-            src="/chef.png"
+            src="/chef_complex.png"
             alt="Paulie's Pizza Chef"
-            className="w-48 h-48 object-contain"
+            className="object-contain"
+            style={{ width: '450px', height: 'auto', mixBlendMode: 'multiply' }}
           />
         </div>
 
-        <AnimatedSection className="mt-[120px]">
+        <AnimatedSection className="mt-8">
           <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">Our Menu</h2>
         </AnimatedSection>
 
         {/* Menu Image Fade Slider */}
         <MenuFadeSlider />
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {/* Pizza Column */}
-          <AnimatedSection delay={0.1} className="menu-column">
-            <h3 className="text-2xl font-handwriting mb-6">Pizza</h3>
-
-            <motion.div initial="hidden" animate="visible" variants={staggerChildren}>
-              {[
-                {
-                  name: "Margherita",
-                  desc: "Tomato sauce, mozzarella, basil",
-                  price: "$16",
-                },
-                {
-                  name: "Pepperoni",
-                  desc: "Tomato sauce, mozzarella, pepperoni",
-                  price: "$18",
-                },
-                {
-                  name: "Mushroom Truffle",
-                  desc: "Truffle cream, mozzarella, mushrooms",
-                  price: "$20",
-                  tag: "(V)",
-                },
-                {
-                  name: "Brooklyn Special",
-                  desc: "Tomato sauce, mozzarella, sausage, peppers, onions",
-                  price: "$22",
-                },
-                {
-                  name: "Gluten-Free Crust",
-                  desc: "Available for any pizza",
-                  price: "+$3",
-                  tag: "(GF)",
-                },
-              ].map((item, index) => (
-                <motion.div key={index} variants={fadeIn} className="menu-item mb-4">
-                  <div className="flex justify-between items-baseline">
-                    <h4 className="font-medium">
-                      {item.name} {item.tag && <span className="text-xs">{item.tag}</span>}
-                    </h4>
-                    <div className="border-b border-dotted border-gray-400 flex-grow mx-2"></div>
-                    <span>{item.price}</span>
+        <Carousel className="w-full max-w-6xl mx-auto" opts={{ loop: true }}>
+          <CarouselContent>
+            {/* Page 1: Original Menu */}
+            <CarouselItem className="basis-full">
+              <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
+                <div className="menu-column">
+                  <h3 className="text-2xl font-handwriting mb-6">Pizza Classics</h3>
+                  <div className="space-y-4">
+                    {[
+                      { name: "Margherita", desc: "Tomato sauce, mozzarella, basil", price: "$16" },
+                      { name: "Pepperoni", desc: "Tomato sauce, mozzarella, pepperoni", price: "$18" },
+                      { name: "Quattro Formaggi", desc: "Mozzarella, gorgonzola, parmesan, fontina", price: "$20" },
+                      { name: "Marinara", desc: "Tomato sauce, garlic, oregano (no cheese)", price: "$14" },
+                      { name: "Napoletana", desc: "Tomato sauce, mozzarella, anchovies, capers", price: "$19" },
+                      { name: "Capricciosa", desc: "Tomato sauce, mozzarella, mushrooms, ham, olives", price: "$21" },
+                    ].map((item, index) => (
+                      <div key={index} className="menu-item">
+                        <div className="flex justify-between items-baseline">
+                          <h4 className="font-medium">{item.name}</h4>
+                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
+                          <span className="ml-1">{item.price}</span>
+                        </div>
+                        <p className="text-sm text-gray-600">{item.desc}</p>
+                      </div>
+                    ))}
                   </div>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatedSection>
-
-          {/* Pasta Column */}
-          <AnimatedSection delay={0.2} className="menu-column">
-            <h3 className="text-2xl font-handwriting mb-6">Pasta</h3>
-
-            <motion.div initial="hidden" animate="visible" variants={staggerChildren}>
-              {[
-                {
-                  name: "Spaghetti Pomodoro",
-                  desc: "Tomato sauce, basil, olive oil",
-                  price: "$14",
-                  tag: "(V)",
-                },
-                {
-                  name: "Fettuccine Alfredo",
-                  desc: "Cream sauce, parmesan, black pepper",
-                  price: "$16",
-                },
-                {
-                  name: "Penne Arrabbiata",
-                  desc: "Spicy tomato sauce, garlic, parsley",
-                  price: "$15",
-                  tag: "(V)",
-                },
-                {
-                  name: "Linguine Vongole",
-                  desc: "Clams, white wine, garlic, parsley",
-                  price: "$19",
-                },
-                {
-                  name: "Gluten-Free Pasta",
-                  desc: "Available for any pasta dish",
-                  price: "+$2",
-                  tag: "(GF)",
-                },
-              ].map((item, index) => (
-                <motion.div key={index} variants={fadeIn} className="menu-item mb-4">
-                  <div className="flex justify-between items-baseline">
-                    <h4 className="font-medium">
-                      {item.name} {item.tag && <span className="text-xs">{item.tag}</span>}
-                    </h4>
-                    <div className="border-b border-dotted border-gray-400 flex-grow mx-2"></div>
-                    <span>{item.price}</span>
+                </div>
+                <div className="menu-column">
+                  <h3 className="text-2xl font-handwriting mb-6">Specialty Pizzas</h3>
+                  <div className="space-y-4">
+                    {[
+                      { name: "Truffle Mushroom", desc: "Truffle oil, wild mushrooms, mozzarella", price: "$24" },
+                      { name: "Prosciutto & Arugula", desc: "Prosciutto, fresh arugula, parmesan", price: "$22" },
+                      { name: "Seafood Special", desc: "Shrimp, calamari, mussels, garlic", price: "$26" },
+                      { name: "Buffalo", desc: "Buffalo mozzarella, cherry tomatoes, basil", price: "$23" },
+                      { name: "Calabrese", desc: "Spicy nduja, red onions, mozzarella", price: "$21" },
+                      { name: "Mediterranean", desc: "Feta, olives, sun-dried tomatoes, oregano", price: "$20" },
+                    ].map((item, index) => (
+                      <div key={index} className="menu-item">
+                        <div className="flex justify-between items-baseline">
+                          <h4 className="font-medium">{item.name}</h4>
+                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
+                          <span className="ml-1">{item.price}</span>
+                        </div>
+                        <p className="text-sm text-gray-600">{item.desc}</p>
+                      </div>
+                    ))}
                   </div>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatedSection>
+                </div>
+              </div>
+            </CarouselItem>
 
-          {/* Sides Column */}
-          <AnimatedSection delay={0.3} className="menu-column">
-            <h3 className="text-2xl font-handwriting mb-6">Sides & Drinks</h3>
-
-            <motion.div initial="hidden" animate="visible" variants={staggerChildren}>
-              {[
-                {
-                  name: "Garlic Knots",
-                  desc: "Garlic butter, parsley, parmesan",
-                  price: "$6",
-                  tag: "(V)",
-                },
-                {
-                  name: "Caesar Salad",
-                  desc: "Romaine, croutons, parmesan, caesar dressing",
-                  price: "$10",
-                },
-                {
-                  name: "Tiramisu",
-                  desc: "Coffee-soaked ladyfingers, mascarpone",
-                  price: "$8",
-                },
-                {
-                  name: "Italian Soda",
-                  desc: "Various flavors available",
-                  price: "$4",
-                },
-                {
-                  name: "House Wine (Glass)",
-                  desc: "Red or white",
-                  price: "$8",
-                },
-              ].map((item, index) => (
-                <motion.div key={index} variants={fadeIn} className="menu-item mb-4">
-                  <div className="flex justify-between items-baseline">
-                    <h4 className="font-medium">
-                      {item.name} {item.tag && <span className="text-xs">{item.tag}</span>}
-                    </h4>
-                    <div className="border-b border-dotted border-gray-400 flex-grow mx-2"></div>
-                    <span>{item.price}</span>
+            {/* Page 2: Pasta & Appetizers */}
+            <CarouselItem className="basis-full">
+              <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
+                <div className="menu-column">
+                  <h3 className="text-2xl font-handwriting mb-6">Fresh Pasta</h3>
+                  <div className="space-y-4">
+                    {[
+                      { name: "Spaghetti Carbonara", desc: "Pancetta, egg, pecorino, black pepper", price: "$18" },
+                      { name: "Rigatoni Vodka", desc: "Vodka sauce, cream, parmesan", price: "$17" },
+                      { name: "Lobster Ravioli", desc: "Lobster filling, butter sage sauce", price: "$25" },
+                      { name: "Fettuccine Alfredo", desc: "Cream sauce, parmesan, butter", price: "$16" },
+                      { name: "Penne Arrabbiata", desc: "Spicy tomato sauce, garlic, parsley", price: "$15" },
+                      { name: "Linguine Vongole", desc: "Clams, white wine, garlic, parsley", price: "$22" },
+                    ].map((item, index) => (
+                      <div key={index} className="menu-item">
+                        <div className="flex justify-between items-baseline">
+                          <h4 className="font-medium">{item.name}</h4>
+                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
+                          <span className="ml-1">{item.price}</span>
+                        </div>
+                        <p className="text-sm text-gray-600">{item.desc}</p>
+                      </div>
+                    ))}
                   </div>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </AnimatedSection>
+                </div>
+                <div className="menu-column">
+                  <h3 className="text-2xl font-handwriting mb-6">Appetizers</h3>
+                  <div className="space-y-4">
+                    {[
+                      { name: "Bruschetta", desc: "Tomatoes, basil, garlic, olive oil", price: "$8" },
+                      { name: "Calamari Fritti", desc: "Fried calamari, marinara sauce", price: "$12" },
+                      { name: "Antipasto Misto", desc: "Selection of Italian meats and cheeses", price: "$16" },
+                      { name: "Caprese Salad", desc: "Fresh mozzarella, tomatoes, basil", price: "$10" },
+                      { name: "Garlic Knots", desc: "Garlic butter, parsley, parmesan", price: "$7" },
+                      { name: "Meatballs", desc: "House-made meatballs in tomato sauce", price: "$11" },
+                    ].map((item, index) => (
+                      <div key={index} className="menu-item">
+                        <div className="flex justify-between items-baseline">
+                          <h4 className="font-medium">{item.name}</h4>
+                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
+                          <span className="ml-1">{item.price}</span>
+                        </div>
+                        <p className="text-sm text-gray-600">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+
+            {/* Page 3: Desserts & Drinks */}
+            <CarouselItem className="basis-full">
+              <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
+                <div className="menu-column">
+                  <h3 className="text-2xl font-handwriting mb-6">Desserts</h3>
+                  <div className="space-y-4">
+                    {[
+                      { name: "Tiramisu", desc: "Coffee-soaked ladyfingers, mascarpone", price: "$8" },
+                      { name: "Cannoli", desc: "Sweet ricotta filling, pistachios", price: "$7" },
+                      { name: "Panna Cotta", desc: "Vanilla cream with berry compote", price: "$7" },
+                      { name: "Gelato", desc: "Selection of Italian ice creams", price: "$6" },
+                      { name: "Affogato", desc: "Vanilla gelato, espresso shot", price: "$6" },
+                      { name: "Chocolate Torta", desc: "Rich chocolate cake, whipped cream", price: "$8" },
+                    ].map((item, index) => (
+                      <div key={index} className="menu-item">
+                        <div className="flex justify-between items-baseline">
+                          <h4 className="font-medium">{item.name}</h4>
+                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
+                          <span className="ml-1">{item.price}</span>
+                        </div>
+                        <p className="text-sm text-gray-600">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <div className="menu-column">
+                  <h3 className="text-2xl font-handwriting mb-6">Drinks</h3>
+                  <div className="space-y-4">
+                    {[
+                      { name: "House Red Wine", desc: "Glass / Bottle", price: "$8 / $32" },
+                      { name: "House White Wine", desc: "Glass / Bottle", price: "$8 / $32" },
+                      { name: "Italian Craft Beer", desc: "Selection of Italian beers", price: "$7" },
+                      { name: "Espresso", desc: "Single / Double", price: "$3 / $4" },
+                      { name: "Cappuccino", desc: "Traditional Italian style", price: "$4" },
+                      { name: "Italian Soda", desc: "Various flavors available", price: "$4" },
+                    ].map((item, index) => (
+                      <div key={index} className="menu-item">
+                        <div className="flex justify-between items-baseline">
+                          <h4 className="font-medium">{item.name}</h4>
+                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
+                          <span className="ml-1">{item.price}</span>
+                        </div>
+                        <p className="text-sm text-gray-600">{item.desc}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+          </CarouselContent>
+          <div className="flex items-center justify-center gap-2 mt-4">
+            <CarouselPrevious className="static relative translate-y-0 bg-[#634d40]/20 hover:bg-[#634d40]/40 border-[#634d40]/20 text-[#634d40]" />
+            <CarouselNext className="static relative translate-y-0 bg-[#634d40]/20 hover:bg-[#634d40]/40 border-[#634d40]/20 text-[#634d40]" />
+          </div>
+        </Carousel>
+        <div className="w-full flex justify-center my-8">
+          <img src="/tape.png" alt="Tape Divider" className="w-full h-auto object-contain" />
         </div>
       </section>
 
       {/* About Section */}
       <section className="container mx-auto py-16 px-4" id="about">
         <div className="max-w-4xl mx-auto">
-          <AnimatedSection className="mt-[120px]">
+          <AnimatedSection className="mt-8">
             <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">Our Story</h2>
           </AnimatedSection>
 
@@ -457,26 +473,22 @@ export default function Home() {
 
             <AnimatedSection className="relative h-64 md:h-full">
               <motion.div
-                initial={{ rotate: -5, scale: 0.9 }}
-                whileInView={{ rotate: 0, scale: 1 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6 }}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="100" cy="100" r="90" stroke="black" strokeWidth="2" />
-                  <path
-                    d="M50 100C50 72.3858 72.3858 50 100 50C127.614 50 150 72.3858 150 100C150 127.614 127.614 150 100 150C72.3858 150 50 127.614 50 100Z"
-                    stroke="black"
-                    strokeWidth="2"
-                  />
-                  <path
-                    d="M75 100C75 86.1929 86.1929 75 100 75C113.807 75 125 86.1929 125 100C125 113.807 113.807 125 100 125C86.1929 125 75 113.807 75 100Z"
-                    stroke="black"
-                    strokeWidth="2"
-                  />
-                  <path d="M30 100H170" stroke="black" strokeWidth="2" />
-                  <path d="M100 30V170" stroke="black" strokeWidth="2" />
-                </svg>
+                <video
+                  className="w-full h-full object-cover rounded-lg"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                >
+                  <source src="/vid.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
               </motion.div>
             </AnimatedSection>
           </div>
