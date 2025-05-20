@@ -522,9 +522,9 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full z-0"
               />
             </div>
-            <div className="text-lg font-bold mb-1 text-center">PARNAS MALL COEX SAMSUNG</div>
-            <div className="text-xs text-gray-400 text-center">삼성동 파르나스몰</div>
-            <div className="text-xs text-gray-400 text-center mt-1">서울특별시 강남구 테헤란로 521, 지하1층 F13호(삼성동, 파르나스타워)</div>
+            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">PARNAS MALL COEX SAMSUNG</div>
+            <div className="text-xs text-[#634d40] text-center">삼성동 파르나스몰</div>
+            <div className="text-xs text-[#634d40] text-center mt-1">서울특별시 강남구 테헤란로 521, 지하1층 F13호(삼성동, 파르나스타워)</div>
           </div>
 
           {/* Location 2 */}
@@ -547,9 +547,9 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full z-0"
               />
             </div>
-            <div className="text-lg font-bold mb-1 text-center">PARADISE CITY INCHEON</div>
-            <div className="text-xs text-gray-400 text-center">인천 파라다이스시티</div>
-            <div className="text-xs text-gray-400 text-center mt-1">인천 중구 영종해안남로 321번길 186, F 204호, (운서동, 파라다이스시티)</div>
+            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">PARADISE CITY INCHEON</div>
+            <div className="text-xs text-[#634d40] text-center">인천 파라다이스시티</div>
+            <div className="text-xs text-[#634d40] text-center mt-1">인천 중구 영종해안남로 321번길 186, F 204호, (운서동, 파라다이스시티)</div>
           </div>
 
           {/* Location 3 */}
@@ -572,9 +572,9 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full z-0"
               />
             </div>
-            <div className="text-lg font-bold mb-1 text-center">D-TOWER GWANGHWAMUN</div>
-            <div className="text-xs text-gray-400 text-center">광화문 디타워</div>
-            <div className="text-xs text-gray-400 text-center mt-1">서울특별시 종로구 종로3길 17, 2층 5호 (청진동, 디타워)</div>
+            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">D-TOWER GWANGHWAMUN</div>
+            <div className="text-xs text-[#634d40] text-center">광화문 디타워</div>
+            <div className="text-xs text-[#634d40] text-center mt-1">서울특별시 종로구 종로3길 17, 2층 5호 (청진동, 디타워)</div>
           </div>
         </div>
       </section>

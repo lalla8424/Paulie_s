@@ -26,7 +26,7 @@ const HeroBanner = () => {
             <CarouselItem key={index} className="!p-0 !pl-0 h-full min-h-0 flex items-stretch w-full">
               <div className="h-full w-full flex items-stretch">
                 <img
-                  src={`/main${index}.png`}
+                  src={index === 0 ? "/oven.jpg" : `/main${index}.png`}
                   alt={`Delicious pizza ${index + 1}`}
                   className="w-full h-full object-cover"
                 />
