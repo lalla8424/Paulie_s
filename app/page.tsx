@@ -11,8 +11,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
-import { FC } from "react"
-import { useRef } from "react"
 import HeroBanner from "@/components/HeroBanner"
 import MenuFadeSlider from "@/components/MenuFadeSlider"
 
@@ -130,10 +128,10 @@ export default function Home() {
       >
         <div className="container mx-auto h-full px-4 flex justify-between items-center">
           <div className="logo h-20 flex items-center">
-            <img 
-              src="/paulies_logo3.png" 
-              alt="PAULIE'S" 
-              className="h-full w-auto object-contain pr-4" 
+            <img
+              src="/paulies_logo3.png"
+              alt="PAULIE'S"
+              className="h-full w-auto object-contain pr-4"
             />
           </div>
           <nav className="hidden md:block">
