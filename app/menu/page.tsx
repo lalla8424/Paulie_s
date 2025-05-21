@@ -2,8 +2,20 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import { useState } from "react"
+
+const menuImages = [
+  "/menu-1.png",
+  "/menu-2.png",
+  "/menu-3.png",
+  "/paradise.png",
+]
 
 export default function MenuPage() {
+  const [current, setCurrent] = useState(0)
+  const total = menuImages.length
+  const prev = () => setCurrent((prev) => (prev - 1 + total) % total)
+  const next = () => setCurrent((prev) => (prev + 1) % total)
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -16,6 +28,31 @@ export default function MenuPage() {
   return (
     <div className="pt-32 pb-16 px-4 min-h-screen">
       <div className="container mx-auto">
+        {/* 메뉴 슬라이드 배너 */}
+        <section className="w-full flex flex-col items-start justify-start py-8 relative">
+          <div className="relative w-full max-w-3xl mx-0 flex items-start justify-start">
+            <button
+              onClick={prev}
+              className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-[#fc492d]/80 text-[#634d40] rounded-full shadow p-2 z-10"
+              aria-label="Previous"
+            >
+              <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </button>
+            <img
+              src={menuImages[current]}
+              alt={`Menu Slide ${current + 1}`}
+              className="w-[850px] max-w-full h-[430px] object-cover rounded-xl shadow-lg ml-8 transition-all duration-500"
+            />
+            <button
+              onClick={next}
+              className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-[#fc492d]/80 text-[#634d40] rounded-full shadow p-2 z-10"
+              aria-label="Next"
+            >
+              <svg width="28" height="28" fill="none" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </button>
+          </div>
+        </section>
+
         <motion.h1 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}

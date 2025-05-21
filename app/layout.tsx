@@ -4,6 +4,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/react"
+import Header from "@/components/Header"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -67,6 +68,7 @@ export default function RootLayout({
         }}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
+          <Header />
           {children}
           <Analytics mode="production" />
         </ThemeProvider>

@@ -19,20 +19,33 @@ const HeroBanner = () => {
     })
   }, [api])
   return (
-    <div className="relative h-full min-h-0 flex items-stretch w-full">
-      <Carousel setApi={setApi} className="w-full h-full min-h-0 flex items-stretch overflow-visible">
-        <CarouselContent className="m-0 !-ml-0 h-full min-h-0 w-full">
-          {[0, 1, 2, 3, 4, 5, 6].map((index) => (
-            <CarouselItem key={index} className="!p-0 !pl-0 h-full min-h-0 flex items-stretch w-full">
-              <div className="h-full w-full flex items-stretch">
-                <img
-                  src={index === 0 ? "/oven.jpg" : `/main${index}.png`}
-                  alt={`Delicious pizza ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </CarouselItem>
-          ))}
+    <div className="relative h-full min-h-0 flex items-stretch w-screen left-0 right-0" style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
+      <Carousel setApi={setApi} className="w-screen h-full min-h-0 flex items-stretch overflow-visible">
+        <CarouselContent className="m-0 !-ml-0 h-full min-h-0 w-screen">
+          {[
+            0, 2, 3, 4, 5, 6, 7
+          ].map((index, arrIdx, arr) => {
+            let src = '';
+            if (index === 0) src = '/oven.jpg';
+            else if (index === 2) src = '/flour.jpg';
+            else if (index === 3) src = '/cheese.jpg';
+            else if (index === 4) src = '/tomato_.jpg';
+            else if (index === 5) src = '/d_tower.jpg';
+            else if (index === 6) src = '/location2.jpg';
+            // 마지막 슬라이드는 항상 /location_3.jpg
+            if (arrIdx === arr.length - 1) src = '/location_3.jpg';
+            return (
+              <CarouselItem key={index} className="!p-0 !pl-0 h-full min-h-0 flex items-stretch w-full">
+                <div className="h-full w-full flex items-stretch">
+                  <img
+                    src={src}
+                    alt={`Delicious pizza ${arrIdx + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </CarouselItem>
+            );
+          })}
         </CarouselContent>
         {/* Dot navigation */}
         <div className="absolute left-1/2 bottom-4 -translate-x-1/2 flex flex-row gap-2 z-10">

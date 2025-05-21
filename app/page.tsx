@@ -158,30 +158,20 @@ export default function Home() {
                 </Link>
               </li>
               <li>
-                <a
-                  href="#about"
+                <Link
+                  href="/about"
                   className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway"
-                  onClick={e => {
-                    e.preventDefault();
-                    const el = document.getElementById('about');
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
                 >
                   ABOUT US
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#locations"
+                <Link
+                  href="/locations"
                   className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway"
-                  onClick={e => {
-                    e.preventDefault();
-                    const el = document.getElementById('locations');
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
                 >
                   LOCATIONS
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
@@ -229,32 +219,22 @@ export default function Home() {
               </Link>
             </li>
             <li>
-              <a
-                href="#about"
-                onClick={e => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false);
-                  const el = document.getElementById('about');
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
+              <Link
+                href="/about"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors"
               >
                 ABOUT US
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="#locations"
-                onClick={e => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false);
-                  const el = document.getElementById('locations');
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
+              <Link
+                href="/locations"
+                onClick={() => setMobileMenuOpen(false)}
                 className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors"
               >
                 LOCATIONS
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -272,10 +252,10 @@ export default function Home() {
       <section className="container mx-auto py-16 px-4" id="menu">
         <div className="relative w-full flex justify-center mb-8" style={{ background: 'transparent' }}>
           <img
-            src="/chef_complex.png"
+            src="/chef_running.png"
             alt="Paulie's Pizza Chef"
             className="object-contain"
-            style={{ width: '450px', height: 'auto', mixBlendMode: 'multiply' }}
+            style={{ width: '200px', height: 'auto', background: 'transparent' }}
           />
         </div>
 
@@ -443,14 +423,21 @@ export default function Home() {
             <CarouselNext className="static relative translate-y-0 bg-[#634d40]/20 hover:bg-[#634d40]/40 border-[#634d40]/20 text-[#634d40]" />
           </div>
         </Carousel>
-        <div className="w-full flex justify-center my-8">
-          <img src="/tape.png" alt="Tape Divider" className="w-full h-auto object-contain" />
+        <div className="w-screen my-8 flex justify-center items-center" style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
+          <img
+            src="/tape_.png"
+            alt="Tape Divider"
+            className="block w-screen h-auto mt-[40px]"
+            style={{ maxWidth: '100vw', height: 'auto' }}
+          />
         </div>
       </section>
 
       {/* About Section */}
-      <section className="container mx-auto py-16 px-4" id="about">
-        <div className="max-w-4xl mx-auto">
+      <section className="w-full py-16 px-0 mt-20 relative overflow-hidden" id="about">
+        {/* 밝은 베이지 배경 레이어 */}
+        <div className="absolute inset-0 z-0" style={{ background: 'rgba(245,240,230,0.92)' }} />
+        <div className="max-w-4xl mx-auto px-4 relative z-10">
           <AnimatedSection className="mt-8">
             <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">Our Story</h2>
           </AnimatedSection>
