@@ -19,7 +19,7 @@ const HeroBanner = () => {
     })
   }, [api])
   return (
-    <div className="relative h-full min-h-0 flex items-stretch w-screen left-0 right-0" style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
+    <div className="relative h-full min-h-0 flex items-stretch w-screen left-1/2 right-1/2 -translate-x-1/2" style={{ position: 'relative' }}>
       <Carousel setApi={setApi} className="w-screen h-full min-h-0 flex items-stretch overflow-visible">
         <CarouselContent className="m-0 !-ml-0 h-full min-h-0 w-screen">
           {[

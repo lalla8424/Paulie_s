@@ -183,6 +183,7 @@ export default function Home() {
             </svg>
           </button>
         </div>
+        <div className="w-full h-2 bg-[#fd735a]" />
       </motion.header>
 
       {/* Mobile Menu Overlay */}
@@ -246,6 +247,8 @@ export default function Home() {
           {/* Full width image slider */}
           <HeroBanner />
         </div>
+        {/* 슬라이드 아래에 항상 보이는 빨간 라인 */}
+        <div className="w-full h-8 bg-[#fd735a]" />
       </section>
 
       {/* Menu Section */}
