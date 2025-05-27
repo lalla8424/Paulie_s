@@ -57,6 +57,17 @@ export default function LocationsPage() {
         </div>
       </section>
 
+      {/* 메뉴 텍스트 한 줄로 추가 (구조만, 스타일 없음) */}
+      <div>
+        <span>APPETIZERS</span>
+        <span> | </span>
+        <span>BRICK OVEN PIZZA</span>
+        <span> | </span>
+        <span>PASTA</span>
+        <span> | </span>
+        <span>DRINKS</span>
+      </div>
+
       {/* 갤러리 섬네일 */}
       <div className="w-full flex justify-center gap-4 mt-6 mb-8">
         {images.map((img, idx) => (

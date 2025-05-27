@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { useState } from "react"
+import React from "react"
 
 const menuImages = [
   "/menu-1.png",
@@ -10,6 +11,13 @@ const menuImages = [
   "/menu-3.png",
   "/paradise.png",
 ]
+
+const MENU_CATEGORIES = [
+  { key: 'APPETIZERS', label: 'APPETIZERS' },
+  { key: 'PIZZA', label: 'BRICK OVEN PIZZA' },
+  { key: 'PASTA', label: 'PASTA' },
+  { key: 'DRINKS', label: 'DRINKS' },
+];
 
 export default function MenuPage() {
   const [current, setCurrent] = useState(0)
@@ -24,6 +32,9 @@ export default function MenuPage() {
       transition: { duration: 0.6 },
     },
   }
+
+  // 메뉴 카테고리 상태
+  const [selectedCategory, setSelectedCategory] = useState('PIZZA');
 
   return (
     <div className="pt-20 pb-0 min-h-screen flex flex-col w-full">
@@ -62,185 +73,120 @@ export default function MenuPage() {
           ))}
         </div>
       </section>
+
+      {/* 메뉴 카테고리 한 줄로 추가 (구조만, 스타일 없음) */}
+      <div className="grid grid-cols-1 gap-y-4 md:flex md:flex-row md:items-center md:justify-center md:gap-x-8 w-full max-w-2xl mx-auto my-4">
+        {MENU_CATEGORIES.map((cat, idx) => (
+          <React.Fragment key={cat.key}>
+            <button
+              className={`font-black text-[#634d40] text-lg md:text-xl whitespace-nowrap ${selectedCategory === cat.key ? 'text-[#fc492d]' : ''}`}
+              onClick={() => setSelectedCategory(cat.key)}
+            >
+              {cat.label}
+            </button>
+            {idx < MENU_CATEGORIES.length - 1 && (
+              <span className="text-[#634d40] shrink-0 hidden md:inline">|</span>
+            )}
+          </React.Fragment>
+        ))}
+      </div>
       
       <div className="pb-16 px-4">
         <div className="container mx-auto">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl font-raleway text-center mb-12 text-[#634d40]"
-          >
-            Our Full Menu
-          </motion.h1>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {/* Pizza Section */}
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg"
-            >
-              <h2 className="text-2xl font-raleway text-[#fc492d] mb-6">Pizza</h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    name: "Margherita",
-                    desc: "Tomato sauce, mozzarella, basil",
-                    price: "$16",
-                  },
-                  {
-                    name: "Pepperoni",
-                    desc: "Tomato sauce, mozzarella, pepperoni",
-                    price: "$18",
-                  },
-                  {
-                    name: "Mushroom Truffle",
-                    desc: "Truffle cream, mozzarella, mushrooms",
-                    price: "$20",
-                    tag: "(V)",
-                  },
-                  {
-                    name: "Brooklyn Special",
-                    desc: "Tomato sauce, mozzarella, sausage, peppers, onions",
-                    price: "$22",
-                  },
-                  {
-                    name: "Quattro Formaggi",
-                    desc: "Four cheese blend, herbs",
-                    price: "$21",
-                  },
-                  {
-                    name: "Vegetarian",
-                    desc: "Tomato sauce, vegetables, mozzarella",
-                    price: "$19",
-                    tag: "(V)",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-4">
-                    <div className="flex justify-between items-baseline">
-                      <h3 className="font-medium">
-                        {item.name} {item.tag && <span className="text-xs">{item.tag}</span>}
-                      </h3>
-                      <span className="text-[#fc492d]">{item.price}</span>
-                    </div>
-                    <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
-                  </div>
-                ))}
+          <div className="flex flex-col items-center w-full">
+            {selectedCategory === 'APPETIZERS' && (
+              <div className="flex flex-col items-center w-full">
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">APPETIZERS</h2>
+                <ul className="w-full max-w-2xl">
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">Garlic Cheese Fries</div>
+                    <div className="text-sm text-center text-[#634d40]">향긋한 마늘향이 입안을 감도는 감자튀김</div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">Buffalo Hot Wings🌶️ (6pcs/10pcs)</div>
+                    <div className="text-sm text-center text-[#634d40]">버팔로 소스를 입혀 매콤상큼한 타바스코 향을 느낄 수 있는 치킨윙</div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">Sweet Honey Hot Wings🌶️ (6pcs/10pcs)</div>
+                    <div className="text-sm text-center text-[#634d40]">매콤한 버팔로 소스와 달콤한 꿀을 입힌 치킨윙</div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">Paulie's BBQ Wings (6pcs/10pcs)</div>
+                    <div className="text-sm text-center text-[#634d40]">바비큐 소스로 맛을 낸 치킨윙</div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">Paulie's Meatballs</div>
+                    <div className="text-sm text-center text-[#634d40]">폴리스 오리지널 레시피로 만든 미트볼 (치즈 옵션 가능)</div>
+                  </li>
+                </ul>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">SALADS</h2>
+                <ul className="w-full max-w-2xl">
+                  <li className="mb-2 text-center text-[#634d40] font-black">Paulie's House Salad (Ranch or Balsamic)</li>
+                  <li className="mb-2 text-center text-[#634d40] font-black">Chicken Caesar Salad</li>
+                  <li className="mb-2 text-center text-[#634d40] font-black">Pesto Pasta Salad</li>
+                </ul>
               </div>
-            </motion.div>
-
-            {/* Pasta Section */}
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg"
-            >
-              <h2 className="text-2xl font-raleway text-[#fc492d] mb-6">Pasta</h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    name: "Spaghetti Pomodoro",
-                    desc: "Tomato sauce, basil, olive oil",
-                    price: "$14",
-                    tag: "(V)",
-                  },
-                  {
-                    name: "Fettuccine Alfredo",
-                    desc: "Cream sauce, parmesan, black pepper",
-                    price: "$16",
-                  },
-                  {
-                    name: "Penne Arrabbiata",
-                    desc: "Spicy tomato sauce, garlic, parsley",
-                    price: "$15",
-                    tag: "(V)",
-                  },
-                  {
-                    name: "Linguine Vongole",
-                    desc: "Clams, white wine, garlic, parsley",
-                    price: "$19",
-                  },
-                  {
-                    name: "Rigatoni Bolognese",
-                    desc: "Meat sauce, parmesan",
-                    price: "$17",
-                  },
-                  {
-                    name: "Gnocchi",
-                    desc: "Potato dumplings, choice of sauce",
-                    price: "$18",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-4">
-                    <div className="flex justify-between items-baseline">
-                      <h3 className="font-medium">
-                        {item.name} {item.tag && <span className="text-xs">{item.tag}</span>}
-                      </h3>
-                      <span className="text-[#fc492d]">{item.price}</span>
-                    </div>
-                    <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Sides & Drinks Section */}
-            <motion.div
-              initial="hidden"
-              animate="visible"
-              variants={fadeIn}
-              className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg"
-            >
-              <h2 className="text-2xl font-raleway text-[#fc492d] mb-6">Sides & Drinks</h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    name: "Garlic Knots",
-                    desc: "Garlic butter, parsley, parmesan",
-                    price: "$6",
-                    tag: "(V)",
-                  },
-                  {
-                    name: "Caesar Salad",
-                    desc: "Romaine, croutons, parmesan, caesar dressing",
-                    price: "$10",
-                  },
-                  {
-                    name: "Caprese Salad",
-                    desc: "Tomatoes, fresh mozzarella, basil",
-                    price: "$12",
-                    tag: "(V)",
-                  },
-                  {
-                    name: "Italian Soda",
-                    desc: "Various flavors available",
-                    price: "$4",
-                  },
-                  {
-                    name: "House Wine",
-                    desc: "Red or white (Glass/Bottle)",
-                    price: "$8/$32",
-                  },
-                  {
-                    name: "Craft Beer",
-                    desc: "Local and imported selection",
-                    price: "$7",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="border-b border-gray-200 pb-4">
-                    <div className="flex justify-between items-baseline">
-                      <h3 className="font-medium">
-                        {item.name} {item.tag && <span className="text-xs">{item.tag}</span>}
-                      </h3>
-                      <span className="text-[#fc492d]">{item.price}</span>
-                    </div>
-                    <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            )}
+            {selectedCategory === 'PIZZA' && (
+              <>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">Pizza</h2>
+                <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                  {[
+                    { name: "Margherita", desc: "Tomato sauce, mozzarella, basil" },
+                    { name: "Pepperoni", desc: "Tomato sauce, mozzarella, pepperoni" },
+                    { name: "Mushroom Truffle", desc: "Truffle cream, mozzarella, mushrooms", tag: "(V)" },
+                    { name: "Brooklyn Special", desc: "Tomato sauce, mozzarella, sausage, peppers, onions" },
+                    { name: "Quattro Formaggi", desc: "Four cheese blend, herbs" },
+                    { name: "Vegetarian", desc: "Tomato sauce, vegetables, mozzarella", tag: "(V)" },
+                  ].map((item, index) => (
+                    <li key={index} className="mb-8">
+                      <div className="text-lg font-black text-center text-[#634d40]">{item.name} {item.tag && <span className="text-xs">{item.tag}</span>}</div>
+                      <div className="text-sm text-center text-[#634d40]">{item.desc}</div>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {selectedCategory === 'PASTA' && (
+              <>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">Pasta</h2>
+                <ul className="w-full max-w-2xl">
+                  {[
+                    { name: "Spaghetti Pomodoro", desc: "Tomato sauce, basil, olive oil", tag: "(V)" },
+                    { name: "Fettuccine Alfredo", desc: "Cream sauce, parmesan, black pepper" },
+                    { name: "Penne Arrabbiata", desc: "Spicy tomato sauce, garlic, parsley", tag: "(V)" },
+                    { name: "Linguine Vongole", desc: "Clams, white wine, garlic, parsley" },
+                    { name: "Rigatoni Bolognese", desc: "Meat sauce, parmesan" },
+                    { name: "Gnocchi", desc: "Potato dumplings, choice of sauce" },
+                  ].map((item, index) => (
+                    <li key={index} className="mb-4">
+                      <div className="text-lg font-black text-center text-[#634d40]">{item.name} {item.tag && <span className="text-xs">{item.tag}</span>}</div>
+                      <div className="text-sm text-center text-[#634d40]">{item.desc}</div>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {selectedCategory === 'DRINKS' && (
+              <>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">Sides & Drinks</h2>
+                <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                  {[
+                    { name: "Garlic Knots", desc: "Garlic butter, parsley, parmesan", tag: "(V)" },
+                    { name: "Caesar Salad", desc: "Romaine, croutons, parmesan, caesar dressing" },
+                    { name: "Caprese Salad", desc: "Tomatoes, fresh mozzarella, basil", tag: "(V)" },
+                    { name: "Italian Soda", desc: "Various flavors available" },
+                    { name: "House Wine", desc: "Red or white (Glass/Bottle)" },
+                    { name: "Craft Beer", desc: "Local and imported selection" },
+                  ].map((item, index) => (
+                    <li key={index} className="mb-8">
+                      <div className="text-lg font-black text-center text-[#634d40]">{item.name} {item.tag && <span className="text-xs">{item.tag}</span>}</div>
+                      <div className="text-sm text-center text-[#634d40]">{item.desc}</div>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
 
           <div className="text-center mt-12">

@@ -52,9 +52,9 @@ export default function RootLayout({
           `}
         </style>
       </head>
-      <body
+      <body 
         className={`${inter.variable} font-sans min-h-screen`}
-        style={{
+        style={{ 
           backgroundImage: "url('/bg_2.jpg')",
           backgroundRepeat: "no-repeat",  // "repeat"에서 변경
           backgroundSize: "cover",        // "200px 200px"에서 변경
