@@ -1,3 +1,12 @@
+/**
+ * @file layout.tsx
+ * @description App root layout with global page transition (fade in/out) using framer-motion AnimatePresence.
+ *
+ * - 페이지 전환 시 부드러운 페이드 애니메이션 적용
+ * - 경로 변경 감지를 위해 usePathname 사용
+ * - 유지보수성을 위해 구조와 의도를 명확히 주석으로 남김
+ */
+
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
@@ -5,6 +14,7 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/react"
 import Header from "@/components/Header"
+import PageTransitionWrapper from "@/components/PageTransitionWrapper"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -69,7 +79,7 @@ export default function RootLayout({
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
           <Header />
-          {children}
+          <PageTransitionWrapper>{children}</PageTransitionWrapper>
           <Analytics mode="production" />
         </ThemeProvider>
       </body>

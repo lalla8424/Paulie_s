@@ -8,11 +8,14 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-40 w-full h-20" style={{ backgroundColor: "rgba(245, 240, 230, 0.95)", backdropFilter: "blur(8px)" }}>
       <div className="container mx-auto h-full px-4 flex justify-between items-center">
         <div className="logo h-20 flex items-center">
-          <img
-            src="/paulies_logo3.png"
-            alt="PAULIE'S"
-            className="h-full w-auto object-contain pr-4"
-          />
+          <Link href="/" scroll={true} aria-label="Go to Home" className="h-full flex items-center block">
+            <img
+              src="/paulies_logo3.png"
+              alt="PAULIE'S"
+              className="h-full w-auto object-contain pr-4"
+              style={{ display: 'block' }}
+            />
+          </Link>
         </div>
         <nav className="hidden md:block">
           <ul className="flex space-x-8">

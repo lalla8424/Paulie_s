@@ -90,13 +90,13 @@ export default function MenuPage() {
           </React.Fragment>
         ))}
       </div>
-      
+
       <div className="pb-16 px-4">
         <div className="container mx-auto">
           <div className="flex flex-col items-center w-full">
             {selectedCategory === 'APPETIZERS' && (
               <div className="flex flex-col items-center w-full">
-                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">APPETIZERS</h2>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">APPETIZERS</h2>
                 <ul className="w-full max-w-2xl">
                   <li className="mb-4">
                     <div className="text-lg font-black text-center text-[#634d40]">Garlic Cheese Fries</div>
@@ -119,7 +119,7 @@ export default function MenuPage() {
                     <div className="text-sm text-center text-[#634d40]">폴리스 오리지널 레시피로 만든 미트볼 (치즈 옵션 가능)</div>
                   </li>
                 </ul>
-                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">SALADS</h2>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">SALADS</h2>
                 <ul className="w-full max-w-2xl">
                   <li className="mb-2 text-center text-[#634d40] font-black">Paulie's House Salad (Ranch or Balsamic)</li>
                   <li className="mb-2 text-center text-[#634d40] font-black">Chicken Caesar Salad</li>
@@ -129,7 +129,7 @@ export default function MenuPage() {
             )}
             {selectedCategory === 'PIZZA' && (
               <>
-                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">Pizza</h2>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">Pizza</h2>
                 <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   {[
                     { name: "Margherita", desc: "Tomato sauce, mozzarella, basil" },
@@ -149,7 +149,7 @@ export default function MenuPage() {
             )}
             {selectedCategory === 'PASTA' && (
               <>
-                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">Pasta</h2>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">Pasta</h2>
                 <ul className="w-full max-w-2xl">
                   {[
                     { name: "Spaghetti Pomodoro", desc: "Tomato sauce, basil, olive oil", tag: "(V)" },
@@ -169,7 +169,7 @@ export default function MenuPage() {
             )}
             {selectedCategory === 'DRINKS' && (
               <>
-                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2">Sides & Drinks</h2>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">Sides & Drinks</h2>
                 <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   {[
                     { name: "Garlic Knots", desc: "Garlic butter, parsley, parmesan", tag: "(V)" },
@@ -188,17 +188,9 @@ export default function MenuPage() {
               </>
             )}
           </div>
-
-          <div className="text-center mt-12">
-            <Link 
-              href="/"
-              className="inline-block px-6 py-3 bg-[#fc492d] text-white rounded-lg hover:bg-[#634d40] transition-colors duration-300"
-            >
-              Back to Home
-            </Link>
-          </div>
         </div>
       </div>
+      <div style={{height: '100px'}} aria-hidden="true" />
     </div>
   )
 } 

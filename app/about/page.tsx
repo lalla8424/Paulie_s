@@ -4,106 +4,87 @@ import Link from "next/link"
 
 export default function AboutPage() {
   return (
-    <div className="pt-20 pb-0 min-h-screen flex flex-col bg-transparent w-screen overflow-x-hidden">
-      {/* Hero Section */}
-      <section className="w-screen bg-[#f5f0e6] flex flex-col items-center justify-center py-16 relative overflow-hidden px-0">
-        <img src="/main2.png" alt="Bread Background" className="absolute top-0 left-0 w-full h-full object-cover opacity-30 z-0" />
-        <div className="relative z-10 flex flex-col items-center">
-          <h1 className="text-5xl md:text-6xl font-raleway font-extrabold text-[#2d2d2d] mb-4">About Us</h1>
-          <p className="text-lg md:text-xl text-[#634d40] text-center max-w-2xl mb-8">
-            Paulie's Pizza는 뉴욕 스타일의 정통 브릭 오븐 피자를 제공하는 최고의 피자 레스토랑입니다.<br/>
-            신선한 재료와 전통 레시피로 만든 다양한 피자를 경험해보세요.
-          </p>
-        </div>
-      </section>
-
-      {/* Chef & Intro Section */}
-      <section className="w-screen grid md:grid-cols-2 gap-8 bg-white/90 rounded-2xl shadow-lg px-0 py-12 mt-[-60px] relative z-20">
-        <div className="flex items-center justify-center px-4">
-          <img src="/chef_running.png" alt="Paulie's Pizza Chef" className="rounded-xl shadow-lg w-[320px] h-auto object-contain bg-transparent" />
-        </div>
-        <div className="flex flex-col justify-center px-4">
-          <h2 className="text-3xl font-raleway font-bold text-[#634d40] mb-4">Home Sweet Pizzeria</h2>
-          <p className="text-base text-[#634d40] mb-4">
-            Paulie's Pizza는 뉴욕에서 시작된 정통 피자 레시피와 따뜻한 환대를 자랑합니다.<br/>
-            매일 신선한 재료로 반죽을 만들고, 벽돌 오븐에서 구워내는 진짜 뉴욕 피자를 경험하세요.
-          </p>
-          <div className="bg-[#f5f0e6] rounded-lg p-4 mb-2">
-            <div className="font-bold text-[#fc492d] mb-1">Opening Hours</div>
-            <div className="text-sm text-[#634d40]">Monday - Friday: <span className="font-semibold">11:00 - 22:00</span></div>
-            <div className="text-sm text-[#634d40]">Saturday - Sunday: <span className="font-semibold">11:00 - 23:00</span></div>
+    <div className="pt-20 pb-40 min-h-screen flex flex-col bg-transparent w-screen overflow-x-hidden">
+      {/* Feature Section: 왼쪽에 paulies_poster.png 이미지 */}
+      <section className="w-full flex justify-center bg-transparent py-10">
+        <div className="container max-w-5xl mx-auto flex flex-col md:flex-row items-center p-6 md:p-10 gap-6 md:gap-10 bg-transparent">
+          <div className="w-full md:w-2/5 flex-shrink-0">
+            <img src="/paulies_poster.png" alt="Paulie's Poster" className="rounded-xl w-full h-auto object-contain" />
           </div>
-          <div className="flex space-x-4 mt-2">
-            <a href="#" className="text-[#634d40] hover:text-[#fc492d]">Instagram</a>
-            <a href="#" className="text-[#634d40] hover:text-[#fc492d]">Facebook</a>
-            <a href="#" className="text-[#634d40] hover:text-[#fc492d]">Mail</a>
+          <div className="w-full md:w-3/5 flex flex-col justify-center text-left">
+            <h2 className="text-2xl md:text-3xl font-bold text-[#fc492d] mb-4 uppercase tracking-wide">OUR STORY</h2>
+            <p className="text-base md:text-lg text-[#634d40] leading-relaxed">
+              미국의 피자는 1900년대 후반, 남부 이탈리아 이민자 들에 의해 미국에 소개되었습니다.<br />
+              뉴욕스타일의 피자는 풍부한 토핑과 흡사 마술같이 얇고 바삭한 도우입니다.<br />
+              시간이 지나며 반죽은 점차 얇고 바삭하며 쫄깃한 식감으로 발전하였고, 이는 오늘날 우리가 알고 있는 뉴욕 스타일 피자의 탄생으로 이어졌습니다.<br />
+              뉴욕 스타일의 조각피자의 접혀있는 이미지는 영화 및 대중문화에 자주 등장할 정도로 친숙한 모습입니다. 폴리스 브릭오븐 피제리아는 2015년, 이 정통 뉴욕의 맛을 한국에 전하고자 시작되었습니다.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Feature Section */}
-      <section className="w-screen flex flex-col md:flex-row items-center gap-8 py-16 px-0">
-        <div className="md:w-1/2 w-full flex justify-center px-4">
-          <img src="/tomato_.jpg" alt="Fresh Ingredients" className="rounded-xl shadow-lg w-[340px] h-auto object-cover" />
-        </div>
-        <div className="md:w-1/2 w-full px-4">
-          <h3 className="text-2xl font-raleway font-bold text-[#634d40] mb-4">Freshly Baked Pizza Every Day</h3>
-          <p className="text-base text-[#634d40] mb-6">
-            매일 아침 신선한 재료로 반죽을 만들고, 정성껏 토핑을 올려 벽돌 오븐에서 구워냅니다.<br/>
-            Paulie's Pizza는 언제나 최고의 맛과 품질을 약속합니다.
-          </p>
-          <button className="px-6 py-3 bg-[#fc492d] text-white rounded-lg hover:bg-[#634d40] transition-colors duration-300 font-bold">Visit Us</button>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="w-screen bg-white/90 py-16 px-0">
-        <div className="w-full px-4">
-          <h3 className="text-3xl font-raleway font-bold text-center text-[#634d40] mb-10">Benefits Of Paulie's Pizza</h3>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#f5f0e6] rounded-xl p-6 text-center shadow">
-              <div className="text-2xl font-bold text-[#fc492d] mb-2">🍕</div>
-              <div className="font-semibold mb-1">다양한 메뉴</div>
-              <div className="text-sm text-[#634d40]">클래식부터 스페셜까지, 모두를 위한 피자</div>
-            </div>
-            <div className="bg-[#f5f0e6] rounded-xl p-6 text-center shadow">
-              <div className="text-2xl font-bold text-[#fc492d] mb-2">🥗</div>
-              <div className="font-semibold mb-1">신선한 재료</div>
-              <div className="text-sm text-[#634d40]">매일 아침 준비하는 신선한 토핑</div>
-            </div>
-            <div className="bg-[#f5f0e6] rounded-xl p-6 text-center shadow">
-              <div className="text-2xl font-bold text-[#fc492d] mb-2">🔥</div>
-              <div className="font-semibold mb-1">벽돌 오븐</div>
-              <div className="text-sm text-[#634d40]">전통 방식의 벽돌 오븐에서 구워내는 맛</div>
-            </div>
-            <div className="bg-[#f5f0e6] rounded-xl p-6 text-center shadow">
-              <div className="text-2xl font-bold text-[#fc492d] mb-2">⭐</div>
-              <div className="font-semibold mb-1">합리적 가격</div>
-              <div className="text-sm text-[#634d40]">최고의 품질을 합리적인 가격에</div>
-            </div>
-            <div className="bg-[#f5f0e6] rounded-xl p-6 text-center shadow">
-              <div className="text-2xl font-bold text-[#fc492d] mb-2">👨‍🍳</div>
-              <div className="font-semibold mb-1">장인정신</div>
-              <div className="text-sm text-[#634d40]">경험 많은 셰프의 손길</div>
-            </div>
-            <div className="bg-[#f5f0e6] rounded-xl p-6 text-center shadow">
-              <div className="text-2xl font-bold text-[#fc492d] mb-2">🚚</div>
-              <div className="font-semibold mb-1">빠른 배달</div>
-              <div className="text-sm text-[#634d40]">언제 어디서나 빠르게 즐기는 피자</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer Link */}
-      <div className="text-center mt-12 mb-8 w-screen">
-        <Link 
-          href="/"
-          className="inline-block px-6 py-3 bg-[#fc492d] text-white rounded-lg hover:bg-[#634d40] transition-colors duration-300"
-        >
-          Back to Home
-        </Link>
+      {/* 섹션 구분 라인 */}
+      <div className="w-full flex justify-center mt-[50px] mb-[50px]">
+        <div className="w-full max-w-5xl h-[2px] bg-[#4b3a2f] opacity-30 rounded" />
       </div>
+      {/* 특징 3칼럼 섹션 */}
+      <section className="w-full flex justify-center bg-transparent pb-10 mt-[100px]">
+        <div className="container max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* 프리미엄 재료 */}
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-4">
+              <img src="/aboutus.png" alt="프리미엄 재료" className="w-24 h-24 object-contain mx-auto" />
+            </div>
+            <div className="font-bold text-lg mb-2 text-[#4b3a2f]">직접 수입한 프리미엄 재료</div>
+            <div className="text-sm text-[#634d40] leading-relaxed">
+              정통 뉴욕 스타일 피자에 대한 저희의 고집을 지키기 위해, 폴리스는 핵심 재료인 밀가루, 토마토 소스, 치즈 등을 모두 미국에서 직접 수입하여 사용합니다. 정통 뉴욕 피자를 선보이기 위해 실제 뉴욕 피자 전문가와 같은 품질의 원재료를 사용하여, 우리는 정통 뉴욕피자와 동일한 맛과 품질의 결과를 재현할 수 있습니다.
+            </div>
+          </div>
+          {/* 벽돌 오븐 */}
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-4">
+              <img src="/aboutus_oven.png" alt="정통 벽돌 오븐" className="w-24 h-24 object-contain mx-auto" />
+            </div>
+            <div className="font-bold text-lg mb-2 text-[#4b3a2f]">정통 벽돌 오븐 사용</div>
+            <div className="text-sm text-[#634d40] leading-relaxed">
+              뉴욕 피제리아의 오븐을 그대로 재현한 대형 벽돌 오븐을 맞춤 제작하여 사용하고 있습니다. 500-600°F(약 260-315°C)의 고온에서 구워내는 피자는 겉은 바삭하고 속은 쫄깃한 완벽한 식감을 자랑합니다.
+            </div>
+          </div>
+          {/* 반죽 기술 */}
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-4">
+              <img src="/aboutus_tech.png" alt="차별화된 기술" className="w-24 h-24 object-contain mx-auto" />
+            </div>
+            <div className="font-bold text-lg mb-2 text-[#4b3a2f]">차별화된 기술</div>
+            <div className="text-sm text-[#634d40] leading-relaxed">
+              모든 메뉴는 매장에서 직접 신선하게 준비되며, 폴리스만의 독창적인 레시피와 숙련된 피자마스터의 전문 반죽 기술이 조화를 이루어, 어디서도 맛볼 수 없는 정통 뉴욕 스타일 피자를 선사합니다.
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* 3칼럼 아래 섹션 구분 라인 */}
+      <div className="w-full flex justify-center mt-[100px] mb-[50px]">
+        <div className="w-full max-w-5xl h-[2px] bg-[#4b3a2f] opacity-30 rounded" />
+      </div>
+
+      {/* 가운데 정렬된 slice_bb.png 섹션 */}
+      <section className="w-full flex justify-center items-center py-12">
+        <img src="/slice_bb.png" alt="피자 조각 일러스트" className="mx-auto w-auto max-w-xs md:max-w-md lg:max-w-lg h-auto" />
+      </section>
+
+      {/* 광고성 문구 섹션 */}
+      <section className="w-full flex justify-center items-center py-8">
+        <blockquote className="relative text-center text-[#4b3a2f] font-semibold text-lg md:text-xl leading-8 md:leading-9 italic max-w-2xl mx-auto px-4">
+          <span className="text-5xl md:text-7xl align-top text-[#4b3a2f] font-serif font-bold select-none mr-2" style={{verticalAlign:'top'}}>“</span>
+          <span className="inline-block align-middle">
+            폴리스 피제리아는 한국의 고객들에게 진정한<br />
+            뉴욕 핏자의 경험을 제공하는 것입니다.<br />
+            진짜 뉴욕피자를 만드는 폴리스 핏제리아는<br />
+            국내 최고의 정통 뉴욕 스타일 프리미엄 피자입니다.
+          </span>
+          <span className="text-5xl md:text-7xl align-bottom text-[#4b3a2f] font-serif font-bold select-none ml-2" style={{verticalAlign:'bottom'}}>”</span>
+        </blockquote>
+      </section>
     </div>
   )
 } 

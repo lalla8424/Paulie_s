@@ -12,9 +12,43 @@ const images = [
   "/location-dtower.jpg",
 ]
 
+const STORES = [
+  {
+    name: "PARNAS MALL",
+    sub: "삼성동 파르나스몰",
+    address: "서울특별시 강남구 테헤란로 521, 지하1층 F13호(삼성동, 파르나스타워)",
+    tel: "(전화번호 입력)",
+    hours: "(운영시간 입력)",
+    parking: "(주차 정보 입력)",
+    transit: "(대중교통 안내 입력)",
+    map: "https://www.google.com/maps?q=파르나스몰&output=embed",
+  },
+  {
+    name: "PARADISE CITY",
+    sub: "인천 파라다이스시티",
+    address: "인천 중구 영종해안남로 321번길 186, F 204호, (운서동, 파라다이스시티)",
+    tel: "(전화번호 입력)",
+    hours: "(운영시간 입력)",
+    parking: "(주차 정보 입력)",
+    transit: "(대중교통 안내 입력)",
+    map: "https://www.google.com/maps?q=파라다이스시티+인천&output=embed",
+  },
+  {
+    name: "D-TOWER",
+    sub: "광화문 디타워",
+    address: "서울특별시 종로구 종로3길 17, 2층 5호 (청진동, 디타워)",
+    tel: "(전화번호 입력)",
+    hours: "(운영시간 입력)",
+    parking: "(주차 정보 입력)",
+    transit: "(대중교통 안내 입력)",
+    map: "https://www.google.com/maps?q=디타워+광화문&output=embed",
+  },
+];
+
 export default function LocationsPage() {
   const [current, setCurrent] = useState(0)
   const total = images.length
+  const [selectedStore, setSelectedStore] = useState(0)
 
   const prev = () => setCurrent((prev) => (prev - 1 + total) % total)
   const next = () => setCurrent((prev) => (prev + 1) % total)
@@ -57,17 +91,6 @@ export default function LocationsPage() {
         </div>
       </section>
 
-      {/* 메뉴 텍스트 한 줄로 추가 (구조만, 스타일 없음) */}
-      <div>
-        <span>APPETIZERS</span>
-        <span> | </span>
-        <span>BRICK OVEN PIZZA</span>
-        <span> | </span>
-        <span>PASTA</span>
-        <span> | </span>
-        <span>DRINKS</span>
-      </div>
-
       {/* 갤러리 섬네일 */}
       <div className="w-full flex justify-center gap-4 mt-6 mb-8">
         {images.map((img, idx) => (
@@ -87,22 +110,50 @@ export default function LocationsPage() {
         ))}
       </div>
 
-      <div className="container mx-auto max-w-4xl">
-        <p className="text-lg text-[#634d40] text-center mb-8">
-          Paulie's Pizza는 다양한 지점에서 여러분을 기다리고 있습니다.<br/>
-          아래에서 가까운 매장을 확인해보세요!<br/>
-          <br/>
-          (이곳에 매장 정보, 지도, 연락처 등 원하는 내용을 자유롭게 추가하세요)
-        </p>
-        <div className="text-center mt-12">
-          <Link 
-            href="/"
-            className="inline-block px-6 py-3 bg-[#fc492d] text-white rounded-lg hover:bg-[#634d40] transition-colors duration-300"
+      {/* 슬라이드/썸네일 아래 매장명 탭 */}
+      <div className="flex justify-center gap-x-8 my-8">
+        {STORES.map((store, idx) => (
+          <button
+            key={store.name}
+            onClick={() => setSelectedStore(idx)}
+            className={`text-lg font-bold tracking-wide px-2 py-1 border-b-2 transition-colors duration-200 ${selectedStore === idx ? 'text-[#fc492d] border-[#fc492d]' : 'text-[#634d40] border-transparent hover:text-[#fc492d]'}`}
+            style={{ minWidth: 120 }}
           >
-            Back to Home
-          </Link>
+            {store.name}
+            <span className="block text-xs font-normal text-[#634d40]">{store.sub}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* 선택된 매장 정보 */}
+      <div className="container mx-auto max-w-4xl mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center border border-gray-200 rounded-xl p-6 bg-[#f7eee1]">
+          {/* 왼쪽: 텍스트 정보 */}
+          <div>
+            <div className="text-2xl font-bold text-[#fc492d] mb-2">{STORES[selectedStore].name}</div>
+            <div className="text-base text-[#634d40] mb-2">{STORES[selectedStore].sub}</div>
+            <div className="text-sm text-[#634d40] mb-2">{STORES[selectedStore].address}</div>
+            <div className="text-sm text-[#634d40] mb-2">운영시간: {STORES[selectedStore].hours}</div>
+            <div className="text-sm text-[#634d40] mb-2">예약/문의: {STORES[selectedStore].tel}</div>
+            <div className="text-sm text-[#634d40] mb-2">주차: {STORES[selectedStore].parking}</div>
+            <div className="text-sm text-[#634d40]">대중교통: {STORES[selectedStore].transit}</div>
+          </div>
+          {/* 오른쪽: 지도 */}
+          <div className="w-full h-full flex items-center justify-center">
+            <iframe
+              src={STORES[selectedStore].map}
+              width="100%"
+              height="240"
+              style={{ border: 0, borderRadius: 12 }}
+              allowFullScreen={false}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={STORES[selectedStore].name + ' 위치'}
+            />
+          </div>
         </div>
       </div>
+      <div style={{height: '100px'}} aria-hidden="true" />
     </div>
   )
 } 
