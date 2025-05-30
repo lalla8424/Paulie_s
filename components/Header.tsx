@@ -41,6 +41,7 @@ export default function Header() {
           </svg>
         </button>
       </div>
+      <div className="w-full h-2 bg-[#fd735a]" />
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 backdrop-blur-md flex flex-col items-center justify-center bg-white/95">
           <button className="absolute top-4 right-4" onClick={() => setMobileMenuOpen(false)}>
