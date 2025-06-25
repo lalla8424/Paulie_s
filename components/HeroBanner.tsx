@@ -30,7 +30,7 @@ const HeroBanner = () => {
             else if (index === 2) src = '/flour.jpg';
             else if (index === 3) src = '/cheese.jpg';
             else if (index === 4) src = '/tomato_.jpg';
-            else if (index === 5) src = '/d_tower.jpg';
+            else if (index === 5) src = '/d_tower_2.jpg';
             else if (index === 6) src = '/location2.jpg';
             // 마지막 슬라이드는 항상 /location_3.jpg
             if (arrIdx === arr.length - 1) src = '/location_3.jpg';

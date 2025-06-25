@@ -4,12 +4,12 @@ import Link from "next/link";
 import { useState } from "react";
 
 const images = [
-  "/location2.jpg",
-  "/location_3.jpg",
-  "/d_tower.jpg",
-  "/location-parnas.jpg",
-  "/location-paradise.jpg",
-  "/location-dtower.jpg",
+  "/coex_2.jpg",      // COEX store wall artwork
+  "/coex_1.jpg",      // COEX store interior 1
+  "/d_tower_2.jpg",   // D-Tower store
+  "/paradise.jpg",    // Paradise City store
+  "/coex.jpg",        // COEX store interior 2
+  "/location-dtower.jpg"
 ];
 
 const STORES = [

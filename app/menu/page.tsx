@@ -2,14 +2,15 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 
 const menuImages = [
+  "/1pg.jpg",
+  "/pizza.jpg",
+  "/pizza_1.jpg",
+  "/drink.jpg",
   "/menu-1.png",
-  "/menu-2.png",
-  "/menu-3.png",
-  "/paradise.png",
 ];
 
 const MENU_CATEGORIES = [
@@ -21,17 +22,35 @@ const MENU_CATEGORIES = [
 
 export default function MenuPage() {
   const [current, setCurrent] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const total = menuImages.length;
-  const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
-  const next = () => setCurrent((prev) => (prev + 1) % total);
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6 },
-    },
+  
+  const prev = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrent((prev) => (prev - 1 + total) % total);
+      setIsTransitioning(false);
+    }, 200);
   };
+  
+  const next = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % total);
+      setIsTransitioning(false);
+    }, 200);
+  };
+
+  // 자동 슬라이드 기능 - 5초마다 자동으로 다음 슬라이드로
+  useEffect(() => {
+    const autoSlideTimer = setInterval(() => {
+      next();
+    }, 5000);
+
+    return () => {
+      clearInterval(autoSlideTimer);
+    };
+  }, [current, next]);
 
   // 메뉴 카테고리 상태
   const [selectedCategory, setSelectedCategory] = useState("PIZZA");
@@ -56,12 +75,21 @@ export default function MenuPage() {
               />
             </svg>
           </button>
-          <img
-            src={menuImages[current]}
-            alt={`Menu Slide ${current + 1}`}
-            className="w-full h-auto max-h-[70vh] object-cover shadow-lg transition-all duration-500"
-            style={{ aspectRatio: "16/9" }}
-          />
+          <div 
+            className={`w-full transition-opacity duration-500 ease-in-out overflow-hidden rounded-xl ${
+              isTransitioning ? 'opacity-50' : 'opacity-100'
+            }`}
+          >
+            <img
+              src={menuImages[current]}
+              alt={`Menu Slide ${current + 1}`}
+              className="w-full h-auto max-h-[70vh] object-cover shadow-lg transition-all duration-[8000ms] ease-out transform animate-zoom-in"
+              style={{ 
+                aspectRatio: "16/9",
+                transformOrigin: "center center"
+              }}
+            />
+          </div>
           <button
             onClick={next}
             className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-[#fc492d]/80 text-[#634d40] rounded-full shadow p-2 z-10"
@@ -83,9 +111,7 @@ export default function MenuPage() {
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`w-2.5 h-2.5 rounded-full ${
-                current === idx ? "bg-[#fc492d]" : "bg-[#634d40]/30"
-              } transition-all`}
+              className={`w-2.5 h-2.5 rounded-full ${current === idx ? "bg-[#fc492d]" : "bg-[#634d40]/30"} transition-all`}
               aria-label={`Go to slide ${idx + 1}`}
             />
           ))}

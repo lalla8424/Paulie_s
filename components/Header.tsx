@@ -31,6 +31,13 @@ export default function Header() {
             <li>
               <Link href="/locations" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">LOCATIONS</Link>
             </li>
+            <li>
+              <div className="text-[#fc492d] text-sm font-normal">
+                <button className="hover:text-[#634d40] transition-colors">KO</button>
+                <span className="mx-1">/</span>
+                <button className="hover:text-[#634d40] transition-colors">EN</button>
+              </div>
+            </li>
           </ul>
         </nav>
         <button className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
@@ -62,6 +69,15 @@ export default function Header() {
             </li>
             <li>
               <Link href="/locations" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">LOCATIONS</Link>
+            </li>
+            <li>
+              <div className="text-center">
+                <div className="text-[#fc492d] text-sm font-normal">
+                  <button className="hover:text-[#634d40] transition-colors">KO</button>
+                  <span className="mx-2">/</span>
+                  <button className="hover:text-[#634d40] transition-colors">EN</button>
+                </div>
+              </div>
             </li>
           </ul>
         </div>

@@ -75,6 +75,23 @@
   }
 }
 
+/* 줌인 애니메이션 */
+@keyframes zoomIn {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animate-zoom-in {
+  animation: zoomIn 8s ease-in-out infinite;
+}
+
 .font-handwriting {
   font-family: "Caveat", cursive;
 }

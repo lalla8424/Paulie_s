@@ -5,13 +5,13 @@ const MenuFadeSlider = () => {
   const [menuFadeIndex, setMenuFadeIndex] = useState(0)
   useEffect(() => {
     const fadeTimer = setInterval(() => {
-      setMenuFadeIndex((prev) => (prev + 1) % 3)
+      setMenuFadeIndex((prev) => (prev + 1) % 4)
     }, 6000)
     return () => clearInterval(fadeTimer)
   }, [])
   return (
     <div className="relative w-full mx-auto h-64 min-h-[160px] mb-12 flex items-center justify-center">
-      {["menu-1.png", "menu-2.png", "menu-3.png"].map((img, idx) => (
+      {["1pg.jpg", "pizza.jpg", "pizza_1.jpg", "drink.jpg"].map((img, idx) => (
         <img
           key={img}
           src={`/${img}`}

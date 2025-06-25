@@ -173,10 +173,18 @@ export default function Home() {
                   LOCATIONS
                 </Link>
               </li>
+              <li>
+                <div className="text-[#fc492d] text-sm font-normal">
+                  <button className="hover:text-[#634d40] transition-colors">KO</button>
+                  <span className="mx-1">/</span>
+                  <button className="hover:text-[#634d40] transition-colors">EN</button>
+                </div>
+              </li>
             </ul>
           </nav>
           <button className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="
+            http://www.w3.org/2000/svg">
               <path d="M3 12H21" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M3 6H21" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               <path d="M3 18H21" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -236,6 +244,15 @@ export default function Home() {
               >
                 LOCATIONS
               </Link>
+            </li>
+            <li>
+              <div className="text-center">
+                <div className="text-[#fc492d] text-sm font-normal">
+                  <button className="hover:text-[#634d40] transition-colors">KO</button>
+                  <span className="mx-2">/</span>
+                  <button className="hover:text-[#634d40] transition-colors">EN</button>
+                </div>
+              </div>
             </li>
           </ul>
         </div>
