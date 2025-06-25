@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const images = [
   "/coex_2.jpg",      // COEX store wall artwork
@@ -12,45 +13,45 @@ const images = [
   "/location-dtower.jpg"
 ];
 
-const STORES = [
-  {
-    name: "PARNAS MALL",
-    sub: "삼성동 파르나스몰",
-    address:
-      "서울특별시 강남구 테헤란로 521, 지하1층 F13호(삼성동, 파르나스타워)",
-    tel: "(전화번호 입력)",
-    hours: "(운영시간 입력)",
-    parking: "(주차 정보 입력)",
-    transit: "(대중교통 안내 입력)",
-    map: "https://www.google.com/maps?q=파르나스몰&output=embed",
-  },
-  {
-    name: "PARADISE CITY",
-    sub: "인천 파라다이스시티",
-    address:
-      "인천 중구 영종해안남로 321번길 186, F 204호, (운서동, 파라다이스시티)",
-    tel: "(전화번호 입력)",
-    hours: "(운영시간 입력)",
-    parking: "(주차 정보 입력)",
-    transit: "(대중교통 안내 입력)",
-    map: "https://www.google.com/maps?q=파라다이스시티+인천&output=embed",
-  },
-  {
-    name: "D-TOWER",
-    sub: "광화문 디타워",
-    address: "서울특별시 종로구 종로3길 17, 2층 5호 (청진동, 디타워)",
-    tel: "(전화번호 입력)",
-    hours: "(운영시간 입력)",
-    parking: "(주차 정보 입력)",
-    transit: "(대중교통 안내 입력)",
-    map: "https://www.google.com/maps?q=디타워+광화문&output=embed",
-  },
-];
-
 export default function LocationsPage() {
   const [current, setCurrent] = useState(0);
   const total = images.length;
   const [selectedStore, setSelectedStore] = useState(0);
+  const { t } = useLanguage();
+
+  // 다국어 지원 매장 데이터
+  const STORES = [
+    {
+      name: t('locations.parnas.name'),
+      sub: t('locations.parnas.sub'),
+      address: t('locations.parnas.address'),
+      tel: t('locations.parnas.tel'),
+      hours: t('locations.parnas.hours'),
+      parking: t('locations.parnas.parking'),
+      transit: t('locations.parnas.transit'),
+      map: "https://www.google.com/maps?q=파르나스몰&output=embed",
+    },
+    {
+      name: t('locations.paradise.name'),
+      sub: t('locations.paradise.sub'),
+      address: t('locations.paradise.address'),
+      tel: t('locations.paradise.tel'),
+      hours: t('locations.paradise.hours'),
+      parking: t('locations.paradise.parking'),
+      transit: t('locations.paradise.transit'),
+      map: "https://www.google.com/maps?q=파라다이스시티+인천&output=embed",
+    },
+    {
+      name: t('locations.dtower.name'),
+      sub: t('locations.dtower.sub'),
+      address: t('locations.dtower.address'),
+      tel: t('locations.dtower.tel'),
+      hours: t('locations.dtower.hours'),
+      parking: t('locations.dtower.parking'),
+      transit: t('locations.dtower.transit'),
+      map: "https://www.google.com/maps?q=디타워+광화문&output=embed",
+    },
+  ];
 
   const prev = () => setCurrent((prev) => (prev - 1 + total) % total);
   const next = () => setCurrent((prev) => (prev + 1) % total);
@@ -170,16 +171,16 @@ export default function LocationsPage() {
               {STORES[selectedStore].address}
             </div>
             <div className="text-sm text-[#634d40] mb-2">
-              운영시간: {STORES[selectedStore].hours}
+              {t('locations.hours.label')} {STORES[selectedStore].hours}
             </div>
             <div className="text-sm text-[#634d40] mb-2">
-              예약/문의: {STORES[selectedStore].tel}
+              {t('locations.tel.label')} {STORES[selectedStore].tel}
             </div>
             <div className="text-sm text-[#634d40] mb-2">
-              주차: {STORES[selectedStore].parking}
+              {t('locations.parking.label')} {STORES[selectedStore].parking}
             </div>
             <div className="text-sm text-[#634d40]">
-              대중교통: {STORES[selectedStore].transit}
+              {t('locations.transit.label')} {STORES[selectedStore].transit}
             </div>
           </div>
           {/* 오른쪽: 지도 */}

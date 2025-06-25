@@ -30,7 +30,7 @@ const translations = {
     // 메인 페이지
     'main.title': '뉴욕 스타일 피자',
     'main.subtitle': '정통 브릭 오븐 피자',
-    'main.menu.title': '우리 메뉴',
+    'main.menu.title': 'Our Menu',
     'main.about.title': 'Our Story',
     'main.about.description1': '뉴욕에서 시작된 우리의 피자 여정은 최고의 재료와 전통적인 기법에 중점을 두고 있습니다. 우리는 정통 뉴욕 스타일을 우리 동네로 가져와, 품질 좋은 재료와 전통 기법에 초점을 맞추고 있습니다.',
     'main.about.description2': '모든 피자는 손으로 늘려서 맞춤형 브릭 오븐에서 구워지며, 뉴욕 피자로 유명한 완벽한 바삭하면서도 쫄깃한 크러스트를 만들어냅니다. 우리는 단순히 피자를 만드는 것이 아니라 전통을 이어가고 있습니다.',
@@ -255,6 +255,8 @@ const translations = {
     'footer.hours': '운영시간',
     'footer.social': '소셜미디어',
     'footer.copyright': 'PAULIE\'S. All rights reserved.',
+    'footer.office.title': 'HEAD OFFICE ADDRESS',
+    'footer.office.address': '18F, WORLD TOWER Bldg, 558, Songpa-daero, Songpa-gu, Seoul, Republic of Korea',
   },
   en: {
     // 네비게이션
@@ -497,6 +499,8 @@ const translations = {
     'footer.hours': 'Hours',
     'footer.social': 'Social Media',
     'footer.copyright': 'PAULIE\'S. All rights reserved.',
+    'footer.office.title': 'HEAD OFFICE ADDRESS',
+    'footer.office.address': '18F, WORLD TOWER Bldg, 558, Songpa-daero, Songpa-gu, Seoul, Republic of Korea',
   }
 }
 

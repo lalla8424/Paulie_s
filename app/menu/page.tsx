@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const menuImages = [
   "/1pg.jpg",
@@ -13,17 +14,19 @@ const menuImages = [
   "/menu-1.png",
 ];
 
-const MENU_CATEGORIES = [
-  { key: "APPETIZERS", label: "APPETIZERS" },
-  { key: "PIZZA", label: "BRICK OVEN PIZZA" },
-  { key: "PASTA", label: "PASTA" },
-  { key: "DRINKS", label: "DRINKS" },
-];
-
 export default function MenuPage() {
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const total = menuImages.length;
+  const { t } = useLanguage();
+  
+  // 다국어 지원 메뉴 카테고리
+  const MENU_CATEGORIES = [
+    { key: "APPETIZERS", label: t('menu.category.appetizers') },
+    { key: "PIZZA", label: t('menu.category.pizza') },
+    { key: "PASTA", label: t('menu.category.pasta') },
+    { key: "DRINKS", label: t('menu.category.drinks') },
+  ];
   
   const prev = () => {
     setIsTransitioning(true);
@@ -80,9 +83,9 @@ export default function MenuPage() {
               isTransitioning ? 'opacity-50' : 'opacity-100'
             }`}
           >
-            <img
-              src={menuImages[current]}
-              alt={`Menu Slide ${current + 1}`}
+          <img
+            src={menuImages[current]}
+            alt={`Menu Slide ${current + 1}`}
               className="w-full h-auto max-h-[70vh] object-cover shadow-lg transition-all duration-[8000ms] ease-out transform animate-zoom-in"
               style={{ 
                 aspectRatio: "16/9",
@@ -145,205 +148,537 @@ export default function MenuPage() {
             {selectedCategory === "APPETIZERS" && (
               <div className="flex flex-col items-center w-full">
                 <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
-                  APPETIZERS
+                  {t('menu.category.appetizers')}
                 </h2>
                 <ul className="w-full max-w-2xl">
                   <li className="mb-4">
                     <div className="text-lg font-black text-center text-[#634d40]">
-                      Garlic Cheese Fries
+                      {t('menu.item.garlic.fries.name')}
                     </div>
                     <div className="text-sm text-center text-[#634d40]">
-                      향긋한 마늘향이 입안을 감도는 감자튀김
+                      {t('menu.item.garlic.fries.desc')}
                     </div>
                   </li>
                   <li className="mb-4">
                     <div className="text-lg font-black text-center text-[#634d40]">
-                      Buffalo Hot Wings🌶️ (6pcs/10pcs)
+                      {t('menu.item.meatballs.name')}
                     </div>
-                    <div className="text-sm text-center text-[#634d40]">
-                      버팔로 소스를 입혀 매콤상큼한 타바스코 향을 느낄 수 있는
-                      치킨윙
-                    </div>
-                  </li>
-                  <li className="mb-4">
-                    <div className="text-lg font-black text-center text-[#634d40]">
-                      Sweet Honey Hot Wings🌶️ (6pcs/10pcs)
-                    </div>
-                    <div className="text-sm text-center text-[#634d40]">
-                      매콤한 버팔로 소스와 달콤한 꿀을 입힌 치킨윙
-                    </div>
-                  </li>
-                  <li className="mb-4">
-                    <div className="text-lg font-black text-center text-[#634d40]">
-                      Paulie's BBQ Wings (6pcs/10pcs)
-                    </div>
-                    <div className="text-sm text-center text-[#634d40]">
-                      바비큐 소스로 맛을 낸 치킨윙
-                    </div>
-                  </li>
-                  <li className="mb-4">
-                    <div className="text-lg font-black text-center text-[#634d40]">
-                      Paulie's Meatballs
-                    </div>
-                    <div className="text-sm text-center text-[#634d40]">
-                      폴리스 오리지널 레시피로 만든 미트볼 (치즈 옵션 가능)
+                    <div className="text-sm text-center text-[#634d40] whitespace-pre-line">
+                      {t('menu.item.meatballs.desc')}
                     </div>
                   </li>
                 </ul>
                 <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
-                  SALADS
+                  {t('menu.category.wings')}
                 </h2>
                 <ul className="w-full max-w-2xl">
-                  <li className="mb-2 text-center text-[#634d40] font-black">
-                    Paulie's House Salad (Ranch or Balsamic)
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.honey.wings.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.honey.wings.desc')}
+                    </div>
                   </li>
-                  <li className="mb-2 text-center text-[#634d40] font-black">
-                    Chicken Caesar Salad
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.buffalo.wings.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.buffalo.wings.desc')}
+                    </div>
                   </li>
-                  <li className="mb-2 text-center text-[#634d40] font-black">
-                    Pesto Pasta Salad
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.bbq.wings.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.bbq.wings.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-center text-xs text-[#fc492d] italic">
+                      {t('menu.wings.quality')}
+                    </div>
+                  </li>
+                </ul>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
+                  {t('menu.category.salads')}
+                </h2>
+                <ul className="w-full max-w-2xl">
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.house.salad.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.house.salad.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.caesar.salad.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.caesar.salad.desc')}
+                    </div>
                   </li>
                 </ul>
               </div>
             )}
             {selectedCategory === "PIZZA" && (
               <>
+                {/* 007.mp4 영상 추가 */}
+                <div className="w-full flex justify-center mb-6">
+                  <div className="w-64 h-36 rounded-lg overflow-hidden shadow-lg">
+                    <video
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="metadata"
+                      controls={false}
+                      webkit-playsinline="true"
+                    >
+                      <source src="/007.MP4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
                 <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
-                  Pizza
+                  {t('menu.category.pizza.classic')}
                 </h2>
                 <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                  {[
-                    {
-                      name: "Margherita",
-                      desc: "Tomato sauce, mozzarella, basil",
-                    },
-                    {
-                      name: "Pepperoni",
-                      desc: "Tomato sauce, mozzarella, pepperoni",
-                    },
-                    {
-                      name: "Mushroom Truffle",
-                      desc: "Truffle cream, mozzarella, mushrooms",
-                      tag: "(V)",
-                    },
-                    {
-                      name: "Brooklyn Special",
-                      desc: "Tomato sauce, mozzarella, sausage, peppers, onions",
-                    },
-                    {
-                      name: "Quattro Formaggi",
-                      desc: "Four cheese blend, herbs",
-                    },
-                    {
-                      name: "Vegetarian",
-                      desc: "Tomato sauce, vegetables, mozzarella",
-                      tag: "(V)",
-                    },
-                  ].map((item, index) => (
-                    <li key={index} className="mb-8">
-                      <div className="text-lg font-black text-center text-[#634d40]">
-                        {item.name}{" "}
-                        {item.tag && (
-                          <span className="text-xs">{item.tag}</span>
-                        )}
-                      </div>
-                      <div className="text-sm text-center text-[#634d40]">
-                        {item.desc}
-                      </div>
-                    </li>
-                  ))}
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.ny.cheese.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.ny.cheese.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.hawaiian.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.hawaiian.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.pepperoni.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.pepperoni.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.godfather.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.godfather.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.pepperoni.mushroom.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.pepperoni.mushroom.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.ny.supreme.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.ny.supreme.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.margherita.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.margherita.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.meat.lovers.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.meat.lovers.desc')}
+                    </div>
+                  </li>
+                </ul>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
+                  {t('menu.category.pizza.signature')}
+                </h2>
+                <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.potato.bacon.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.potato.bacon.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.white.pie.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.white.pie.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.spicy.cheddar.chicken.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.spicy.cheddar.chicken.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.meatball.ricotta.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.meatball.ricotta.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.bbq.chicken.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.bbq.chicken.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.bmo.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.bmo.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.devils.delight.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.devils.delight.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.pesto.chicken.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.pesto.chicken.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40] relative">
+                      {t('menu.item.spicy.hawaiian.ricotta.name')}
+                      <span className="inline-block ml-2 px-2 py-1 text-xs font-bold text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg animate-pulse">NEW</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.spicy.hawaiian.ricotta.desc')}
+                    </div>
+                  </li>
+                </ul>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
+                  {t('menu.category.pizza.combos')}
+                </h2>
+                <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.combo.1.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.combo.1.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.combo.3.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.combo.3.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.combo.2.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.combo.2.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.combo.4.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.combo.4.desc')}
+                    </div>
+                  </li>
                 </ul>
               </>
             )}
             {selectedCategory === "PASTA" && (
               <>
                 <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
-                  Pasta
+                  {t('menu.category.pasta.main')}
                 </h2>
                 <ul className="w-full max-w-2xl">
-                  {[
-                    {
-                      name: "Spaghetti Pomodoro",
-                      desc: "Tomato sauce, basil, olive oil",
-                      tag: "(V)",
-                    },
-                    {
-                      name: "Fettuccine Alfredo",
-                      desc: "Cream sauce, parmesan, black pepper",
-                    },
-                    {
-                      name: "Penne Arrabbiata",
-                      desc: "Spicy tomato sauce, garlic, parsley",
-                      tag: "(V)",
-                    },
-                    {
-                      name: "Linguine Vongole",
-                      desc: "Clams, white wine, garlic, parsley",
-                    },
-                    {
-                      name: "Rigatoni Bolognese",
-                      desc: "Meat sauce, parmesan",
-                    },
-                    {
-                      name: "Gnocchi",
-                      desc: "Potato dumplings, choice of sauce",
-                    },
-                  ].map((item, index) => (
-                    <li key={index} className="mb-4">
-                      <div className="text-lg font-black text-center text-[#634d40]">
-                        {item.name}{" "}
-                        {item.tag && (
-                          <span className="text-xs">{item.tag}</span>
-                        )}
-                      </div>
-                      <div className="text-sm text-center text-[#634d40]">
-                        {item.desc}
-                      </div>
-                    </li>
-                  ))}
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.spaghetti.meatballs.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.spaghetti.meatballs.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.shrimp.rosso.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.shrimp.rosso.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.chicken.carbonara.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.chicken.carbonara.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.bolognese.diavolo.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.bolognese.diavolo.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.rigatoni.arribiata.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.rigatoni.arribiata.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.creamy.pesto.shrimp.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.creamy.pesto.shrimp.desc')}
+                    </div>
+                  </li>
+                </ul>
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
+                  {t('menu.category.pasta.baked')}
+                </h2>
+                <ul className="w-full max-w-2xl">
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.baked.ziti.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.baked.ziti.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.item.baked.spinach.chicken.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.baked.spinach.chicken.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40] relative">
+                      {t('menu.item.rigatoni.lasagna.name')}
+                      <span className="inline-block ml-2 px-2 py-1 text-xs font-bold text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg animate-pulse">NEW</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.item.rigatoni.lasagna.desc')}
+                    </div>
+                  </li>
                 </ul>
               </>
             )}
             {selectedCategory === "DRINKS" && (
               <>
                 <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
-                  Sides & Drinks
+                  {t('menu.category.drinks.beer')}
+                </h2>
+                <div className="w-full max-w-4xl mb-8">
+                  {/* 맥주 종류별 설명 */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div className="bg-[#f7eee1] p-4 rounded-lg">
+                      <h3 className="text-lg font-black text-[#fc492d] mb-2">{t('menu.beer.lager.title')}</h3>
+                      <p className="text-sm text-[#634d40]">
+                        {t('menu.beer.lager.desc')}
+                      </p>
+                    </div>
+                    <div className="bg-[#f7eee1] p-4 rounded-lg">
+                      <h3 className="text-lg font-black text-[#fc492d] mb-2">{t('menu.beer.wheat.title')}</h3>
+                      <p className="text-sm text-[#634d40]">
+                        {t('menu.beer.wheat.desc')}
+                      </p>
+                    </div>
+                    <div className="bg-[#f7eee1] p-4 rounded-lg">
+                      <h3 className="text-lg font-black text-[#fc492d] mb-2">{t('menu.beer.ipa.title')}</h3>
+                      <p className="text-sm text-[#634d40]">
+                        {t('menu.beer.ipa.desc')}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div className="bg-[#f7eee1] p-4 rounded-lg">
+                      <h3 className="text-lg font-black text-[#fc492d] mb-2">{t('menu.beer.ale.title')}</h3>
+                      <p className="text-sm text-[#634d40]">
+                        {t('menu.beer.ale.desc')}
+                      </p>
+                    </div>
+                    <div className="bg-[#f7eee1] p-4 rounded-lg">
+                      <h3 className="text-lg font-black text-[#fc492d] mb-2">{t('menu.beer.stout.title')}</h3>
+                      <p className="text-sm text-[#634d40]">
+                        {t('menu.beer.stout.desc')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* 맥주 메뉴 */}
+                <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.beer.budweiser.name')} <span className="text-xs bg-[#8B4513] text-white px-2 py-1 rounded">LAGER</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.budweiser.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      <span className="text-xs text-[#fc492d]">{t('menu.limited')}</span> {t('menu.beer.magpie.kolsh.name')} <span className="text-xs bg-[#8B4513] text-white px-2 py-1 rounded">LAGER</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.magpie.kolsh.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.beer.stella.name')} <span className="text-xs bg-[#90EE90] text-black px-2 py-1 rounded">PILSNER</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.stella.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      <span className="text-xs text-[#fc492d]">{t('menu.limited')}</span> {t('menu.beer.apricot.wheat.name')} <span className="text-xs bg-[#DEB887] text-black px-2 py-1 rounded">WHEAT</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.apricot.wheat.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      <span className="text-xs text-[#fc492d]">{t('menu.limited')}</span> {t('menu.beer.raspberry.wheat.name')} <span className="text-xs bg-[#DEB887] text-black px-2 py-1 rounded">WHEAT</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.raspberry.wheat.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      <span className="text-xs text-[#fc492d]">{t('menu.limited')}</span> {t('menu.beer.weihenstephaner.name')} <span className="text-xs bg-[#DEB887] text-black px-2 py-1 rounded">WHEAT</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.weihenstephaner.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      <span className="text-xs text-[#fc492d]">{t('menu.limited')}</span> {t('menu.beer.gorilla.ipa.name')} <span className="text-xs bg-[#228B22] text-white px-2 py-1 rounded">IPA</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.gorilla.ipa.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      <span className="text-xs text-[#fc492d]">{t('menu.limited')}</span> {t('menu.beer.indica.ipa.name')} <span className="text-xs bg-[#228B22] text-white px-2 py-1 rounded">IPA</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.indica.ipa.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      <span className="text-xs text-[#fc492d]">{t('menu.limited')}</span> {t('menu.beer.magpie.pale.ale.name')} <span className="text-xs bg-[#CD853F] text-white px-2 py-1 rounded">ALE</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.magpie.pale.ale.desc')}
+                    </div>
+                  </li>
+                  <li className="mb-6">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      <span className="text-xs text-[#fc492d]">{t('menu.limited')}</span> {t('menu.beer.peanut.butter.name')} <span className="text-xs bg-[#2F4F4F] text-white px-2 py-1 rounded">STOUT</span>
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.beer.peanut.butter.desc')}
+                    </div>
+                  </li>
+                </ul>
+
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-12 mb-6 uppercase">
+                  {t('menu.category.drinks.soft')}
                 </h2>
                 <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
-                  {[
-                    {
-                      name: "Garlic Knots",
-                      desc: "Garlic butter, parsley, parmesan",
-                      tag: "(V)",
-                    },
-                    {
-                      name: "Caesar Salad",
-                      desc: "Romaine, croutons, parmesan, caesar dressing",
-                    },
-                    {
-                      name: "Caprese Salad",
-                      desc: "Tomatoes, fresh mozzarella, basil",
-                      tag: "(V)",
-                    },
-                    { name: "Italian Soda", desc: "Various flavors available" },
-                    { name: "House Wine", desc: "Red or white (Glass/Bottle)" },
-                    {
-                      name: "Craft Beer",
-                      desc: "Local and imported selection",
-                    },
-                  ].map((item, index) => (
-                    <li key={index} className="mb-8">
-                      <div className="text-lg font-black text-center text-[#634d40]">
-                        {item.name}{" "}
-                        {item.tag && (
-                          <span className="text-xs">{item.tag}</span>
-                        )}
-                      </div>
-                      <div className="text-sm text-center text-[#634d40]">
-                        {item.desc}
-                      </div>
-                    </li>
-                  ))}
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.drinks.coke.name')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.drinks.pellegrino.lemon.name')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.drinks.orange.juice.name')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.drinks.pellegrino.bottle.name')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.drinks.arizona.tea.name')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.drinks.pink.lemonade.name')}
+                    </div>
+                  </li>
                 </ul>
               </>
             )}

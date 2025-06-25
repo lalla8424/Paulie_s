@@ -1,9 +1,12 @@
 "use client"
 import Link from "next/link"
 import { useState } from "react"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { language, setLanguage, t } = useLanguage()
+
   return (
     <header className="fixed top-0 left-0 right-0 z-40 w-full h-20" style={{ backgroundColor: "rgba(245, 240, 230, 0.95)", backdropFilter: "blur(8px)" }}>
       <div className="container mx-auto h-full px-4 flex justify-between items-center">
@@ -20,22 +23,32 @@ export default function Header() {
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
             <li>
-              <Link href="/" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">HOME</Link>
+              <Link href="/" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">{t('nav.home')}</Link>
             </li>
             <li>
-              <Link href="/menu" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">MENU</Link>
+              <Link href="/menu" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">{t('nav.menu')}</Link>
             </li>
             <li>
-              <Link href="/about" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">ABOUT US</Link>
+              <Link href="/about" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">{t('nav.about')}</Link>
             </li>
             <li>
-              <Link href="/locations" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">LOCATIONS</Link>
+              <Link href="/locations" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">{t('nav.locations')}</Link>
             </li>
             <li>
               <div className="text-[#fc492d] text-sm font-normal">
-                <button className="hover:text-[#634d40] transition-colors">KO</button>
+                <button 
+                  className={`hover:text-[#634d40] transition-colors ${language === 'ko' ? 'font-bold' : ''}`}
+                  onClick={() => setLanguage('ko')}
+                >
+                  KO
+                </button>
                 <span className="mx-1">/</span>
-                <button className="hover:text-[#634d40] transition-colors">EN</button>
+                <button 
+                  className={`hover:text-[#634d40] transition-colors ${language === 'en' ? 'font-bold' : ''}`}
+                  onClick={() => setLanguage('en')}
+                >
+                  EN
+                </button>
               </div>
             </li>
           </ul>
@@ -59,23 +72,33 @@ export default function Header() {
           </button>
           <ul className="space-y-8 text-2xl">
             <li>
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">HOME</Link>
+              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">{t('nav.home')}</Link>
             </li>
             <li>
-              <Link href="/menu" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">MENU</Link>
+              <Link href="/menu" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">{t('nav.menu')}</Link>
             </li>
             <li>
-              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">ABOUT US</Link>
+              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">{t('nav.about')}</Link>
             </li>
             <li>
-              <Link href="/locations" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">LOCATIONS</Link>
+              <Link href="/locations" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">{t('nav.locations')}</Link>
             </li>
             <li>
               <div className="text-center">
                 <div className="text-[#fc492d] text-sm font-normal">
-                  <button className="hover:text-[#634d40] transition-colors">KO</button>
+                  <button 
+                    className={`hover:text-[#634d40] transition-colors ${language === 'ko' ? 'font-bold' : ''}`}
+                    onClick={() => setLanguage('ko')}
+                  >
+                    KO
+                  </button>
                   <span className="mx-2">/</span>
-                  <button className="hover:text-[#634d40] transition-colors">EN</button>
+                  <button 
+                    className={`hover:text-[#634d40] transition-colors ${language === 'en' ? 'font-bold' : ''}`}
+                    onClick={() => setLanguage('en')}
+                  >
+                    EN
+                  </button>
                 </div>
               </div>
             </li>

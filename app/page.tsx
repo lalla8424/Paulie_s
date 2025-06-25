@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
 import Link from "next/link"
 import { Instagram, Facebook, Mail, ArrowUp } from "lucide-react"
 import { motion, useAnimation, useScroll } from "framer-motion"
@@ -10,13 +10,20 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  CarouselApi,
 } from "@/components/ui/carousel"
 import HeroBanner from "@/components/HeroBanner"
 import MenuFadeSlider from "@/components/MenuFadeSlider"
+import { useLanguage } from "@/contexts/LanguageContext"
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { language, setLanguage, t } = useLanguage()
+  const [api, setApi] = useState<CarouselApi>()
+  const [current, setCurrent] = useState(0)
+  const [count, setCount] = useState(0)
+  const [isUserInteracting, setIsUserInteracting] = useState(false)
 
   // Animation variants
   const fadeIn = {
@@ -68,6 +75,46 @@ export default function Home() {
     zIndex: 50,
   }
 
+  // Auto-slide functionality for carousel
+  useEffect(() => {
+    if (!api) {
+      return
+    }
+
+    setCount(api.scrollSnapList().length)
+    setCurrent(api.selectedScrollSnap() + 1)
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1)
+    })
+
+    // Auto-slide every 6 seconds, but pause when user is interacting
+    const autoSlide = setInterval(() => {
+      if (!isUserInteracting) {
+        if (api.canScrollNext()) {
+          api.scrollNext()
+        } else {
+          api.scrollTo(0) // Go back to first slide when reaching the end
+        }
+      }
+    }, 6000)
+
+    return () => {
+      clearInterval(autoSlide)
+    }
+  }, [api, isUserInteracting])
+
+  // Reset user interaction flag after a delay
+  useEffect(() => {
+    if (isUserInteracting) {
+      const resetTimer = setTimeout(() => {
+        setIsUserInteracting(false)
+      }, 10000) // Resume auto-slide after 10 seconds of no interaction
+
+      return () => clearTimeout(resetTimer)
+    }
+  }, [isUserInteracting])
+
   // Section animations with intersection observer
   const AnimatedSection = ({ children, className, delay = 0 }: {children: React.ReactNode, className?: string, delay?: number}) => {
     const controls = useAnimation()
@@ -115,149 +162,6 @@ export default function Home() {
         }}
       />
 
-      {/* Header */}
-      <motion.header
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-40 w-full h-20"
-        style={{
-          backgroundColor: "rgba(245, 240, 230, 0.95)",
-          backdropFilter: "blur(8px)"
-        }}
-      >
-        <div className="container mx-auto h-full px-4 flex justify-between items-center">
-          <div className="logo h-20 flex items-center">
-            <img
-              src="/paulies_logo3.png"
-              alt="PAULIE'S"
-              className="h-full w-auto object-contain pr-4"
-            />
-          </div>
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8">
-              <li>
-                <a
-                  href="#home"
-                  className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway"
-                  onClick={e => {
-                    e.preventDefault();
-                    const el = document.getElementById('home');
-                    if (el) el.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  HOME
-                </a>
-              </li>
-              <li>
-                <Link
-                  href="/menu"
-                  className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway"
-                >
-                  MENU
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway"
-                >
-                  ABOUT US
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/locations"
-                  className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway"
-                >
-                  LOCATIONS
-                </Link>
-              </li>
-              <li>
-                <div className="text-[#fc492d] text-sm font-normal">
-                  <button className="hover:text-[#634d40] transition-colors">KO</button>
-                  <span className="mx-1">/</span>
-                  <button className="hover:text-[#634d40] transition-colors">EN</button>
-                </div>
-              </li>
-            </ul>
-          </nav>
-          <button className="md:hidden" onClick={() => setMobileMenuOpen(true)}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="
-            http://www.w3.org/2000/svg">
-              <path d="M3 12H21" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M3 6H21" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M3 18H21" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
-        <div className="w-full h-2 bg-[#fd735a]" />
-      </motion.header>
-
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 backdrop-blur-md flex flex-col items-center justify-center bg-white/95">
-          <button className="absolute top-4 right-4" onClick={() => setMobileMenuOpen(false)}>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M18 6L6 18" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M6 6L18 18" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-          <ul className="space-y-8 text-2xl">
-            <li>
-              <a
-                href="#home"
-                onClick={e => {
-                  e.preventDefault();
-                  setMobileMenuOpen(false);
-                  const el = document.getElementById('home');
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors"
-              >
-                HOME
-              </a>
-            </li>
-            <li>
-              <Link
-                href="/menu"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors"
-              >
-                MENU
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/about"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors"
-              >
-                ABOUT US
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/locations"
-                onClick={() => setMobileMenuOpen(false)}
-                className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors"
-              >
-                LOCATIONS
-              </Link>
-            </li>
-            <li>
-              <div className="text-center">
-                <div className="text-[#fc492d] text-sm font-normal">
-                  <button className="hover:text-[#634d40] transition-colors">KO</button>
-                  <span className="mx-2">/</span>
-                  <button className="hover:text-[#634d40] transition-colors">EN</button>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      )}
-
       {/* Hero Section - Full width image slider */}
       <section className="py-0 px-0 relative w-full overflow-hidden" id="home" style={{ marginTop: '-2px' }}>
         <div className="grid grid-cols-1 gap-0 h-[85vh] min-h-[550px] md:h-[75vh] md:min-h-[600px] items-stretch">
@@ -280,169 +184,224 @@ export default function Home() {
         </div>
 
         <AnimatedSection className="mt-8">
-          <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">Our Menu</h2>
+          <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">{t('main.menu.title')}</h2>
         </AnimatedSection>
 
         {/* Menu Image Fade Slider */}
         <MenuFadeSlider />
 
-        <Carousel className="w-full max-w-6xl mx-auto" opts={{ loop: true }}>
+        <div className="w-full max-w-6xl mx-auto">
+          <Carousel 
+            className="w-full" 
+            opts={{ loop: true }}
+            setApi={setApi}
+          >
+
+
+          {/* Auto-slide indicator */}
+          <div className="flex items-center justify-center gap-1 mb-6">
+            {Array.from({ length: count }).map((_, index) => (
+              <div
+                key={index}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === current - 1 ? 'bg-[#634d40]' : 'bg-[#634d40]/30'
+                }`}
+              />
+            ))}
+          </div>
+
           <CarouselContent>
-            {/* Page 1: Original Menu */}
+            {/* Page 1: Appetizers & Salads */}
             <CarouselItem className="basis-full">
               <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6">Pizza Classics</h3>
+                  <h3 className="text-2xl font-handwriting mb-6 text-[#634d40]">{t('menu.main.appetizers')}</h3>
                   <div className="space-y-4">
-                    {[
-                      { name: "Margherita", desc: "Tomato sauce, mozzarella, basil", price: "$16" },
-                      { name: "Pepperoni", desc: "Tomato sauce, mozzarella, pepperoni", price: "$18" },
-                      { name: "Quattro Formaggi", desc: "Mozzarella, gorgonzola, parmesan, fontina", price: "$20" },
-                      { name: "Marinara", desc: "Tomato sauce, garlic, oregano (no cheese)", price: "$14" },
-                      { name: "Napoletana", desc: "Tomato sauce, mozzarella, anchovies, capers", price: "$19" },
-                      { name: "Capricciosa", desc: "Tomato sauce, mozzarella, mushrooms, ham, olives", price: "$21" },
-                    ].map((item, index) => (
-                      <div key={index} className="menu-item">
-                        <div className="flex justify-between items-baseline">
-                          <h4 className="font-medium">{item.name}</h4>
-                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
-                          <span className="ml-1">{item.price}</span>
-                        </div>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
-                      </div>
-                    ))}
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.garlic.fries.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.meatballs.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.honey.wings.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.buffalo.wings.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.bbq.wings.name')}</h4>
+                    </div>
                   </div>
                 </div>
                 <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6">Specialty Pizzas</h3>
+                  <h3 className="text-2xl font-handwriting mb-6 text-[#634d40]">{t('menu.main.salads')}</h3>
                   <div className="space-y-4">
-                    {[
-                      { name: "Truffle Mushroom", desc: "Truffle oil, wild mushrooms, mozzarella", price: "$24" },
-                      { name: "Prosciutto & Arugula", desc: "Prosciutto, fresh arugula, parmesan", price: "$22" },
-                      { name: "Seafood Special", desc: "Shrimp, calamari, mussels, garlic", price: "$26" },
-                      { name: "Buffalo", desc: "Buffalo mozzarella, cherry tomatoes, basil", price: "$23" },
-                      { name: "Calabrese", desc: "Spicy nduja, red onions, mozzarella", price: "$21" },
-                      { name: "Mediterranean", desc: "Feta, olives, sun-dried tomatoes, oregano", price: "$20" },
-                    ].map((item, index) => (
-                      <div key={index} className="menu-item">
-                        <div className="flex justify-between items-baseline">
-                          <h4 className="font-medium">{item.name}</h4>
-                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
-                          <span className="ml-1">{item.price}</span>
-                        </div>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
-                      </div>
-                    ))}
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.house.salad.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.caesar.salad.name')}</h4>
+                    </div>
                   </div>
                 </div>
               </div>
             </CarouselItem>
 
-            {/* Page 2: Pasta & Appetizers */}
+            {/* Page 2: All Pizzas (Classic + Signature) */}
             <CarouselItem className="basis-full">
-              <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
-                <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6">Fresh Pasta</h3>
-                  <div className="space-y-4">
-                    {[
-                      { name: "Spaghetti Carbonara", desc: "Pancetta, egg, pecorino, black pepper", price: "$18" },
-                      { name: "Rigatoni Vodka", desc: "Vodka sauce, cream, parmesan", price: "$17" },
-                      { name: "Lobster Ravioli", desc: "Lobster filling, butter sage sauce", price: "$25" },
-                      { name: "Fettuccine Alfredo", desc: "Cream sauce, parmesan, butter", price: "$16" },
-                      { name: "Penne Arrabbiata", desc: "Spicy tomato sauce, garlic, parsley", price: "$15" },
-                      { name: "Linguine Vongole", desc: "Clams, white wine, garlic, parsley", price: "$22" },
-                    ].map((item, index) => (
-                      <div key={index} className="menu-item">
-                        <div className="flex justify-between items-baseline">
-                          <h4 className="font-medium">{item.name}</h4>
-                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
-                          <span className="ml-1">{item.price}</span>
-                        </div>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
+              <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
+                <h3 className="text-2xl font-handwriting mb-8 text-center text-[#634d40]">BRICK OVEN PIZZAS</h3>
+                
+                {/* Left-Right Layout: Classic vs Signature */}
+                <div className="grid md:grid-cols-2 gap-8 items-start">
+                  {/* Left Side: Classic Pizzas */}
+                  <div>
+                    <h4 className="text-xl font-handwriting mb-4 text-center text-[#634d40]">{t('menu.main.pizza.classic')}</h4>
+                    <div className="space-y-4 flex flex-col">
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.cheese.name')}</h4>
                       </div>
-                    ))}
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.pepperoni.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.pepperoni.mushroom.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.margherita.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.hawaiian.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.godfather.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.supreme.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.meat.lovers.name')}</h4>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6">Appetizers</h3>
-                  <div className="space-y-4">
-                    {[
-                      { name: "Bruschetta", desc: "Tomatoes, basil, garlic, olive oil", price: "$8" },
-                      { name: "Calamari Fritti", desc: "Fried calamari, marinara sauce", price: "$12" },
-                      { name: "Antipasto Misto", desc: "Selection of Italian meats and cheeses", price: "$16" },
-                      { name: "Caprese Salad", desc: "Fresh mozzarella, tomatoes, basil", price: "$10" },
-                      { name: "Garlic Knots", desc: "Garlic butter, parsley, parmesan", price: "$7" },
-                      { name: "Meatballs", desc: "House-made meatballs in tomato sauce", price: "$11" },
-                    ].map((item, index) => (
-                      <div key={index} className="menu-item">
-                        <div className="flex justify-between items-baseline">
-                          <h4 className="font-medium">{item.name}</h4>
-                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
-                          <span className="ml-1">{item.price}</span>
-                        </div>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
+
+                  {/* Right Side: Signature Pizzas */}
+                  <div>
+                    <h4 className="text-xl font-handwriting mb-4 text-center text-[#634d40]">{t('menu.main.pizza.signature')}</h4>
+                    <div className="space-y-4 flex flex-col">
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.bbq.chicken.name')}</h4>
                       </div>
-                    ))}
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.pesto.chicken.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.potato.bacon.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.white.pie.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.meatball.ricotta.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.bmo.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.devils.delight.name')}</h4>
+                      </div>
+                      <div className="menu-item py-2">
+                        <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.hawaiian.ricotta.name')}</h4>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </CarouselItem>
 
-            {/* Page 3: Desserts & Drinks */}
+            {/* Page 3: Pasta */}
             <CarouselItem className="basis-full">
               <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6">Desserts</h3>
+                  <h3 className="text-2xl font-handwriting mb-6 text-[#634d40]">{t('menu.main.pasta')}</h3>
                   <div className="space-y-4">
-                    {[
-                      { name: "Tiramisu", desc: "Coffee-soaked ladyfingers, mascarpone", price: "$8" },
-                      { name: "Cannoli", desc: "Sweet ricotta filling, pistachios", price: "$7" },
-                      { name: "Panna Cotta", desc: "Vanilla cream with berry compote", price: "$7" },
-                      { name: "Gelato", desc: "Selection of Italian ice creams", price: "$6" },
-                      { name: "Affogato", desc: "Vanilla gelato, espresso shot", price: "$6" },
-                      { name: "Chocolate Torta", desc: "Rich chocolate cake, whipped cream", price: "$8" },
-                    ].map((item, index) => (
-                      <div key={index} className="menu-item">
-                        <div className="flex justify-between items-baseline">
-                          <h4 className="font-medium">{item.name}</h4>
-                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
-                          <span className="ml-1">{item.price}</span>
-                        </div>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
-                      </div>
-                    ))}
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.spaghetti.meatballs.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.shrimp.rosso.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.chicken.carbonara.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.bolognese.diavolo.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.rigatoni.arribiata.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.creamy.pesto.shrimp.name')}</h4>
+                    </div>
                   </div>
                 </div>
                 <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6">Drinks</h3>
+                  <h3 className="text-2xl font-handwriting mb-6 text-[#634d40]">{t('menu.main.pasta.baked')}</h3>
                   <div className="space-y-4">
-                    {[
-                      { name: "House Red Wine", desc: "Glass / Bottle", price: "$8 / $32" },
-                      { name: "House White Wine", desc: "Glass / Bottle", price: "$8 / $32" },
-                      { name: "Italian Craft Beer", desc: "Selection of Italian beers", price: "$7" },
-                      { name: "Espresso", desc: "Single / Double", price: "$3 / $4" },
-                      { name: "Cappuccino", desc: "Traditional Italian style", price: "$4" },
-                      { name: "Italian Soda", desc: "Various flavors available", price: "$4" },
-                    ].map((item, index) => (
-                      <div key={index} className="menu-item">
-                        <div className="flex justify-between items-baseline">
-                          <h4 className="font-medium">{item.name}</h4>
-                          <div className="border-b border-dotted border-gray-400 flex-grow mx-1"></div>
-                          <span className="ml-1">{item.price}</span>
-                        </div>
-                        <p className="text-sm text-gray-600">{item.desc}</p>
-                      </div>
-                    ))}
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.baked.ziti.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.baked.spinach.chicken.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.rigatoni.lasagna.name')}</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+
+            {/* Page 4: Drinks */}
+            <CarouselItem className="basis-full">
+              <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
+                <h3 className="text-2xl font-handwriting mb-6 text-center text-[#634d40]">{t('menu.main.drinks')}</h3>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.beer.budweiser.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.beer.stella.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.beer.magpie.kolsh.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.beer.apricot.wheat.name')}</h4>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.coke.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.pellegrino.lemon.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.orange.juice.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.arizona.tea.name')}</h4>
+                    </div>
                   </div>
                 </div>
               </div>
             </CarouselItem>
           </CarouselContent>
-          <div className="flex items-center justify-center gap-2 mt-4">
-            <CarouselPrevious className="static relative translate-y-0 bg-[#634d40]/20 hover:bg-[#634d40]/40 border-[#634d40]/20 text-[#634d40]" />
-            <CarouselNext className="static relative translate-y-0 bg-[#634d40]/20 hover:bg-[#634d40]/40 border-[#634d40]/20 text-[#634d40]" />
-          </div>
         </Carousel>
+        </div>
         <div className="w-screen my-8 flex justify-center items-center" style={{ position: 'relative', left: '50%', right: '50%', marginLeft: '-50vw', marginRight: '-50vw' }}>
           <img
             src="/tape_.png"
@@ -459,20 +418,16 @@ export default function Home() {
         <div className="absolute inset-0 z-0" style={{ background: 'rgba(245,240,230,0.92)' }} />
         <div className="max-w-4xl mx-auto px-4 relative z-10">
           <AnimatedSection className="mt-8">
-            <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">Our Story</h2>
+            <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">{t('main.about.title')}</h2>
           </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <AnimatedSection className="space-y-4">
               <p className="mb-4">
-                Our pizza journey began in New York, where we learned the art of brick oven pizza making from the best
-                in the business. We brought that authentic New York style to our neighborhood, focusing on quality
-                ingredients and traditional techniques.
+                {t('main.about.description1')}
               </p>
               <p>
-                Every pizza is hand-stretched and baked in our custom brick oven, giving it that perfect
-                crispy-yet-chewy crust that New York pizza is famous for. We're not just making pizza – we're continuing
-                a legacy.
+                {t('main.about.description2')}
               </p>
             </AnimatedSection>
 
@@ -503,7 +458,7 @@ export default function Home() {
       {/* Locations Section */}
       <section className="container mx-auto py-16 px-4" id="locations">
         <AnimatedSection className="mb-12 mt-[120px]">
-          <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">Our Locations</h2>
+          <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">{t('main.locations.title')}</h2>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1264px] mx-auto">
@@ -527,9 +482,9 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full z-0"
               />
             </div>
-            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">PARNAS MALL COEX SAMSUNG</div>
-            <div className="text-xs text-[#634d40] text-center">삼성동 파르나스몰</div>
-            <div className="text-xs text-[#634d40] text-center mt-1">서울특별시 강남구 테헤란로 521, 지하1층 F13호(삼성동, 파르나스타워)</div>
+            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">{t('location.parnas')}</div>
+            <div className="text-xs text-[#634d40] text-center">{t('location.parnas.korean')}</div>
+            <div className="text-xs text-[#634d40] text-center mt-1">{t('location.parnas.address')}</div>
           </div>
 
           {/* Location 2 */}
@@ -552,9 +507,9 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full z-0"
               />
             </div>
-            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">PARADISE CITY INCHEON</div>
-            <div className="text-xs text-[#634d40] text-center">인천 파라다이스시티</div>
-            <div className="text-xs text-[#634d40] text-center mt-1">인천 중구 영종해안남로 321번길 186, F 204호, (운서동, 파라다이스시티)</div>
+            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">{t('location.paradise')}</div>
+            <div className="text-xs text-[#634d40] text-center">{t('location.paradise.korean')}</div>
+            <div className="text-xs text-[#634d40] text-center mt-1">{t('location.paradise.address')}</div>
           </div>
 
           {/* Location 3 */}
@@ -577,9 +532,9 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full z-0"
               />
             </div>
-            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">D-TOWER GWANGHWAMUN</div>
-            <div className="text-xs text-[#634d40] text-center">광화문 디타워</div>
-            <div className="text-xs text-[#634d40] text-center mt-1">서울특별시 종로구 종로3길 17, 2층 5호 (청진동, 디타워)</div>
+            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">{t('location.dtower')}</div>
+            <div className="text-xs text-[#634d40] text-center">{t('location.dtower.korean')}</div>
+            <div className="text-xs text-[#634d40] text-center mt-1">{t('location.dtower.address')}</div>
           </div>
         </div>
       </section>
@@ -587,22 +542,38 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 px-4 relative">
         <div className="container mx-auto text-center">
+          {/* HEAD OFFICE ADDRESS */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="mb-8"
+          >
+            <h3 className="text-2xl font-raleway text-center mb-4 text-[#634d40] font-bold">
+              {t('footer.office.title')}
+            </h3>
+            <p className="text-[#634d40] text-base font-medium max-w-2xl mx-auto">
+              {t('footer.office.address')}
+            </p>
+          </motion.div>
+
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
             className="flex justify-center space-x-6 mb-6"
           >
-            <a href="#" className="text-black hover:text-[#f75b3b] transition-colors">
+            <a href="#" className="text-[#634d40] hover:text-[#634d40]/70 transition-colors">
               <Instagram size={24} />
               <span className="sr-only">Instagram</span>
             </a>
-            <a href="#" className="text-black hover:text-[#f75b3b] transition-colors">
+            <a href="#" className="text-[#634d40] hover:text-[#634d40]/70 transition-colors">
               <Facebook size={24} />
               <span className="sr-only">Facebook</span>
             </a>
-            <a href="#" className="text-black hover:text-[#f75b3b] transition-colors">
+            <a href="#" className="text-[#634d40] hover:text-[#634d40]/70 transition-colors">
               <Mail size={24} />
               <span className="sr-only">Email</span>
             </a>
@@ -611,11 +582,11 @@ export default function Home() {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
             viewport={{ once: true }}
-            className="text-sm text-gray-600"
+            className="text-sm text-[#634d40]"
           >
-            &copy; {new Date().getFullYear()} PAULIE'S. All rights reserved.
+            &copy; {new Date().getFullYear()} {t('footer.copyright')}
           </motion.p>
         </div>
 

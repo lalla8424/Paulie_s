@@ -15,6 +15,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/react"
 import Header from "@/components/Header"
 import PageTransitionWrapper from "@/components/PageTransitionWrapper"
+import { LanguageProvider } from "@/contexts/LanguageContext"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -78,9 +79,11 @@ export default function RootLayout({
         }}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} disableTransitionOnChange>
-          <Header />
-          <PageTransitionWrapper>{children}</PageTransitionWrapper>
-          <Analytics mode="production" />
+          <LanguageProvider>
+            <Header />
+            <PageTransitionWrapper>{children}</PageTransitionWrapper>
+            <Analytics mode="production" />
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>
