@@ -10,7 +10,7 @@ const images = [
   "/d_tower_2.jpg",   // D-Tower store
   "/paradise.jpg",    // Paradise City store
   "/coex.jpg",        // COEX store interior 2
-  "/location-dtower.jpg"
+  "/d_tower_3.jpg"    // D-Tower store - new image
 ];
 
 export default function LocationsPage() {
@@ -79,8 +79,11 @@ export default function LocationsPage() {
           <img
             src={images[current]}
             alt={`Location Slide ${current + 1}`}
-            className="w-full h-auto max-h-[70vh] object-cover shadow-lg transition-all duration-500"
-            style={{ aspectRatio: "16/9" }}
+            className="w-full h-auto max-h-[50vh] sm:max-h-[60vh] md:max-h-[70vh] object-cover shadow-lg transition-all duration-500"
+            style={{ 
+              aspectRatio: "16/9",
+              minHeight: "200px"
+            }}
           />
           <button
             onClick={next}
@@ -113,17 +116,20 @@ export default function LocationsPage() {
       </section>
 
       {/* 갤러리 섬네일 */}
-      <div className="w-full flex justify-center gap-4 mt-6 mb-8">
+      <div className="w-full flex justify-center gap-2 sm:gap-4 mt-6 mb-8 px-4 overflow-x-auto">
         {images.map((img, idx) => (
           <button
             key={img}
             onClick={() => setCurrent(idx)}
-            className={`border-2 rounded-lg overflow-hidden transition-all duration-200 focus:outline-none ${
+            className={`border-2 rounded-lg overflow-hidden transition-all duration-200 focus:outline-none flex-shrink-0 ${
               current === idx
                 ? "border-[#fc492d] shadow-lg"
                 : "border-transparent opacity-70 hover:opacity-100"
             }`}
-            style={{ width: 100, height: 64 }}
+            style={{ 
+              width: "clamp(70px, 15vw, 100px)", 
+              height: "clamp(45px, 10vw, 64px)"
+            }}
             aria-label={`Go to slide ${idx + 1}`}
           >
             <img
@@ -174,7 +180,7 @@ export default function LocationsPage() {
               {t('locations.hours.label')} {STORES[selectedStore].hours}
             </div>
             <div className="text-sm text-[#634d40] mb-2">
-              {t('locations.tel.label')} {STORES[selectedStore].tel}
+              {t('locations.tel.label')} <a href={`tel:${STORES[selectedStore].tel}`} className="text-[#fc492d] hover:text-[#fc492d]/80 underline cursor-pointer">{STORES[selectedStore].tel}</a>
             </div>
             <div className="text-sm text-[#634d40] mb-2">
               {t('locations.parking.label')} {STORES[selectedStore].parking}

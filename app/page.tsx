@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useState, useCallback } from "react"
 import Link from "next/link"
-import { Instagram, Facebook, Mail, ArrowUp } from "lucide-react"
+
 import { motion, useAnimation, useScroll } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import {
@@ -164,7 +164,7 @@ export default function Home() {
 
       {/* Hero Section - Full width image slider */}
       <section className="py-0 px-0 relative w-full overflow-hidden" id="home" style={{ marginTop: '-2px' }}>
-        <div className="grid grid-cols-1 gap-0 h-[85vh] min-h-[550px] md:h-[75vh] md:min-h-[600px] items-stretch">
+        <div className="grid grid-cols-1 gap-0 h-[60vh] min-h-[400px] sm:h-[70vh] sm:min-h-[500px] md:h-[75vh] md:min-h-[600px] lg:h-[85vh] lg:min-h-[650px] items-stretch">
           {/* Full width image slider */}
           <HeroBanner />
         </div>
@@ -215,7 +215,7 @@ export default function Home() {
             <CarouselItem className="basis-full">
               <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6 text-[#634d40]">{t('menu.main.appetizers')}</h3>
+                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.appetizers')}</h3>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.garlic.fries.name')}</h4>
@@ -235,7 +235,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6 text-[#634d40]">{t('menu.main.salads')}</h3>
+                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.salads')}</h3>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.house.salad.name')}</h4>
@@ -251,13 +251,13 @@ export default function Home() {
             {/* Page 2: All Pizzas (Classic + Signature) */}
             <CarouselItem className="basis-full">
               <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
-                <h3 className="text-2xl font-handwriting mb-8 text-center text-[#634d40]">BRICK OVEN PIZZAS</h3>
+                <h3 className="text-2xl font-black mb-8 text-center text-[#634d40] tracking-wide">BRICK OVEN PIZZAS</h3>
                 
                 {/* Left-Right Layout: Classic vs Signature */}
                 <div className="grid md:grid-cols-2 gap-8 items-start">
                   {/* Left Side: Classic Pizzas */}
                   <div>
-                    <h4 className="text-xl font-handwriting mb-4 text-center text-[#634d40]">{t('menu.main.pizza.classic')}</h4>
+                    <h4 className="text-lg font-handwriting mb-4 text-left text-[#634d40] underline">{t('menu.main.pizza.classic')}</h4>
                     <div className="space-y-4 flex flex-col">
                       <div className="menu-item py-2">
                         <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.cheese.name')}</h4>
@@ -288,7 +288,7 @@ export default function Home() {
 
                   {/* Right Side: Signature Pizzas */}
                   <div>
-                    <h4 className="text-xl font-handwriting mb-4 text-center text-[#634d40]">{t('menu.main.pizza.signature')}</h4>
+                    <h4 className="text-lg font-handwriting mb-4 text-left text-[#634d40] underline">{t('menu.main.pizza.signature')}</h4>
                     <div className="space-y-4 flex flex-col">
                       <div className="menu-item py-2">
                         <h4 className="font-medium text-[#634d40]">{t('menu.item.bbq.chicken.name')}</h4>
@@ -324,7 +324,7 @@ export default function Home() {
             <CarouselItem className="basis-full">
               <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6 text-[#634d40]">{t('menu.main.pasta')}</h3>
+                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.pasta')}</h3>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.spaghetti.meatballs.name')}</h4>
@@ -347,7 +347,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="menu-column">
-                  <h3 className="text-2xl font-handwriting mb-6 text-[#634d40]">{t('menu.main.pasta.baked')}</h3>
+                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.pasta.baked')}</h3>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.baked.ziti.name')}</h4>
@@ -366,7 +366,7 @@ export default function Home() {
             {/* Page 4: Drinks */}
             <CarouselItem className="basis-full">
               <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
-                <h3 className="text-2xl font-handwriting mb-6 text-center text-[#634d40]">{t('menu.main.drinks')}</h3>
+                <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.drinks')}</h3>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <div className="menu-item">
@@ -461,10 +461,10 @@ export default function Home() {
           <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">{t('main.locations.title')}</h2>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-[1264px] mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
           {/* Location 1 */}
-          <div className="flex flex-col items-center">
-            <div className="w-[400px] h-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
+          <div className="flex flex-col items-center max-w-sm mx-auto w-full">
+            <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
               <img
                 src="/location-parnas.jpg"
                 alt="Parnas Mall Photo"
@@ -488,8 +488,8 @@ export default function Home() {
           </div>
 
           {/* Location 2 */}
-          <div className="flex flex-col items-center">
-            <div className="w-[400px] h-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
+          <div className="flex flex-col items-center max-w-sm mx-auto w-full">
+            <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
               <img
                 src="/location-paradise.jpg"
                 alt="Paradise City Photo"
@@ -513,8 +513,8 @@ export default function Home() {
           </div>
 
           {/* Location 3 */}
-          <div className="flex flex-col items-center">
-            <div className="w-[400px] h-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
+          <div className="flex flex-col items-center max-w-sm mx-auto w-full sm:col-span-2 lg:col-span-1">
+            <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
               <img
                 src="/location-dtower.jpg"
                 alt="D-Tower Photo"
@@ -539,75 +539,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 px-4 relative">
-        <div className="container mx-auto text-center">
-          {/* HEAD OFFICE ADDRESS */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="mb-8"
-          >
-            <h3 className="text-2xl font-raleway text-center mb-4 text-[#634d40] font-bold">
-              {t('footer.office.title')}
-            </h3>
-            <p className="text-[#634d40] text-base font-medium max-w-2xl mx-auto">
-              {t('footer.office.address')}
-            </p>
-          </motion.div>
 
-          <motion.div
-            initial={{ y: 20, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="flex justify-center space-x-6 mb-6"
-          >
-            <a href="#" className="text-[#634d40] hover:text-[#634d40]/70 transition-colors">
-              <Instagram size={24} />
-              <span className="sr-only">Instagram</span>
-            </a>
-            <a href="#" className="text-[#634d40] hover:text-[#634d40]/70 transition-colors">
-              <Facebook size={24} />
-              <span className="sr-only">Facebook</span>
-            </a>
-            <a href="#" className="text-[#634d40] hover:text-[#634d40]/70 transition-colors">
-              <Mail size={24} />
-              <span className="sr-only">Email</span>
-            </a>
-          </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="text-sm text-[#634d40]"
-          >
-            &copy; {new Date().getFullYear()} {t('footer.copyright')}
-          </motion.p>
-        </div>
-
-        <motion.button
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-            delay: 1,
-          }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="absolute bottom-8 right-8 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-100 transition-colors"
-        >
-          <ArrowUp size={20} />
-          <span className="sr-only">Back to top</span>
-        </motion.button>
-      </footer>
     </div>
   )
 }

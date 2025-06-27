@@ -86,10 +86,11 @@ export default function MenuPage() {
           <img
             src={menuImages[current]}
             alt={`Menu Slide ${current + 1}`}
-              className="w-full h-auto max-h-[70vh] object-cover shadow-lg transition-all duration-[8000ms] ease-out transform animate-zoom-in"
+              className="w-full h-auto max-h-[50vh] sm:max-h-[60vh] md:max-h-[70vh] object-cover shadow-lg transition-all duration-[8000ms] ease-out transform animate-zoom-in"
               style={{ 
                 aspectRatio: "16/9",
-                transformOrigin: "center center"
+                transformOrigin: "center center",
+                minHeight: "200px"
               }}
             />
           </div>
@@ -229,9 +230,9 @@ export default function MenuPage() {
               <>
                 {/* 007.mp4 영상 추가 */}
                 <div className="w-full flex justify-center mb-6">
-                  <div className="w-64 h-36 rounded-lg overflow-hidden shadow-lg">
+                  <div className="w-full max-w-sm sm:max-w-md md:max-w-lg rounded-lg overflow-hidden shadow-lg">
                     <video
-                      className="w-full h-full object-cover"
+                      className="w-full h-auto object-cover"
                       autoPlay
                       loop
                       muted
@@ -239,6 +240,7 @@ export default function MenuPage() {
                       preload="metadata"
                       controls={false}
                       webkit-playsinline="true"
+                      style={{ aspectRatio: "16/9" }}
                     >
                       <source src="/007.MP4" type="video/mp4" />
                       Your browser does not support the video tag.

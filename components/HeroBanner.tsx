@@ -41,6 +41,7 @@ const HeroBanner = () => {
                     src={src}
                     alt={`Delicious pizza ${arrIdx + 1}`}
                     className="w-full h-full object-cover"
+                    style={{ minHeight: "300px" }}
                   />
                 </div>
               </CarouselItem>

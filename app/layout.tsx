@@ -14,6 +14,7 @@ import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@vercel/analytics/react"
 import Header from "@/components/Header"
+import Footer from "@/components/Footer"
 import PageTransitionWrapper from "@/components/PageTransitionWrapper"
 import { LanguageProvider } from "@/contexts/LanguageContext"
 
@@ -82,6 +83,7 @@ export default function RootLayout({
           <LanguageProvider>
             <Header />
             <PageTransitionWrapper>{children}</PageTransitionWrapper>
+            <Footer />
             <Analytics mode="production" />
           </LanguageProvider>
         </ThemeProvider>

@@ -13,11 +13,19 @@ export default function PageTransitionWrapper({ children }: { children: ReactNod
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={pathname}
-        initial={{ opacity: 0, x: 32 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -32 }}
-        transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
-        style={{ minHeight: "100vh" }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ 
+          duration: 0.2,
+          ease: "easeInOut"
+        }}
+        className="page-transition"
+        style={{ 
+          minHeight: "100vh",
+          willChange: "opacity",
+          transform: "translateZ(0)"
+        }}
       >
         {children}
       </motion.div>

@@ -23,28 +23,28 @@ export default function Header() {
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
             <li>
-              <Link href="/" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">{t('nav.home')}</Link>
+              <Link href="/" scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.home')}</Link>
             </li>
             <li>
-              <Link href="/menu" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">{t('nav.menu')}</Link>
+              <Link href="/menu" scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.menu')}</Link>
             </li>
             <li>
-              <Link href="/about" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">{t('nav.about')}</Link>
+              <Link href="/about" scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.about')}</Link>
             </li>
             <li>
-              <Link href="/locations" className="text-[#fc492d] hover:text-[#634d40] transition-colors cursor-pointer font-raleway">{t('nav.locations')}</Link>
+              <Link href="/locations" scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.locations')}</Link>
             </li>
             <li>
               <div className="text-[#fc492d] text-sm font-normal">
                 <button 
-                  className={`hover:text-[#634d40] transition-colors ${language === 'ko' ? 'font-bold' : ''}`}
+                  className={`hover:text-[#634d40] transition-all duration-300 ease-out ${language === 'ko' ? 'font-bold' : ''}`}
                   onClick={() => setLanguage('ko')}
                 >
                   KO
                 </button>
                 <span className="mx-1">/</span>
                 <button 
-                  className={`hover:text-[#634d40] transition-colors ${language === 'en' ? 'font-bold' : ''}`}
+                  className={`hover:text-[#634d40] transition-all duration-300 ease-out ${language === 'en' ? 'font-bold' : ''}`}
                   onClick={() => setLanguage('en')}
                 >
                   EN
@@ -63,7 +63,7 @@ export default function Header() {
       </div>
       <div className="w-full h-2 bg-[#fd735a]" />
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 backdrop-blur-md flex flex-col items-center justify-center bg-white/95">
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center" style={{ backgroundColor: "#f5f0e6" }}>
           <button className="absolute top-4 right-4" onClick={() => setMobileMenuOpen(false)}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 6L6 18" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -72,29 +72,29 @@ export default function Header() {
           </button>
           <ul className="space-y-8 text-2xl">
             <li>
-              <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">{t('nav.home')}</Link>
+              <Link href="/" scroll={false} onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out font-raleway">{t('nav.home')}</Link>
             </li>
             <li>
-              <Link href="/menu" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">{t('nav.menu')}</Link>
+              <Link href="/menu" scroll={false} onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out font-raleway">{t('nav.menu')}</Link>
             </li>
             <li>
-              <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">{t('nav.about')}</Link>
+              <Link href="/about" scroll={false} onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out font-raleway">{t('nav.about')}</Link>
             </li>
             <li>
-              <Link href="/locations" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-colors">{t('nav.locations')}</Link>
+              <Link href="/locations" scroll={false} onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out font-raleway">{t('nav.locations')}</Link>
             </li>
             <li>
               <div className="text-center">
-                <div className="text-[#fc492d] text-sm font-normal">
+                <div className="text-[#fc492d] text-sm font-raleway">
                   <button 
-                    className={`hover:text-[#634d40] transition-colors ${language === 'ko' ? 'font-bold' : ''}`}
+                    className={`hover:text-[#634d40] transition-all duration-300 ease-out ${language === 'ko' ? 'font-bold' : 'font-normal'}`}
                     onClick={() => setLanguage('ko')}
                   >
                     KO
                   </button>
-                  <span className="mx-2">/</span>
+                  <span className="mx-2 font-normal">/</span>
                   <button 
-                    className={`hover:text-[#634d40] transition-colors ${language === 'en' ? 'font-bold' : ''}`}
+                    className={`hover:text-[#634d40] transition-all duration-300 ease-out ${language === 'en' ? 'font-bold' : 'font-normal'}`}
                     onClick={() => setLanguage('en')}
                   >
                     EN
