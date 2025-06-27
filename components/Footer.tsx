@@ -40,10 +40,10 @@ export default function Footer() {
           viewport={{ once: true }}
           className="mb-6"
         >
-          <h3 className="text-2xl font-raleway text-center mb-4 text-[#634d40] font-bold">
+          <h3 className="text-lg font-raleway text-center mb-4 text-[#634d40] font-bold">
             {t('footer.office.title')}
           </h3>
-          <p className="text-[#634d40] text-base font-medium max-w-2xl mx-auto">
+          <p className="text-[#634d40] text-sm font-medium max-w-2xl mx-auto">
             {t('footer.office.address')}
           </p>
         </motion.div>

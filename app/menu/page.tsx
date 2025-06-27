@@ -227,26 +227,7 @@ export default function MenuPage() {
               </div>
             )}
             {selectedCategory === "PIZZA" && (
-              <>
-                {/* 007.mp4 영상 추가 */}
-                <div className="w-full flex justify-center mb-6">
-                  <div className="w-full max-w-sm sm:max-w-md md:max-w-lg rounded-lg overflow-hidden shadow-lg">
-                    <video
-                      className="w-full h-auto object-cover"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="metadata"
-                      controls={false}
-                      webkit-playsinline="true"
-                      style={{ aspectRatio: "16/9" }}
-                    >
-                      <source src="/007.MP4" type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </div>
+              <div className="flex flex-col items-center w-full">
                 <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
                   {t('menu.category.pizza.classic')}
                 </h2>
@@ -431,7 +412,7 @@ export default function MenuPage() {
                     </div>
                   </li>
                 </ul>
-              </>
+              </div>
             )}
             {selectedCategory === "PASTA" && (
               <>
