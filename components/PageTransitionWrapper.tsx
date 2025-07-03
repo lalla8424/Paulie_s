@@ -5,26 +5,38 @@ import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
 
 /**
- * @description 페이지 전환 시 페이드+슬라이드(오른쪽→왼쪽) 애니메이션을 적용하는 클라이언트 컴포넌트
+ * @description 깜빡거림 없는 부드러운 페이지 전환을 위한 최적화된 fade 애니메이션
+ * - 매우 부드러운 opacity 전환으로 자연스러운 페이지 이동
+ * - 깜빡거림 방지를 위한 최적화된 duration과 easing
  */
 export default function PageTransitionWrapper({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+
   return (
     <AnimatePresence mode="wait" initial={false}>
       <motion.div
         key={pathname}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
+        initial={{ 
+          opacity: 0.8
+        }}
+        animate={{ 
+          opacity: 1
+        }}
+        exit={{ 
+          opacity: 0.8
+        }}
         transition={{ 
-          duration: 0.2,
-          ease: "easeInOut"
+          duration: 0.25,
+          ease: [0.25, 0.46, 0.45, 0.94] // 매우 부드러운 easing
         }}
         className="page-transition"
         style={{ 
           minHeight: "100vh",
           willChange: "opacity",
-          transform: "translateZ(0)"
+          transform: "translateZ(0)",
+          backfaceVisibility: "hidden",
+          WebkitBackfaceVisibility: "hidden",
+          isolation: "isolate"
         }}
       >
         {children}

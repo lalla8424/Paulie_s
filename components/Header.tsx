@@ -11,7 +11,7 @@ export default function Header() {
     <header className="fixed top-0 left-0 right-0 z-40 w-full h-20" style={{ backgroundColor: "rgba(245, 240, 230, 0.95)", backdropFilter: "blur(8px)" }}>
       <div className="container mx-auto h-full px-4 flex justify-between items-center">
         <div className="logo h-20 flex items-center">
-          <Link href="/" scroll={true} aria-label="Go to Home" className="h-full flex items-center block">
+          <Link href="/" prefetch={true} scroll={true} aria-label="Go to Home" className="h-full flex items-center block">
             <img
               src="/paulies_logo3.png"
               alt="PAULIE'S"
@@ -23,16 +23,16 @@ export default function Header() {
         <nav className="hidden md:block">
           <ul className="flex space-x-8">
             <li>
-              <Link href="/" scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.home')}</Link>
+              <Link href="/" prefetch={true} scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.home')}</Link>
             </li>
             <li>
-              <Link href="/menu" scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.menu')}</Link>
+              <Link href="/menu" prefetch={true} scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.menu')}</Link>
             </li>
             <li>
-              <Link href="/about" scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.about')}</Link>
+              <Link href="/about" prefetch={true} scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.about')}</Link>
             </li>
             <li>
-              <Link href="/locations" scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.locations')}</Link>
+              <Link href="/locations" prefetch={true} scroll={false} className="text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out cursor-pointer font-raleway">{t('nav.locations')}</Link>
             </li>
             <li>
               <div className="text-[#fc492d] text-sm font-normal">
@@ -71,18 +71,14 @@ export default function Header() {
           />
           {/* 메뉴 콘텐츠 */}
           <div 
-            className="fixed inset-0 z-50 flex flex-col items-center justify-center pointer-events-none"
+            className="fixed inset-0 z-50 flex items-start justify-center pt-24 pointer-events-none"
           >
-                         <div 
-               className="bg-[#f5f0e6] rounded-lg shadow-2xl p-8 max-w-sm w-full mx-4 pointer-events-auto relative"
-               style={{ 
-                 position: 'fixed',
-                 top: '100px',
-                 left: '50%',
-                 transform: 'translateX(-50%)',
-                 maxHeight: 'calc(100vh - 120px)',
-                 overflowY: 'auto'
-               }}
+            <div 
+              className="bg-[#f5f0e6] rounded-lg shadow-2xl p-8 w-80 max-w-[90vw] pointer-events-auto relative"
+              style={{ 
+                maxHeight: 'calc(100vh - 120px)',
+                overflowY: 'auto'
+              }}
             >
               <button 
                 className="absolute top-4 right-4 p-2" 
@@ -97,6 +93,7 @@ export default function Header() {
                 <li className="text-center">
                   <Link 
                     href="/" 
+                    prefetch={true}
                     scroll={false} 
                     onClick={() => setMobileMenuOpen(false)} 
                     className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out font-raleway"
@@ -107,6 +104,7 @@ export default function Header() {
                 <li className="text-center">
                   <Link 
                     href="/menu" 
+                    prefetch={true}
                     scroll={false} 
                     onClick={() => setMobileMenuOpen(false)} 
                     className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out font-raleway"
@@ -117,6 +115,7 @@ export default function Header() {
                 <li className="text-center">
                   <Link 
                     href="/about" 
+                    prefetch={true}
                     scroll={false} 
                     onClick={() => setMobileMenuOpen(false)} 
                     className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out font-raleway"
@@ -127,6 +126,7 @@ export default function Header() {
                 <li className="text-center">
                   <Link 
                     href="/locations" 
+                    prefetch={true}
                     scroll={false} 
                     onClick={() => setMobileMenuOpen(false)} 
                     className="block font-bold text-[#fc492d] hover:text-[#634d40] transition-all duration-300 ease-out font-raleway"
