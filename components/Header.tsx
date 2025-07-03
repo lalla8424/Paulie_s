@@ -88,11 +88,11 @@ export default function Header() {
                 className="absolute top-4 right-4 p-2" 
                 onClick={() => setMobileMenuOpen(false)}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18 6L6 18" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M6 6L18 18" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </button>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 6L6 18" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M6 6L18 18" stroke="#fc492d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
               <ul className="space-y-6 text-xl pt-8">
                 <li className="text-center">
                   <Link 
@@ -103,7 +103,7 @@ export default function Header() {
                   >
                     {t('nav.home')}
                   </Link>
-                </li>
+            </li>
                 <li className="text-center">
                   <Link 
                     href="/menu" 
@@ -113,7 +113,7 @@ export default function Header() {
                   >
                     {t('nav.menu')}
                   </Link>
-                </li>
+            </li>
                 <li className="text-center">
                   <Link 
                     href="/about" 
@@ -123,7 +123,7 @@ export default function Header() {
                   >
                     {t('nav.about')}
                   </Link>
-                </li>
+            </li>
                 <li className="text-center">
                   <Link 
                     href="/locations" 
@@ -133,28 +133,28 @@ export default function Header() {
                   >
                     {t('nav.locations')}
                   </Link>
-                </li>
-                <li>
-                  <div className="text-center">
-                    <div className="text-[#fc492d] text-sm font-raleway">
-                      <button 
-                        className={`hover:text-[#634d40] transition-all duration-300 ease-out ${language === 'ko' ? 'font-bold' : 'font-normal'}`}
-                        onClick={() => setLanguage('ko')}
-                      >
-                        KO
-                      </button>
-                      <span className="mx-2 font-normal">/</span>
-                      <button 
-                        className={`hover:text-[#634d40] transition-all duration-300 ease-out ${language === 'en' ? 'font-bold' : 'font-normal'}`}
-                        onClick={() => setLanguage('en')}
-                      >
-                        EN
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
+            </li>
+            <li>
+              <div className="text-center">
+                <div className="text-[#fc492d] text-sm font-raleway">
+                  <button 
+                    className={`hover:text-[#634d40] transition-all duration-300 ease-out ${language === 'ko' ? 'font-bold' : 'font-normal'}`}
+                    onClick={() => setLanguage('ko')}
+                  >
+                    KO
+                  </button>
+                  <span className="mx-2 font-normal">/</span>
+                  <button 
+                    className={`hover:text-[#634d40] transition-all duration-300 ease-out ${language === 'en' ? 'font-bold' : 'font-normal'}`}
+                    onClick={() => setLanguage('en')}
+                  >
+                    EN
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
           </div>
         </>
       )}

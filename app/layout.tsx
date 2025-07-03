@@ -22,18 +22,18 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
 export const metadata: Metadata = {
   title: "Paulie's Pizza - New York Style Pizza",
-  description: "Paulie's Pizza는 뉴욕 스타일의 정통 브릭 오븐 피자를 제공하는 최고의 피자 레스토랑입니다. 신선한 재료와 전통 레시피로 만든 다양한 피자를 경험해보세요.",
+  description: "국내 최고의 정통 뉴욕 스타일 프리미엄 피자, Paulie's.",
   openGraph: {
     title: "Paulie's Pizza - New York Style Pizza",
-    description: "Paulie's Pizza는 뉴욕 스타일의 정통 브릭 오븐 피자를 제공하는 최고의 피자 레스토랑입니다. 신선한 재료와 전통 레시피로 만든 다양한 피자를 경험해보세요.",
+    description: "국내 최고의 정통 뉴욕 스타일 프리미엄 피자, Paulie's.",
     url: "https://paulieskorea.vercel.app",
     siteName: "Paulie's Pizza",
     images: [
       {
-        url: "/logo.png",
-        width: 800,
-        height: 600,
-        alt: "Paulie's Pizza Logo",
+        url: "/location2.jpg",
+        width: 1200,
+        height: 630,
+        alt: "국내 최고의 정통 뉴욕 스타일 프리미엄 피자, Paulie's.",
       },
     ],
     locale: "ko_KR",

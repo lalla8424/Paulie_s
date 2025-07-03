@@ -248,79 +248,79 @@ export default function Home() {
               </div>
             </CarouselItem>
 
-            {/* Page 2: All Pizzas (Classic + Signature) */}
+            {/* Page 2: Classic Pizzas */}
             <CarouselItem className="basis-full">
               <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
-                <h3 className="text-2xl font-black mb-8 text-center text-[#634d40] tracking-wide">BRICK OVEN PIZZAS</h3>
+                <h3 className="text-2xl font-black mb-8 text-center text-[#634d40] tracking-wide">CLASSIC PIZZAS</h3>
                 
-                {/* Left-Right Layout: Classic vs Signature */}
-                <div className="grid md:grid-cols-2 gap-8 items-start">
-                  {/* Left Side: Classic Pizzas */}
-                  <div>
-                    <h4 className="text-lg font-handwriting mb-4 text-left text-[#634d40] underline">{t('menu.main.pizza.classic')}</h4>
-                    <div className="space-y-4 flex flex-col">
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.cheese.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.pepperoni.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.pepperoni.mushroom.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.margherita.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.hawaiian.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.godfather.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.supreme.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.meat.lovers.name')}</h4>
-                      </div>
+                <div className="max-w-2xl mx-auto">
+                  <div className="space-y-4 flex flex-col">
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.cheese.name')}</h4>
                     </div>
-                  </div>
-
-                  {/* Right Side: Signature Pizzas */}
-                  <div>
-                    <h4 className="text-lg font-handwriting mb-4 text-left text-[#634d40] underline">{t('menu.main.pizza.signature')}</h4>
-                    <div className="space-y-4 flex flex-col">
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.bbq.chicken.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.pesto.chicken.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.potato.bacon.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.white.pie.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.meatball.ricotta.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.bmo.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.devils.delight.name')}</h4>
-                      </div>
-                      <div className="menu-item py-2">
-                        <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.hawaiian.ricotta.name')}</h4>
-                      </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.pepperoni.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.pepperoni.mushroom.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.margherita.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.hawaiian.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.godfather.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.supreme.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.meat.lovers.name')}</h4>
                     </div>
                   </div>
                 </div>
               </div>
             </CarouselItem>
 
-            {/* Page 3: Pasta */}
+            {/* Page 3: Signature Pizzas */}
+            <CarouselItem className="basis-full">
+              <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
+                <h3 className="text-2xl font-black mb-8 text-center text-[#634d40] tracking-wide">SIGNATURE PIZZAS</h3>
+                
+                <div className="max-w-2xl mx-auto">
+                  <div className="space-y-4 flex flex-col">
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.bbq.chicken.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.pesto.chicken.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.potato.bacon.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.white.pie.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.meatball.ricotta.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.bmo.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.devils.delight.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.hawaiian.ricotta.name')}</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CarouselItem>
+
+            {/* Page 4: Pasta */}
             <CarouselItem className="basis-full">
               <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <div className="menu-column">
@@ -356,14 +356,19 @@ export default function Home() {
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.baked.spinach.chicken.name')}</h4>
                     </div>
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.rigatoni.lasagna.name')}</h4>
+                      <h4 className="font-medium text-[#634d40] flex items-center gap-2">
+                        {t('menu.item.rigatoni.lasagna.name')}
+                        <span className="inline-flex items-center px-2 py-1 text-xs font-bold text-white bg-[#ff6b6b] rounded-full shadow-sm">
+                          NEW
+                        </span>
+                      </h4>
                     </div>
                   </div>
                 </div>
               </div>
             </CarouselItem>
 
-            {/* Page 4: Drinks */}
+            {/* Page 5: Drinks */}
             <CarouselItem className="basis-full">
               <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.drinks')}</h3>
