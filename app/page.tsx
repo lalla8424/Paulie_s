@@ -249,11 +249,11 @@ export default function Home() {
               </div>
             </CarouselItem>
 
-            {/* Page 2: Classic & Signature Pizzas */}
+            {/* Page 2: Classic Pizzas */}
             <CarouselItem className="basis-full">
-              <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
-                <div className="menu-column">
-                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">CLASSIC PIZZAS</h3>
+              <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
+                <h3 className="text-lg font-handwriting mb-6 text-center text-[#634d40] underline">CLASSIC PIZZAS</h3>
+                <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.cheese.name')}</h4>
@@ -267,6 +267,8 @@ export default function Home() {
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.margherita.name')}</h4>
                     </div>
+                  </div>
+                  <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.hawaiian.name')}</h4>
                     </div>
@@ -281,8 +283,14 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="menu-column">
-                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">SIGNATURE PIZZAS</h3>
+              </div>
+            </CarouselItem>
+
+            {/* Page 3: Signature Pizzas */}
+            <CarouselItem className="basis-full">
+              <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
+                <h3 className="text-lg font-handwriting mb-6 text-center text-[#634d40] underline">SIGNATURE PIZZAS</h3>
+                <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.potato.bacon.name')}</h4>
@@ -299,6 +307,8 @@ export default function Home() {
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.hawaiian.ricotta.name')}</h4>
                     </div>
+                  </div>
+                  <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.white.pie.name')}</h4>
                     </div>
@@ -316,7 +326,7 @@ export default function Home() {
               </div>
             </CarouselItem>
 
-            {/* Page 3: Pasta */}
+            {/* Page 4: Pasta */}
             <CarouselItem className="basis-full">
               <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <div className="menu-column">
@@ -370,7 +380,7 @@ export default function Home() {
               </div>
             </CarouselItem>
 
-            {/* Page 4: Drinks */}
+            {/* Page 5: Drinks */}
             <CarouselItem className="basis-full">
               <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">DRINKS</h3>
