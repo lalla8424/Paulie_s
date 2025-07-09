@@ -73,12 +73,12 @@ export default function Header() {
           <div 
             className="fixed inset-0 z-50 flex items-start justify-center pt-24 pointer-events-none"
           >
-            <div 
+                         <div 
               className="bg-[#f5f0e6] rounded-lg shadow-2xl p-8 w-80 max-w-[90vw] pointer-events-auto relative"
-              style={{ 
-                maxHeight: 'calc(100vh - 120px)',
-                overflowY: 'auto'
-              }}
+               style={{ 
+                 maxHeight: 'calc(100vh - 120px)',
+                 overflowY: 'auto'
+               }}
             >
               <button 
                 className="absolute top-4 right-4 p-2" 

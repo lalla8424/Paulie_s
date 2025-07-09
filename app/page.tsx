@@ -215,7 +215,7 @@ export default function Home() {
             <CarouselItem className="basis-full">
               <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <div className="menu-column">
-                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.appetizers')}</h3>
+                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">APPETIZERS</h3>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.garlic.fries.name')}</h4>
@@ -235,7 +235,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="menu-column">
-                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.salads')}</h3>
+                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">SALADS</h3>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.house.salad.name')}</h4>
@@ -324,7 +324,7 @@ export default function Home() {
             <CarouselItem className="basis-full">
               <div className="grid md:grid-cols-2 gap-8 p-8 border border-[#ff6b6b]/20 rounded-lg">
                 <div className="menu-column">
-                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.pasta')}</h3>
+                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">PASTA</h3>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.spaghetti.meatballs.name')}</h4>
@@ -347,7 +347,7 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="menu-column">
-                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.pasta.baked')}</h3>
+                  <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">BAKED PASTA</h3>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.baked.ziti.name')}</h4>
@@ -358,8 +358,7 @@ export default function Home() {
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40] flex items-center gap-2">
                         {t('menu.item.rigatoni.lasagna.name')}
-                        <span className="inline-flex items-center px-2 py-1 text-xs font-bold text-white bg-[#ff6b6b] rounded-full shadow-sm">
-                          NEW
+                        <span className="inline-flex items-center w-2 h-2 bg-[#ff6b6b] rounded-full shadow-sm">
                         </span>
                       </h4>
                     </div>
@@ -371,7 +370,7 @@ export default function Home() {
             {/* Page 5: Drinks */}
             <CarouselItem className="basis-full">
               <div className="p-8 border border-[#ff6b6b]/20 rounded-lg">
-                <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">{t('menu.main.drinks')}</h3>
+                <h3 className="text-lg font-handwriting mb-6 text-left text-[#634d40] underline">DRINKS</h3>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-4">
                     <div className="menu-item">
@@ -396,6 +395,9 @@ export default function Home() {
                     </div>
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.drinks.orange.juice.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.pellegrino.bottle.name')}</h4>
                     </div>
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.drinks.arizona.tea.name')}</h4>
