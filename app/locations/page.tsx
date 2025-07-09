@@ -10,7 +10,8 @@ const images = [
   "/d_tower_2.jpg",   // D-Tower store
   "/paradise.jpg",    // Paradise City store
   "/coex.jpg",        // COEX store interior 2
-  "/d_tower_3.jpg"    // D-Tower store - new image
+  "/d_tower_3.jpg",   // D-Tower store - new image
+  "/hum.JPG"          // Camp Humphreys store
 ];
 
 export default function LocationsPage() {
@@ -50,6 +51,16 @@ export default function LocationsPage() {
       parking: t('locations.dtower.parking'),
       transit: t('locations.dtower.transit'),
       map: "https://www.google.com/maps?q=디타워+광화문&output=embed",
+    },
+    {
+      name: t('locations.humphreys.name'),
+      sub: t('locations.humphreys.sub'),
+      address: t('locations.humphreys.address'),
+      tel: t('locations.humphreys.tel'),
+      hours: t('locations.humphreys.hours'),
+      parking: t('locations.humphreys.parking'),
+      transit: t('locations.humphreys.transit'),
+      map: "https://www.google.com/maps?q=118+Anjeong+Sunhwan-ro,+Paengseong-eup,+Pyeongtaek-si,+Gyeonggi-do&output=embed",
     },
   ];
 
@@ -142,17 +153,17 @@ export default function LocationsPage() {
       </div>
 
       {/* 슬라이드/썸네일 아래 매장명 탭 */}
-      <div className="flex justify-center gap-x-8 my-8">
+      <div className="flex justify-center gap-x-4 sm:gap-x-6 my-8 px-4 overflow-x-auto">
         {STORES.map((store, idx) => (
           <button
             key={store.name}
             onClick={() => setSelectedStore(idx)}
-            className={`text-lg font-bold tracking-wide px-2 py-1 border-b-2 transition-colors duration-200 ${
+            className={`text-sm sm:text-lg font-bold tracking-wide px-2 py-1 border-b-2 transition-colors duration-200 flex-shrink-0 ${
               selectedStore === idx
                 ? "text-[#fc492d] border-[#fc492d]"
                 : "text-[#634d40] border-transparent hover:text-[#fc492d]"
             }`}
-            style={{ minWidth: 120 }}
+            style={{ minWidth: 100 }}
           >
             {store.name}
             <span className="block text-xs font-normal text-[#634d40]">

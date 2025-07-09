@@ -61,6 +61,9 @@ const translations = {
     'location.dtower': 'D-TOWER GWANGHWAMUN',
     'location.dtower.korean': '광화문 디타워',
     'location.dtower.address': '서울특별시 종로구 종로3길 17, 2층 5호 (청진동, 디타워)',
+    'location.humphreys': 'CAMP HUMPHREYS',
+    'location.humphreys.korean': '험프리기지',
+    'location.humphreys.address': '경기도 평택시 팽성읍 안정순환로 118(주한미군험프리기지 bldg12385)',
     
     // Locations 페이지
     'locations.parnas.name': 'PARNAS MALL',
@@ -86,6 +89,14 @@ const translations = {
     'locations.dtower.hours': '월-금 11:00-22:00 (브레이크타임 15:00-17:00), 토-일 11:30-22:00 (라스트오더 21:00)',
     'locations.dtower.parking': '주차 가능',
     'locations.dtower.transit': '광화문역 4번 출구에서 307m',
+    
+    'locations.humphreys.name': 'CAMP HUMPHREYS',
+    'locations.humphreys.sub': '험프리기지',
+    'locations.humphreys.address': '경기도 평택시 팽성읍 안정순환로 118(주한미군험프리기지 bldg12385)',
+    'locations.humphreys.tel': '031-8042-1000',
+    'locations.humphreys.hours': '월-금 11:00-21:00 (브레이크타임 14:00-16:30, 라스트오더 20:30), 토-일 11:30-21:00 (라스트오더 20:30)',
+    'locations.humphreys.parking': '주차 가능',
+    'locations.humphreys.transit': '주한미군기지 내',
     
     'locations.hours.label': '운영시간:',
     'locations.tel.label': '예약/문의:',
@@ -307,6 +318,9 @@ const translations = {
     'location.dtower': 'D-TOWER GWANGHWAMUN',
     'location.dtower.korean': 'Gwanghwamun D-Tower',
     'location.dtower.address': '17 Jongno 3-gil, Jongno-gu, Seoul, 2F 5 (Cheongjin-dong, D-Tower)',
+    'location.humphreys': 'CAMP HUMPHREYS',
+    'location.humphreys.korean': 'Camp Humphreys',
+    'location.humphreys.address': '118 Anjeong Sunhwan-ro, Paengseong-eup, Pyeongtaek-si, Gyeonggi-do (USAG Humphreys bldg12385)',
     
     // Locations 페이지
     'locations.parnas.name': 'PARNAS MALL',
@@ -332,6 +346,14 @@ const translations = {
     'locations.dtower.hours': 'Mon-Fri 11:00-22:00 (Break 15:00-17:00), Sat-Sun 11:30-22:00 (Last Order 21:00)',
     'locations.dtower.parking': 'Available',
     'locations.dtower.transit': 'Gwanghwamun Station Exit 4, 307m walk',
+    
+    'locations.humphreys.name': 'CAMP HUMPHREYS',
+    'locations.humphreys.sub': 'Camp Humphreys',
+    'locations.humphreys.address': '118 Anjeong Sunhwan-ro, Paengseong-eup, Pyeongtaek-si, Gyeonggi-do (USAG Humphreys bldg12385)',
+    'locations.humphreys.tel': '031-8042-1000',
+    'locations.humphreys.hours': 'Mon-Fri 11:00-21:00 (Break 14:00-16:30, Last Order 20:30), Sat-Sun 11:30-21:00 (Last Order 20:30)',
+    'locations.humphreys.parking': 'Available',
+    'locations.humphreys.transit': 'Within USAG Humphreys',
     
     'locations.hours.label': 'Hours:',
     'locations.tel.label': 'Reservation/Inquiry:',

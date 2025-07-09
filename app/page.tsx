@@ -471,7 +471,7 @@ export default function Home() {
           <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">{t('main.locations.title')}</h2>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto px-4">
           {/* Location 1 */}
           <div className="flex flex-col items-center max-w-sm mx-auto w-full">
             <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
@@ -523,7 +523,7 @@ export default function Home() {
           </div>
 
           {/* Location 3 */}
-          <div className="flex flex-col items-center max-w-sm mx-auto w-full sm:col-span-2 lg:col-span-1">
+          <div className="flex flex-col items-center max-w-sm mx-auto w-full">
             <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
               <img
                 src="/location-dtower.jpg"
@@ -545,6 +545,31 @@ export default function Home() {
             <div className="text-lg font-bold mb-1 text-center text-[#634d40]">{t('location.dtower')}</div>
             <div className="text-xs text-[#634d40] text-center">{t('location.dtower.korean')}</div>
             <div className="text-xs text-[#634d40] text-center mt-1">{t('location.dtower.address')}</div>
+          </div>
+
+          {/* Location 4 - Camp Humphreys */}
+          <div className="flex flex-col items-center max-w-sm mx-auto w-full">
+            <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
+              <img
+                src="/hum.JPG"
+                alt="Camp Humphreys Photo"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-10 group-hover:opacity-0 group-hover:invisible"
+              />
+              <iframe
+                src="https://www.google.com/maps?q=118+Anjeong+Sunhwan-ro,+Paengseong-eup,+Pyeongtaek-si,+Gyeonggi-do&z=15&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Camp Humphreys Map"
+                className="absolute inset-0 w-full h-full z-0"
+              />
+            </div>
+            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">{t('location.humphreys')}</div>
+            <div className="text-xs text-[#634d40] text-center">{t('location.humphreys.korean')}</div>
+            <div className="text-xs text-[#634d40] text-center mt-1">{t('location.humphreys.address')}</div>
           </div>
         </div>
       </section>
