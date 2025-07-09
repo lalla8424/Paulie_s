@@ -202,7 +202,7 @@ const translations = {
     'menu.item.baked.ziti.desc': '**베이크드 지티** 리가토니에 토마토 소스와 모짜렐라 치즈를 듬뿍 얹어 600°F의 브릭오븐에 구운 파스타',
     'menu.item.baked.spinach.chicken.name': 'Baked Spinach Chicken',
     'menu.item.baked.spinach.chicken.desc': '**베이크드 스피니지 치킨** 크림소스에 시금치, 닭고기, 버섯, 양파와 함께 모짜렐라 치즈를 얹어 600°F의 브릭오븐에 구운 파스타',
-    'menu.item.rigatoni.lasagna.name': 'Paulie\'s Rigatoni Lasagna NEW',
+    'menu.item.rigatoni.lasagna.name': 'Paulie\'s Rigatoni Lasagna',
     'menu.item.rigatoni.lasagna.desc': '**폴리스 리가토니 라자냐** 토마토소스에 풍미가 가득한 베샤멜소스, 리코타치즈, 다진 소고기, 돼지고기가 들어간 리가토니 파스타',
     
     // Beer Types
@@ -446,7 +446,7 @@ const translations = {
     'menu.item.baked.ziti.desc': 'Rigatoni pasta with tomato sauce and mozzarella cheese, baked in our 600°F brick oven',
     'menu.item.baked.spinach.chicken.name': 'Baked Spinach Chicken',
     'menu.item.baked.spinach.chicken.desc': 'Cream sauce pasta with spinach, chicken, mushrooms, onions, and mozzarella cheese, baked in our 600°F brick oven',
-    'menu.item.rigatoni.lasagna.name': 'Paulie\'s Rigatoni Lasagna NEW',
+    'menu.item.rigatoni.lasagna.name': 'Paulie\'s Rigatoni Lasagna',
     'menu.item.rigatoni.lasagna.desc': 'Rigatoni pasta with tomato sauce, rich béchamel sauce, ricotta cheese, ground beef, and pork',
     
     // Beer Types

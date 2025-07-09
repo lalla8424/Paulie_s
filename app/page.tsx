@@ -15,6 +15,7 @@ import {
 import HeroBanner from "@/components/HeroBanner"
 import MenuFadeSlider from "@/components/MenuFadeSlider"
 import { useLanguage } from "@/contexts/LanguageContext"
+import { parseMarkdown } from "@/lib/utils"
 
 export default function Home() {
   const { scrollYProgress } = useScroll()
