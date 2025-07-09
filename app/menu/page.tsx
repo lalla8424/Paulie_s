@@ -562,6 +562,16 @@ export default function MenuPage() {
                       dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.creamy.pesto.shrimp.desc')) }}
                     />
                   </li>
+                  <li className="mb-8">
+                    <div className="text-lg font-black text-center text-[#634d40] relative">
+                      {t('menu.item.chicken.parmesan.name')}
+                      <span className="inline-block ml-2 px-2 py-1 text-xs font-bold text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg animate-pulse">NEW</span>
+                    </div>
+                    <div 
+                      className="text-sm text-center text-[#634d40]"
+                      dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.chicken.parmesan.desc')) }}
+                    />
+                  </li>
                 </ul>
                 <h2 className="text-2xl font-raleway text-[#fc492d] mt-8 mb-2 uppercase">
                   {t('menu.category.pasta.baked')}

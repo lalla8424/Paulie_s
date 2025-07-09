@@ -349,9 +349,10 @@ export default function Home() {
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.creamy.pesto.shrimp.name')}</h4>
                     </div>
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40] flex items-center">
+                      <h4 className="font-medium text-[#634d40] flex items-center gap-2">
                         {t('menu.item.chicken.parmesan.name')}
-                        <span className="inline-block ml-2 px-2 py-1 text-xs font-bold text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg animate-pulse">NEW</span>
+                        <span className="inline-flex items-center w-2 h-2 bg-[#ff6b6b] rounded-full shadow-sm">
+                        </span>
                       </h4>
                     </div>
                   </div>
