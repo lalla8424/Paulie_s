@@ -293,29 +293,11 @@ export default function MenuPage() {
                       </li>
                       <li className="mb-8">
                         <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.hawaiian.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.hawaiian.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
                           {t('menu.item.pepperoni.name')}
                         </div>
                         <div 
                           className="text-sm text-center text-[#634d40]"
                           dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.pepperoni.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.godfather.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.godfather.desc')) }}
                         />
                       </li>
                       <li className="mb-8">
@@ -329,20 +311,38 @@ export default function MenuPage() {
                       </li>
                       <li className="mb-8">
                         <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.ny.supreme.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.ny.supreme.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
                           {t('menu.item.margherita.name')}
                         </div>
                         <div 
                           className="text-sm text-center text-[#634d40]"
                           dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.margherita.desc')) }}
+                        />
+                      </li>
+                      <li className="mb-8">
+                        <div className="text-lg font-black text-center text-[#634d40]">
+                          {t('menu.item.hawaiian.name')}
+                        </div>
+                        <div 
+                          className="text-sm text-center text-[#634d40]"
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.hawaiian.desc')) }}
+                        />
+                      </li>
+                      <li className="mb-8">
+                        <div className="text-lg font-black text-center text-[#634d40]">
+                          {t('menu.item.godfather.name')}
+                        </div>
+                        <div 
+                          className="text-sm text-center text-[#634d40]"
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.godfather.desc')) }}
+                        />
+                      </li>
+                      <li className="mb-8">
+                        <div className="text-lg font-black text-center text-[#634d40]">
+                          {t('menu.item.ny.supreme.name')}
+                        </div>
+                        <div 
+                          className="text-sm text-center text-[#634d40]"
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.ny.supreme.desc')) }}
                         />
                       </li>
                       <li className="mb-8">
@@ -378,29 +378,11 @@ export default function MenuPage() {
                       </li>
                       <li className="mb-8">
                         <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.white.pie.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.white.pie.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
                           {t('menu.item.spicy.cheddar.chicken.name')}
                         </div>
                         <div 
                           className="text-sm text-center text-[#634d40]"
                           dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.spicy.cheddar.chicken.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.meatball.ricotta.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.meatball.ricotta.desc')) }}
                         />
                       </li>
                       <li className="mb-8">
@@ -414,15 +396,6 @@ export default function MenuPage() {
                       </li>
                       <li className="mb-8">
                         <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.bmo.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.bmo.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
                           {t('menu.item.devils.delight.name')}
                         </div>
                         <div 
@@ -432,20 +405,47 @@ export default function MenuPage() {
                       </li>
                       <li className="mb-8">
                         <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.pesto.chicken.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.pesto.chicken.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
                           {t('menu.item.spicy.hawaiian.ricotta.name')}
                         </div>
                         <div 
                           className="text-sm text-center text-[#634d40]"
                           dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.spicy.hawaiian.ricotta.desc')) }}
+                        />
+                      </li>
+                      <li className="mb-8">
+                        <div className="text-lg font-black text-center text-[#634d40]">
+                          {t('menu.item.white.pie.name')}
+                        </div>
+                        <div 
+                          className="text-sm text-center text-[#634d40]"
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.white.pie.desc')) }}
+                        />
+                      </li>
+                      <li className="mb-8">
+                        <div className="text-lg font-black text-center text-[#634d40]">
+                          {t('menu.item.meatball.ricotta.name')}
+                        </div>
+                        <div 
+                          className="text-sm text-center text-[#634d40]"
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.meatball.ricotta.desc')) }}
+                        />
+                      </li>
+                      <li className="mb-8">
+                        <div className="text-lg font-black text-center text-[#634d40]">
+                          {t('menu.item.bmo.name')}
+                        </div>
+                        <div 
+                          className="text-sm text-center text-[#634d40]"
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.bmo.desc')) }}
+                        />
+                      </li>
+                      <li className="mb-8">
+                        <div className="text-lg font-black text-center text-[#634d40]">
+                          {t('menu.item.pesto.chicken.name')}
+                        </div>
+                        <div 
+                          className="text-sm text-center text-[#634d40]"
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.pesto.chicken.desc')) }}
                         />
                       </li>
                     </ul>

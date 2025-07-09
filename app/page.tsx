@@ -293,13 +293,19 @@ export default function Home() {
                 <div className="max-w-2xl mx-auto">
                   <div className="space-y-4 flex flex-col">
                     <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.potato.bacon.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.cheddar.chicken.name')}</h4>
+                    </div>
+                    <div className="menu-item py-2">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.bbq.chicken.name')}</h4>
                     </div>
                     <div className="menu-item py-2">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.pesto.chicken.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.devils.delight.name')}</h4>
                     </div>
                     <div className="menu-item py-2">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.potato.bacon.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.hawaiian.ricotta.name')}</h4>
                     </div>
                     <div className="menu-item py-2">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.white.pie.name')}</h4>
@@ -311,10 +317,7 @@ export default function Home() {
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.bmo.name')}</h4>
                     </div>
                     <div className="menu-item py-2">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.devils.delight.name')}</h4>
-                    </div>
-                    <div className="menu-item py-2">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.hawaiian.ricotta.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.pesto.chicken.name')}</h4>
                     </div>
                   </div>
                 </div>
