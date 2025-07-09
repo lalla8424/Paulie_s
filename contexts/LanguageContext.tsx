@@ -196,6 +196,8 @@ const translations = {
     'menu.item.rigatoni.arribiata.desc': '**리가토니 아라비아타** 매운 고추를 넣은 토마토 아라비아타 소스와 상큼한 바질을 함께 즐길 수 있는 리가토니 파스타',
     'menu.item.creamy.pesto.shrimp.name': 'Creamy Pesto Shrimp',
     'menu.item.creamy.pesto.shrimp.desc': '**크리미 페스토 쉬림프** 크림소스에 바질페스토와 마늘, 새우를 넣어 만든 꾸덕한 파스타',
+    'menu.item.chicken.parmesan.name': 'Chicken Parmesan Pasta',
+    'menu.item.chicken.parmesan.desc': '**치킨 파마산 파스타** 토마토소스에 파마산 치즈가 들어간 시즈닝으로 짭조름하게 튀겨진 닭가슴살을 함께 즐길 수 있는 파스타',
     
     // Baked Pasta
     'menu.item.baked.ziti.name': 'Baked Ziti',
@@ -440,6 +442,8 @@ const translations = {
     'menu.item.rigatoni.arribiata.desc': 'Rigatoni pasta with spicy arrabiata tomato sauce and fresh basil',
     'menu.item.creamy.pesto.shrimp.name': 'Creamy Pesto Shrimp',
     'menu.item.creamy.pesto.shrimp.desc': 'Rich pasta made with cream sauce, basil pesto, garlic, and shrimp',
+    'menu.item.chicken.parmesan.name': 'Chicken Parmesan Pasta',
+    'menu.item.chicken.parmesan.desc': 'Chicken Parmesan pasta with crispy seasoned chicken breast in tomato sauce with Parmesan cheese',
     
     // Baked Pasta
     'menu.item.baked.ziti.name': 'Baked Ziti',

@@ -348,6 +348,12 @@ export default function Home() {
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.creamy.pesto.shrimp.name')}</h4>
                     </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40] flex items-center">
+                        {t('menu.item.chicken.parmesan.name')}
+                        <span className="inline-block ml-2 px-2 py-1 text-xs font-bold text-white bg-gradient-to-r from-red-500 to-red-600 rounded-full shadow-lg animate-pulse">NEW</span>
+                      </h4>
+                    </div>
                   </div>
                 </div>
                 <div className="menu-column">
