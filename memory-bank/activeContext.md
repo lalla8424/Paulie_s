@@ -16,9 +16,9 @@
   1. `/coex_2.jpg` - COEX 매장 벽면 아트워크
   2. `/coex_1.jpg` - COEX 매장 인테리어 1
   3. `/d_tower_2.jpg` - D-Tower 매장
-  4. `/paradise.jpg` - Paradise City 매장
-  5. `/coex.jpg` - COEX 매장 인테리어 2
-  6. `/location-dtower.jpg` - D-Tower 기본 이미지
+  4. `/coex.jpg` - COEX 매장 인테리어 2
+  5. `/d_tower_3.jpg` - D-Tower 매장 추가 이미지
+  6. `/hum.JPG` - Camp Humphreys 매장
 
 ## 현재 활성 기능들
 

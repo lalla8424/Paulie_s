@@ -8,7 +8,6 @@ const images = [
   "/coex_2.jpg",      // COEX store wall artwork
   "/coex_1.jpg",      // COEX store interior 1
   "/d_tower_2.jpg",   // D-Tower store
-  "/paradise.jpg",    // Paradise City store
   "/coex.jpg",        // COEX store interior 2
   "/d_tower_3.jpg",   // D-Tower store - new image
   "/hum.JPG"          // Camp Humphreys store
@@ -31,16 +30,6 @@ export default function LocationsPage() {
       parking: t('locations.parnas.parking'),
       transit: t('locations.parnas.transit'),
       map: "https://www.google.com/maps?q=파르나스몰&output=embed",
-    },
-    {
-      name: t('locations.paradise.name'),
-      sub: t('locations.paradise.sub'),
-      address: t('locations.paradise.address'),
-      tel: t('locations.paradise.tel'),
-      hours: t('locations.paradise.hours'),
-      parking: t('locations.paradise.parking'),
-      transit: t('locations.paradise.transit'),
-      map: "https://www.google.com/maps?q=파라다이스시티+인천&output=embed",
     },
     {
       name: t('locations.dtower.name'),
