@@ -38,6 +38,7 @@ const translations = {
     'main.restaurants.title': 'OUR RESTAURANTS',
     'main.restaurants.maple.name': 'Maple Tree',
     'main.restaurants.vatos.name': 'Vatos',
+    'main.restaurants.paulies.name': "Paulie's",
     
     // About Us 페이지
     'about.title': 'OUR STORY',
@@ -303,6 +304,7 @@ const translations = {
     'main.restaurants.title': 'OUR RESTAURANTS',
     'main.restaurants.maple.name': 'Maple Tree',
     'main.restaurants.vatos.name': 'Vatos',
+    'main.restaurants.paulies.name': "Paulie's",
     
     // About Us 페이지
     'about.title': 'OUR STORY',

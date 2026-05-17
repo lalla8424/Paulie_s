@@ -169,8 +169,8 @@ export default function Home() {
           {/* Full width image slider */}
           <HeroBanner />
         </div>
-        {/* 슬라이드 아래에 항상 보이는 빨간 라인 */}
-        <div className="w-full h-8 bg-[#fd735a]" />
+        {/* 슬라이드 하단 라인 - 상단 progress bar(4px, #f75b3b)와 시각적으로 동일하게 맞춤 */}
+        <div className="w-full h-1 bg-[#f75b3b]" />
       </section>
 
       {/* Menu Section */}
@@ -587,26 +587,26 @@ export default function Home() {
           </h2>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto px-4">
           {/* Maple Tree (단풍나무집) */}
           <a
             href="http://mapletreehouse.co.kr/kor/html/main.asp"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${t('main.restaurants.maple.name')} 웹사이트로 이동`}
-            className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg"
+            className="flex flex-col items-center max-w-sm mx-auto w-full group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg"
           >
-            <div className="relative w-full aspect-square max-w-[500px] mx-auto rounded-lg overflow-hidden shadow-lg">
+            <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow relative bg-[#634d40]">
               <img
                 src="/maple_box.png"
                 alt={t('main.restaurants.maple.name')}
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+                className="absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-300 group-hover:opacity-0"
               />
               <img
                 src="/maple_rollover.png"
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute inset-0 w-full h-full object-cover scale-105 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
             </div>
           </a>
@@ -617,22 +617,43 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`${t('main.restaurants.vatos.name')} 웹사이트로 이동`}
-            className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg"
+            className="flex flex-col items-center max-w-sm mx-auto w-full group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg"
           >
-            <div className="relative w-full aspect-square max-w-[500px] mx-auto rounded-lg overflow-hidden shadow-lg">
+            <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow relative bg-[#634d40]">
               <img
                 src="/vatos_box.png"
                 alt={t('main.restaurants.vatos.name')}
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+                className="absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-300 group-hover:opacity-0"
               />
               <img
                 src="/vatos_rollover.png"
                 alt=""
                 aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                className="absolute inset-0 w-full h-full object-cover scale-105 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
               />
             </div>
           </a>
+
+          {/* Paulie's (폴리스 - 자사 브랜드) - 2열 그리드 두번째 행에 단독 가운데 정렬 */}
+          <Link
+            href="/menu"
+            aria-label={`${t('main.restaurants.paulies.name')} 메뉴 페이지로 이동`}
+            className="flex flex-col items-center max-w-sm mx-auto w-full group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg sm:col-span-2"
+          >
+            <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow relative bg-[#634d40]">
+              <img
+                src="/paulies.png"
+                alt={t('main.restaurants.paulies.name')}
+                className="absolute inset-0 w-full h-full object-cover scale-105 transition-opacity duration-300 group-hover:opacity-0"
+              />
+              <img
+                src="/paulies_rollover.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover scale-105 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              />
+            </div>
+          </Link>
         </div>
       </section>
 
