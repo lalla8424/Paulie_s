@@ -320,20 +320,11 @@ export default function MenuPage() {
                       </li>
                       <li className="mb-8">
                         <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.hawaiian.name')}
+                          {t('menu.item.white.pie.name')}
                         </div>
                         <div 
                           className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.hawaiian.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.godfather.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.godfather.desc')) }}
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.white.pie.desc')) }}
                         />
                       </li>
                       <li className="mb-8">
@@ -378,15 +369,6 @@ export default function MenuPage() {
                       </li>
                       <li className="mb-8">
                         <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.spicy.cheddar.chicken.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.spicy.cheddar.chicken.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
                           {t('menu.item.bbq.chicken.name')}
                         </div>
                         <div 
@@ -401,24 +383,6 @@ export default function MenuPage() {
                         <div 
                           className="text-sm text-center text-[#634d40]"
                           dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.devils.delight.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.spicy.hawaiian.ricotta.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.spicy.hawaiian.ricotta.desc')) }}
-                        />
-                      </li>
-                      <li className="mb-8">
-                        <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.white.pie.name')}
-                        </div>
-                        <div 
-                          className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.white.pie.desc')) }}
                         />
                       </li>
                       <li className="mb-8">
@@ -441,11 +405,20 @@ export default function MenuPage() {
                       </li>
                       <li className="mb-8">
                         <div className="text-lg font-black text-center text-[#634d40]">
-                          {t('menu.item.pesto.chicken.name')}
+                          {t('menu.item.hawaiian.name')}
                         </div>
                         <div 
                           className="text-sm text-center text-[#634d40]"
-                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.pesto.chicken.desc')) }}
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.hawaiian.desc')) }}
+                        />
+                      </li>
+                      <li className="mb-8">
+                        <div className="text-lg font-black text-center text-[#634d40]">
+                          {t('menu.item.godfather.name')}
+                        </div>
+                        <div 
+                          className="text-sm text-center text-[#634d40]"
+                          dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.godfather.desc')) }}
                         />
                       </li>
                     </ul>
@@ -551,15 +524,6 @@ export default function MenuPage() {
                     <div 
                       className="text-sm text-center text-[#634d40]"
                       dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.rigatoni.arribiata.desc')) }}
-                    />
-                  </li>
-                  <li className="mb-8">
-                    <div className="text-lg font-black text-center text-[#634d40]">
-                      {t('menu.item.creamy.pesto.shrimp.name')}
-                    </div>
-                    <div 
-                      className="text-sm text-center text-[#634d40]"
-                      dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.item.creamy.pesto.shrimp.desc')) }}
                     />
                   </li>
                   <li className="mb-8">
@@ -746,6 +710,20 @@ export default function MenuPage() {
                 </ul>
 
                 <h2 className="text-2xl font-raleway text-[#fc492d] mt-12 mb-6 uppercase">
+                  {t('menu.category.drinks.wine')}
+                </h2>
+                <ul className="w-full max-w-4xl">
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.wine.house.name')}
+                    </div>
+                    <div className="text-sm text-center text-[#634d40]">
+                      {t('menu.wine.house.desc')}
+                    </div>
+                  </li>
+                </ul>
+
+                <h2 className="text-2xl font-raleway text-[#fc492d] mt-12 mb-6 uppercase">
                   {t('menu.category.drinks.soft')}
                 </h2>
                 <ul className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-x-8">
@@ -756,7 +734,7 @@ export default function MenuPage() {
                   </li>
                   <li className="mb-4">
                     <div className="text-lg font-black text-center text-[#634d40]">
-                      {t('menu.drinks.pellegrino.lemon.name')}
+                      {t('menu.drinks.sprite.name')}
                     </div>
                   </li>
                   <li className="mb-4">
@@ -766,17 +744,17 @@ export default function MenuPage() {
                   </li>
                   <li className="mb-4">
                     <div className="text-lg font-black text-center text-[#634d40]">
-                      {t('menu.drinks.pellegrino.bottle.name')}
-                    </div>
-                  </li>
-                  <li className="mb-4">
-                    <div className="text-lg font-black text-center text-[#634d40]">
                       {t('menu.drinks.arizona.tea.name')}
                     </div>
                   </li>
                   <li className="mb-4">
                     <div className="text-lg font-black text-center text-[#634d40]">
-                      {t('menu.drinks.pink.lemonade.name')}
+                      {t('menu.drinks.pellegrino.lemon.name')}
+                    </div>
+                  </li>
+                  <li className="mb-4">
+                    <div className="text-lg font-black text-center text-[#634d40]">
+                      {t('menu.drinks.pellegrino.bottle.name')}
                     </div>
                   </li>
                 </ul>

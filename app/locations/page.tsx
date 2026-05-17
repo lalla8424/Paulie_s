@@ -10,7 +10,9 @@ const images = [
   "/d_tower_2.jpg",   // D-Tower store
   "/coex.jpg",        // COEX store interior 2
   "/d_tower_3.jpg",   // D-Tower store - new image
-  "/hum.JPG"          // Camp Humphreys store
+  "/hum.JPG",         // Camp Humphreys store
+  "/one_grove.jpg",   // One Grove Mall (Magok) - exterior
+  "/one_grove_2.jpg"  // One Grove Mall (Magok) - interior
 ];
 
 export default function LocationsPage() {
@@ -50,6 +52,16 @@ export default function LocationsPage() {
       parking: t('locations.humphreys.parking'),
       transit: t('locations.humphreys.transit'),
       map: "https://www.google.com/maps?q=118+Anjeong+Sunhwan-ro,+Paengseong-eup,+Pyeongtaek-si,+Gyeonggi-do&output=embed",
+    },
+    {
+      name: t('locations.onegrove.name'),
+      sub: t('locations.onegrove.sub'),
+      address: t('locations.onegrove.address'),
+      tel: t('locations.onegrove.tel'),
+      hours: t('locations.onegrove.hours'),
+      parking: t('locations.onegrove.parking'),
+      transit: t('locations.onegrove.transit'),
+      map: "https://www.google.com/maps?q=165+Gonghang-daero,+Gangseo-gu,+Seoul,+South+Korea&z=17&output=embed",
     },
   ];
 

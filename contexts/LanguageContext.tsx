@@ -35,6 +35,9 @@ const translations = {
     'main.about.description1': '뉴욕에서 시작된 우리의 피자 여정은 최고의 재료와 전통적인 기법에 중점을 두고 있습니다. 우리는 정통 뉴욕 스타일을 우리 동네로 가져와, 품질 좋은 재료와 전통 기법에 초점을 맞추고 있습니다.',
     'main.about.description2': '모든 피자는 손으로 늘려서 맞춤형 브릭 오븐에서 구워지며, 뉴욕 피자로 유명한 완벽한 바삭하면서도 쫄깃한 크러스트를 만들어냅니다. 우리는 단순히 피자를 만드는 것이 아니라 전통을 이어가고 있습니다.',
     'main.locations.title': '매장 위치',
+    'main.restaurants.title': 'OUR RESTAURANTS',
+    'main.restaurants.maple.name': 'Maple Tree',
+    'main.restaurants.vatos.name': 'Vatos',
     
     // About Us 페이지
     'about.title': 'OUR STORY',
@@ -61,6 +64,9 @@ const translations = {
     'location.humphreys': 'CAMP HUMPHREYS',
     'location.humphreys.korean': '험프리기지',
     'location.humphreys.address': '경기도 평택시 팽성읍 안정순환로 118(주한미군험프리기지 bldg12385)',
+    'location.onegrove': "VATOS & PAULIE'S ONE GROVE MALL",
+    'location.onegrove.korean': '마곡 원그로브몰',
+    'location.onegrove.address': '서울 강서구 공항대로 165 B동 1층 E116, E117, E118호',
     
     // Locations 페이지
     'locations.parnas.name': 'PARNAS MALL',
@@ -87,6 +93,14 @@ const translations = {
     'locations.humphreys.hours': '월-금 11:00-21:00 (브레이크타임 14:00-16:30, 라스트오더 20:30), 토-일 11:30-21:00 (라스트오더 20:30)',
     'locations.humphreys.parking': '주차 가능',
     'locations.humphreys.transit': '주한미군기지 내',
+
+    'locations.onegrove.name': 'ONE GROVE MALL',
+    'locations.onegrove.sub': '바토스 앤 폴리스 원그로브점',
+    'locations.onegrove.address': '서울 강서구 공항대로 165 B동 1층 E116, E117, E118호',
+    'locations.onegrove.tel': '02-6244-9651',
+    'locations.onegrove.hours': '매일 10:30 - 22:00 (라스트오더 21:00)',
+    'locations.onegrove.parking': '주차 가능',
+    'locations.onegrove.transit': '마곡나루역 인근',
     
     'locations.hours.label': '운영시간:',
     'locations.tel.label': '예약/문의:',
@@ -113,6 +127,7 @@ const translations = {
     'menu.category.pizza.signature': "Paulie's Signature Pizzas",
     'menu.category.pizza.combos': 'Favorite Combos',
     'menu.category.drinks.beer': 'Draft Beers',
+    'menu.category.drinks.wine': 'Wine',
     'menu.category.drinks.soft': 'Soft Drinks',
     
     // 메뉴 아이템들
@@ -160,7 +175,7 @@ const translations = {
             'menu.item.white.pie.desc': '**화이트 파이** 크림 소스, 모짜렐라 치즈, 리코타, 고르곤졸라, 파마산치즈, 꿀',
     'menu.item.spicy.cheddar.chicken.name': 'Spicy Cheddar Chicken 🌶️',
     'menu.item.spicy.cheddar.chicken.desc': '**스파이시 체다 치킨** 크림 소스, 모짜렐라 치즈, 체다 치즈, 닭고기, 햄, 베이컨, 양파, 버섯, 마늘, 할라피뇨',
-    'menu.item.meatball.ricotta.name': 'Meatball & Ricotta',
+    'menu.item.meatball.ricotta.name': 'Meatball & Ricotta cheese',
     'menu.item.meatball.ricotta.desc': '**미트볼&리코타치즈** 토마토 소스, 미트볼, 리코타치즈, 모짜렐라, 이탈리안 파슬리',
     'menu.item.bbq.chicken.name': 'BBQ Chicken',
     'menu.item.bbq.chicken.desc': '**비비큐 치킨** 바비큐 소스, 닭고기, 파인애플, 양파, 모짜렐라 치즈, 체다 치즈, 햄, 베이컨',
@@ -180,8 +195,8 @@ const translations = {
     'menu.combo.2.desc': '마르게리타 + 뉴욕치즈',
     'menu.combo.3.name': '3. NY Supreme + Pepperoni & Mushrooms',
             'menu.combo.3.desc': '뉴욕슈프림 + 페퍼로니 & 머쉬룸',
-    'menu.combo.4.name': '4. Potato Bacon + Spicy Cheddar Chicken 🌶️',
-    'menu.combo.4.desc': '포테이토 베이컨 + 스파이시 체다 치킨',
+    'menu.combo.4.name': '4. Potato Bacon + White Pie',
+    'menu.combo.4.desc': '포테이토 베이컨 + 화이트 파이',
     
     // Pasta Items
     'menu.category.pasta.main': 'Pasta',
@@ -222,33 +237,36 @@ const translations = {
     
     // Beer Menu Items
     'menu.beer.budweiser.name': 'Budweiser 5.0%',
-    'menu.beer.budweiser.desc': 'ANHEUSER-BUSCH INBEV',
+    'menu.beer.budweiser.desc': '깔끔한 옥넘김을 선사하는 아메리칸 스타일의 프리미엄 라거',
     'menu.beer.magpie.kolsh.name': 'Magpie Kolsh 4.8%',
-    'menu.beer.magpie.kolsh.desc': '라거공법으로 숙성, 특유의 꽃향과 라이트한 바디감으로 금세 잔이 비워지는 신기한 에일스타일 라거 맥주',
+    'menu.beer.magpie.kolsh.desc': '라거공법으로 숙성, 특유의 꽃향과 라이트한 바디감으로 금세 잔이 비워지는 신기한 에일스타일 라거맥주',
     'menu.beer.stella.name': 'Stella Artois 5.0%',
-    'menu.beer.stella.desc': '최상급 사즈 홉을 사용해 쌉쌀함과 청량한 산미, 진한 꽃향을 느낄 수 있는 필스너',
+    'menu.beer.stella.desc': '최상급 사츠 홉을 사용해 쌉쌀함과 청량한 산미, 진한 꽃향을 느낄 수 있는 필스너',
     'menu.beer.apricot.wheat.name': 'Apricot Wheat 5.0%',
-    'menu.beer.apricot.wheat.desc': '부드러운 탄산과 함께 살구, 복숭아의 맛과 향을 느낄 수 있는 위트에일',
+    'menu.beer.apricot.wheat.desc': '부드러운 탄산과 함께 살구, 복숭아의 맛과 향을 느낄 수 있는 위트 에일<br>Lost Coast Brewery',
     'menu.beer.raspberry.wheat.name': 'Raspberry Wheat 6.2%',
-    'menu.beer.raspberry.wheat.desc': '크리미하고 새콤달콤한 라즈베리로 가득 찬 클래식한 독일 스타일 밀 맥주',
+    'menu.beer.raspberry.wheat.desc': '크리미하고 새콤달콤한 라즈베리로 가득 찬 클래식한 독일 스타일 밀 맥주<br>Gorilla Brewery',
     'menu.beer.weihenstephaner.name': 'Weihenstephaner 5.4%',
-    'menu.beer.weihenstephaner.desc': '바나나 향과 은은한 단맛, 적당한 바디감과 부드러운 질감이 조화로운 밀 맥주',
+    'menu.beer.weihenstephaner.desc': '바나나 향과 은은한 단맛, 적당한 바디감과 부드러운 질감이 조화로운 밀 맥주<br>바이엔슈테판',
     'menu.beer.gorilla.ipa.name': 'Gorilla IPA 5.4%',
     'menu.beer.gorilla.ipa.desc': '감귤, 오렌지의 느낌 그리고 카라멜, 토피의 단맛이 전면에 드러나고 홉 스파이시로 마무리되는 IPA',
     'menu.beer.indica.ipa.name': 'Indica IPA 6.5%',
-    'menu.beer.indica.ipa.desc': '시트러스한 자몽, 귤, 꽃향기와 쌉싸름한 홉의 밸런스가 환상적인 IPA',
+    'menu.beer.indica.ipa.desc': '시트러스한 자몽, 귤, 꽃향기와 쌉싸름한 홉의 밸런스가 환상적인 IPA<br>Lost Coast Brewery',
     'menu.beer.magpie.pale.ale.name': 'Magpie Pale Ale 4.8%',
-    'menu.beer.magpie.pale.ale.desc': '입안 가득 느껴지는 열대과일향과 감귤류의 풍미가 매력적이며 쌉쌀한 끝맛이 특징, 깔끔하고 가벼운 바디감으로 매일 부담없이 즐기기 좋은 맥주',
+    'menu.beer.magpie.pale.ale.desc': '입안 가득 느껴지는 열대과일향과 감귤류의 풍미가 매력적이며 쌉쌀한 끝맛이 특징.<br>깔끔하고 가벼운 바디감으로 매일 부담 없이 즐기기 좋은 맥주.',
     'menu.beer.peanut.butter.name': 'Peanut Butter 5.6%',
     'menu.beer.peanut.butter.desc': '피넛버터, 커피, 토피, 바닐라 웨이퍼의 조화를 이루어 바삭하고 달지않게 마무리하는 맥주',
     
     // Soft Drinks
-    'menu.drinks.coke.name': 'Coke, Coke Zero, Sprite (355ml)',
+    'menu.drinks.coke.name': 'Coke, Coke Zero (355ml)',
+    'menu.drinks.sprite.name': 'Sprite, Sprite Zero (355ml)',
     'menu.drinks.pellegrino.lemon.name': 'San Pellegrino Lemon (330ml)',
     'menu.drinks.orange.juice.name': 'Orange Juice (350ml)',
     'menu.drinks.pellegrino.bottle.name': 'San Pellegrino (750ml bottle)',
     'menu.drinks.arizona.tea.name': 'Arizona Iced Tea (650ml)',
     'menu.drinks.pink.lemonade.name': 'Old Fashion Pink Lemonade',
+    'menu.wine.house.name': 'House Wine',
+    'menu.wine.house.desc': 'Glass / Bottle',
     
     // Limited Availability Label
     'menu.limited': '소량 한정',
@@ -282,6 +300,9 @@ const translations = {
     'main.about.description1': 'Our pizza journey began in New York, where we learned the art of brick oven pizza making from the best in the business. We brought that authentic New York style to our neighborhood, focusing on quality ingredients and traditional techniques.',
     'main.about.description2': 'Every pizza is hand-stretched and baked in our custom brick oven, giving it that perfect crispy-yet-chewy crust that New York pizza is famous for. We\'re not just making pizza – we\'re continuing a legacy.',
     'main.locations.title': 'Our Locations',
+    'main.restaurants.title': 'OUR RESTAURANTS',
+    'main.restaurants.maple.name': 'Maple Tree',
+    'main.restaurants.vatos.name': 'Vatos',
     
     // About Us 페이지
     'about.title': 'OUR STORY',
@@ -308,6 +329,9 @@ const translations = {
     'location.humphreys': 'CAMP HUMPHREYS',
     'location.humphreys.korean': 'Camp Humphreys',
     'location.humphreys.address': '118 Anjeong Sunhwan-ro, Paengseong-eup, Pyeongtaek-si, Gyeonggi-do (USAG Humphreys bldg12385)',
+    'location.onegrove': "VATOS & PAULIE'S ONE GROVE MALL",
+    'location.onegrove.korean': 'Magok One Grove Mall',
+    'location.onegrove.address': 'E116, E117, E118, 1F, Building B, 165 Gonghang-daero, Gangseo-gu, Seoul, South Korea',
     
     // Locations 페이지
     'locations.parnas.name': 'PARNAS MALL',
@@ -334,6 +358,14 @@ const translations = {
     'locations.humphreys.hours': 'Mon-Fri 11:00-21:00 (Break 14:00-16:30, Last Order 20:30), Sat-Sun 11:30-21:00 (Last Order 20:30)',
     'locations.humphreys.parking': 'Available',
     'locations.humphreys.transit': 'Within USAG Humphreys',
+
+    'locations.onegrove.name': 'ONE GROVE MALL',
+    'locations.onegrove.sub': 'One Grove Mall, Magok',
+    'locations.onegrove.address': 'E116, E117, E118, 1F, Building B, 165 Gonghang-daero, Gangseo-gu, Seoul, South Korea',
+    'locations.onegrove.tel': '02-6244-9651',
+    'locations.onegrove.hours': 'Daily 10:30 - 22:00 (Last Order 21:00)',
+    'locations.onegrove.parking': 'Available',
+    'locations.onegrove.transit': 'Near Magongnaru Station',
     
     'locations.hours.label': 'Hours:',
     'locations.tel.label': 'Reservation/Inquiry:',
@@ -360,6 +392,7 @@ const translations = {
     'menu.category.pizza.signature': "Paulie's Signature Pizzas",
     'menu.category.pizza.combos': 'Favorite Combos',
     'menu.category.drinks.beer': 'Draft Beers',
+    'menu.category.drinks.wine': 'Wine',
     'menu.category.drinks.soft': 'Soft Drinks',
     
     // 메뉴 아이템들
@@ -407,7 +440,7 @@ const translations = {
     'menu.item.white.pie.desc': 'Cream sauce, mozzarella, ricotta, gorgonzola, parmesan cheese, and scallions',
     'menu.item.spicy.cheddar.chicken.name': 'Spicy Cheddar Chicken 🌶️',
     'menu.item.spicy.cheddar.chicken.desc': 'Cream sauce, mozzarella, cheddar cheese, chicken, ham, bacon, onions, mushrooms, garlic, and jalapeños',
-    'menu.item.meatball.ricotta.name': 'Meatball & Ricotta',
+    'menu.item.meatball.ricotta.name': 'Meatball & Ricotta cheese',
     'menu.item.meatball.ricotta.desc': 'Tomato sauce, meatballs, ricotta cheese, mozzarella, and Italian parsley',
     'menu.item.bbq.chicken.name': 'BBQ Chicken',
     'menu.item.bbq.chicken.desc': 'BBQ sauce, chicken, pineapple, onions, mozzarella, cheddar cheese, ham, and bacon',
@@ -427,8 +460,8 @@ const translations = {
     'menu.combo.2.desc': 'Margherita + New York Cheese combination',
     'menu.combo.3.name': '3. NY Supreme + Pepperoni & Mushrooms',
     'menu.combo.3.desc': 'NY Supreme + Pepperoni & Mushrooms combination',
-    'menu.combo.4.name': '4. Potato Bacon + Spicy Cheddar Chicken 🌶️',
-    'menu.combo.4.desc': 'Potato Bacon + Spicy Cheddar Chicken combination',
+    'menu.combo.4.name': '4. Potato Bacon + White Pie',
+    'menu.combo.4.desc': 'Potato Bacon + White Pie combination',
     
     // Pasta Items
     'menu.category.pasta.main': 'Pasta',
@@ -469,33 +502,36 @@ const translations = {
     
     // Beer Menu Items
     'menu.beer.budweiser.name': 'Budweiser 5.0%',
-    'menu.beer.budweiser.desc': 'ANHEUSER-BUSCH INBEV',
+    'menu.beer.budweiser.desc': 'A premium American-style lager with a clean, crisp finish',
     'menu.beer.magpie.kolsh.name': 'Magpie Kolsh 4.8%',
     'menu.beer.magpie.kolsh.desc': 'Magpie Brewery Cologne lager, a German Bavarian golden beer with a beautiful color-changing glass style',
     'menu.beer.stella.name': 'Stella Artois 5.0%',
     'menu.beer.stella.desc': 'Using hops for a bitter finish and floral aroma, Belgian beer',
     'menu.beer.apricot.wheat.name': 'Apricot Wheat 5.0%',
-    'menu.beer.apricot.wheat.desc': 'Wheat ale with apricot flavor, offering peach taste and aroma - Lost Coast Brewery',
+    'menu.beer.apricot.wheat.desc': 'Wheat ale with apricot flavor, offering peach taste and aroma<br>Lost Coast Brewery',
     'menu.beer.raspberry.wheat.name': 'Raspberry Wheat 6.2%',
-    'menu.beer.raspberry.wheat.desc': 'Creamy and sweet-tart raspberry beer with a refreshing finish - Gorilla Brewery',
+    'menu.beer.raspberry.wheat.desc': 'Creamy and sweet-tart raspberry beer with a refreshing finish<br>Gorilla Brewery',
     'menu.beer.weihenstephaner.name': 'Weihenstephaner 5.4%',
-    'menu.beer.weihenstephaner.desc': 'Wheat beer with banana aroma, subtle sweetness, and smooth wheat texture - Weihenstephaner',
+    'menu.beer.weihenstephaner.desc': 'Wheat beer with banana aroma, subtle sweetness, and smooth wheat texture<br>Weihenstephaner',
     'menu.beer.gorilla.ipa.name': 'Gorilla IPA 5.4%',
     'menu.beer.gorilla.ipa.desc': 'Citrus and orange flavors with a light, tropical finish and dry, hop-spicy ending',
     'menu.beer.indica.ipa.name': 'Indica IPA 6.5%',
-    'menu.beer.indica.ipa.desc': 'Citrusy with complex hop balance - Lost Coast Brewery',
+    'menu.beer.indica.ipa.desc': 'Citrusy with complex hop balance<br>Lost Coast Brewery',
     'menu.beer.magpie.pale.ale.name': 'Magpie Pale Ale 4.8%',
-    'menu.beer.magpie.pale.ale.desc': 'Clear hop flavors with citrus notes and bitter finish, clean and light body perfect for beer lovers',
+    'menu.beer.magpie.pale.ale.desc': 'Clear hop flavors with citrus notes and a bitter finish.<br>Clean and light body, perfect for everyday enjoyment.',
     'menu.beer.peanut.butter.name': 'Peanut Butter 5.6%',
     'menu.beer.peanut.butter.desc': 'Harmony of peanut butter, coffee, toffee, and vanilla chai with a smooth, not-too-sweet finish',
     
     // Soft Drinks
-    'menu.drinks.coke.name': 'Coke, Coke Zero, Sprite (355ml)',
+    'menu.drinks.coke.name': 'Coke, Coke Zero (355ml)',
+    'menu.drinks.sprite.name': 'Sprite, Sprite Zero (355ml)',
     'menu.drinks.pellegrino.lemon.name': 'San Pellegrino Lemon (330ml)',
     'menu.drinks.orange.juice.name': 'Orange Juice (350ml)',
     'menu.drinks.pellegrino.bottle.name': 'San Pellegrino (750ml bottle)',
     'menu.drinks.arizona.tea.name': 'Arizona Iced Tea (650ml)',
     'menu.drinks.pink.lemonade.name': 'Old Fashion Pink Lemonade',
+    'menu.wine.house.name': 'House Wine',
+    'menu.wine.house.desc': 'Glass / Bottle',
     
     // Limited Availability Label
     'menu.limited': 'Limited Quantity',

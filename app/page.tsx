@@ -270,10 +270,7 @@ export default function Home() {
                   </div>
                   <div className="space-y-4">
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.hawaiian.name')}</h4>
-                    </div>
-                    <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.godfather.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.white.pie.name')}</h4>
                     </div>
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.ny.supreme.name')}</h4>
@@ -296,30 +293,24 @@ export default function Home() {
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.potato.bacon.name')}</h4>
                     </div>
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.cheddar.chicken.name')}</h4>
-                    </div>
-                    <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.bbq.chicken.name')}</h4>
                     </div>
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.devils.delight.name')}</h4>
                     </div>
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.spicy.hawaiian.ricotta.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.meatball.ricotta.name')}</h4>
                     </div>
                   </div>
                   <div className="space-y-4">
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.white.pie.name')}</h4>
-                    </div>
-                    <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.meatball.ricotta.name')}</h4>
-                    </div>
-                    <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.bmo.name')}</h4>
                     </div>
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.pesto.chicken.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.hawaiian.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.item.godfather.name')}</h4>
                     </div>
                   </div>
                 </div>
@@ -346,9 +337,6 @@ export default function Home() {
                     </div>
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.item.rigatoni.arribiata.name')}</h4>
-                    </div>
-                    <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.item.creamy.pesto.shrimp.name')}</h4>
                     </div>
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40] flex items-center gap-2">
@@ -398,22 +386,28 @@ export default function Home() {
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.beer.apricot.wheat.name')}</h4>
                     </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.wine.house.name')}</h4>
+                    </div>
                   </div>
                   <div className="space-y-4">
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.drinks.coke.name')}</h4>
                     </div>
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.pellegrino.lemon.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.sprite.name')}</h4>
                     </div>
                     <div className="menu-item">
                       <h4 className="font-medium text-[#634d40]">{t('menu.drinks.orange.juice.name')}</h4>
                     </div>
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.pellegrino.bottle.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.arizona.tea.name')}</h4>
                     </div>
                     <div className="menu-item">
-                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.arizona.tea.name')}</h4>
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.pellegrino.lemon.name')}</h4>
+                    </div>
+                    <div className="menu-item">
+                      <h4 className="font-medium text-[#634d40]">{t('menu.drinks.pellegrino.bottle.name')}</h4>
                     </div>
                   </div>
                 </div>
@@ -557,6 +551,88 @@ export default function Home() {
             <div className="text-xs text-[#634d40] text-center">{t('location.humphreys.korean')}</div>
             <div className="text-xs text-[#634d40] text-center mt-1">{t('location.humphreys.address')}</div>
           </div>
+
+          {/* Location 5 - Vatos & Paulie's One Grove Mall (Magok) */}
+          <div className="flex flex-col items-center max-w-sm mx-auto w-full">
+            <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow mb-4 relative group">
+              <img
+                src="/one_grove.jpg"
+                alt="Vatos & Paulie's One Grove Mall Photo"
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 z-10 group-hover:opacity-0 group-hover:invisible"
+              />
+              <iframe
+                src="https://www.google.com/maps?q=165+Gonghang-daero,+Gangseo-gu,+Seoul,+South+Korea&z=17&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Vatos & Paulie's One Grove Mall Map"
+                className="absolute inset-0 w-full h-full z-0"
+              />
+            </div>
+            <div className="text-lg font-bold mb-1 text-center text-[#634d40]">{t('location.onegrove')}</div>
+            <div className="text-xs text-[#634d40] text-center">{t('location.onegrove.korean')}</div>
+            <div className="text-xs text-[#634d40] text-center mt-1">{t('location.onegrove.address')}</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Restaurants Section - 자매 브랜드 (Maple Tree, Vatos) */}
+      <section className="container mx-auto py-16 px-4" id="our-restaurants">
+        <AnimatedSection className="mb-12 mt-[60px]">
+          <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">
+            {t('main.restaurants.title')}
+          </h2>
+        </AnimatedSection>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto px-4">
+          {/* Maple Tree (단풍나무집) */}
+          <a
+            href="http://mapletreehouse.co.kr/kor/html/main.asp"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t('main.restaurants.maple.name')} 웹사이트로 이동`}
+            className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg"
+          >
+            <div className="relative w-full aspect-square max-w-[500px] mx-auto rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="/maple_box.png"
+                alt={t('main.restaurants.maple.name')}
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+              />
+              <img
+                src="/maple_rollover.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              />
+            </div>
+          </a>
+
+          {/* Vatos (바토스) */}
+          <a
+            href="http://vatoskorea.com/sub/menu.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t('main.restaurants.vatos.name')} 웹사이트로 이동`}
+            className="block group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg"
+          >
+            <div className="relative w-full aspect-square max-w-[500px] mx-auto rounded-lg overflow-hidden shadow-lg">
+              <img
+                src="/vatos_box.png"
+                alt={t('main.restaurants.vatos.name')}
+                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300 group-hover:opacity-0"
+              />
+              <img
+                src="/vatos_rollover.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              />
+            </div>
+          </a>
         </div>
       </section>
 
