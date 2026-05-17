@@ -579,7 +579,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Our Restaurants Section - 자매 브랜드 (Maple Tree, Vatos) */}
+      {/* Our Restaurants Section - 자매 브랜드 (Maple Tree, Vatos) + 자사 브랜드 (Paulie's) */}
       <section className="container mx-auto py-16 px-4" id="our-restaurants">
         <AnimatedSection className="mb-12 mt-[60px]">
           <h2 className="text-4xl font-raleway text-center mb-12 text-[#634d40]">
@@ -587,7 +587,8 @@ export default function Home() {
           </h2>
         </AnimatedSection>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto px-4">
+        {/* 모바일: 1열 / md(768px) 이상: 3박스 한 줄 배치 */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto px-4">
           {/* Maple Tree (단풍나무집) */}
           <a
             href="http://mapletreehouse.co.kr/kor/html/main.asp"
@@ -634,11 +635,11 @@ export default function Home() {
             </div>
           </a>
 
-          {/* Paulie's (폴리스 - 자사 브랜드) - 2열 그리드 두번째 행에 단독 가운데 정렬 */}
+          {/* Paulie's (폴리스 - 자사 브랜드) */}
           <Link
             href="/menu"
             aria-label={`${t('main.restaurants.paulies.name')} 메뉴 페이지로 이동`}
-            className="flex flex-col items-center max-w-sm mx-auto w-full group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg sm:col-span-2"
+            className="flex flex-col items-center max-w-sm mx-auto w-full group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#fc492d] rounded-lg"
           >
             <div className="w-full aspect-square max-w-[400px] rounded-lg overflow-hidden shadow relative bg-[#634d40]">
               <img
