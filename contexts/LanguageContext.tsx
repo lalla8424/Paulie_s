@@ -101,7 +101,7 @@ const translations = {
     'locations.onegrove.tel': '02-6244-9651',
     'locations.onegrove.hours': '매일 10:30 - 22:00 (라스트오더 21:00)',
     'locations.onegrove.parking': '주차 가능',
-    'locations.onegrove.transit': '마곡나루역 인근',
+    'locations.onegrove.transit': '마곡역 1번 출구에서 129m',
     
     'locations.hours.label': '운영시간:',
     'locations.tel.label': '예약/문의:',
@@ -367,7 +367,7 @@ const translations = {
     'locations.onegrove.tel': '02-6244-9651',
     'locations.onegrove.hours': 'Daily 10:30 - 22:00 (Last Order 21:00)',
     'locations.onegrove.parking': 'Available',
-    'locations.onegrove.transit': 'Near Magongnaru Station',
+    'locations.onegrove.transit': '129m from Magok Station Exit 1',
     
     'locations.hours.label': 'Hours:',
     'locations.tel.label': 'Reservation/Inquiry:',
