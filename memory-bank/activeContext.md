@@ -62,9 +62,15 @@
   - `menu.beer.stella.desc`: `사즈 홉` → `사츠 홉` 오타 수정 (KO)
   - 양조장 정보 줄바꿈(`<br>`)으로 분리 표시:
     - Apricot Wheat → Lost Coast Brewery
-    - Raspberry Wheat → Gorilla Brewery
     - Weihenstephaner → 바이엔슈테판 / Weihenstephaner
     - Indica IPA → Lost Coast Brewery
+- **Raspberry Wheat 자리 → Jeju Citrus Lager 교체 (2026-05-20)**:
+  - 키 이름 변경: `menu.beer.raspberry.wheat.*` → `menu.beer.jeju.citrus.lager.*`
+  - 이름: `Jeju Citrus Lager 5.0%`
+  - 카테고리 태그: `WHEAT` → `LAGER`
+  - 설명 KO: "시트러스한 귤과 한라봉의 향기를 느낄 수 있는 가벼운 라거"
+  - 설명 EN: "A light lager with refreshing citrus notes of tangerine and Hallabong"
+  - 양조장 표기 없음 (메뉴판 기준)
   - `menu.beer.magpie.pale.ale.desc`: 문장부호/줄바꿈 정리 (`특징,` → `특징.`, `부담없이` → `부담 없이`, 마침표 추가)
   - EN 영문판은 양조장 표기 형식을 ` - Brewery`에서 `<br>Brewery`로 통일
 - **최종 구성**:

@@ -655,11 +655,11 @@ export default function MenuPage() {
                   </li>
                   <li className="mb-6">
                     <div className="text-lg font-black text-center text-[#634d40]">
-                      {t('menu.beer.raspberry.wheat.name')} <span className="text-xs bg-[#DEB887] text-black px-2 py-1 rounded">WHEAT</span>
+                      {t('menu.beer.jeju.citrus.lager.name')} <span className="text-xs bg-[#DEB887] text-black px-2 py-1 rounded">LAGER</span>
                     </div>
-                    <div 
+                    <div
                       className="text-sm text-center text-[#634d40]"
-                      dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.beer.raspberry.wheat.desc')) }}
+                      dangerouslySetInnerHTML={{ __html: parseMarkdown(t('menu.beer.jeju.citrus.lager.desc')) }}
                     />
                   </li>
                   <li className="mb-6">
